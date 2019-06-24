@@ -1,22 +1,20 @@
 ﻿using Lite.Framework.Extend;
 using Lite.Framework.Helper;
 using Lite.Framework.Manager;
+using Lite.Logic;
 using UnityEngine;
 
 namespace Lite.Framework
 {
     public static class LiteEngine
     {
-        public static MonoBehaviour MonoBehaviourInstance { get; private set; }
-
+        private static MonoBehaviour MonoBehaviourInstance { get; set; }
         private static float EnterBackgroundTime_ = 0.0f;
-        private const float EnterBackgroundMaxTime = 90.0f;
 
         public static bool Startup(MonoBehaviour Instance)
         {
             MonoBehaviourInstance = Instance;
-
-            if (!TaskManager.Startup())
+            if (!TaskManager.Startup(MonoBehaviourInstance))
             {
                 Debug.LogError("TaskManager Startup Failed");
                 return false;
@@ -28,51 +26,64 @@ namespace Lite.Framework
                 return false;
             }
 
-            if (!AssetManager.Startup())
+            if (!EventManager.Startup())
             {
-                Debug.LogError("ResourceManager Startup Failed");
+                Debug.LogError("EventManager Startup Failed");
                 return false;
             }
 
-            Attach<Debugger>(Camera.main.gameObject);
-            Attach<Fps>(Camera.main.gameObject);
-
-            /*AssetManager.CreatePrefab("ui/testimage.prefab", (Obj) =>
+            if (!AssetManager.Startup())
             {
-                Obj.transform.SetParent(GameObject.Find("Canvas").transform);
-                Obj.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+                Debug.LogError("AssetManager Startup Failed");
+                return false;
+            }
 
-                var AA = AssetManager.CreateAssetWithCache<Sprite>("res1/arena.sprite", "arena_5", (Spr) =>
-                {
-                    if (Spr != null)
-                    {
-                        Obj.GetComponent<Image>().sprite = Spr;
-                    }
-                });
-            });*/
-
-            AssetManager.CreatePrefab("anim/testani.prefab", (aa) =>
+            if (!TimerManager.Startup())
             {
-                if (aa != null)
-                {
-                    aa.transform.SetParent(GameObject.Find("Canvas").transform);
-                    aa.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-                }
-            });
+                Debug.LogError("TimerManager Startup Failed");
+                return false;
+            }
+
+            if (!MotionManager.Startup())
+            {
+                Debug.LogError("MotionManager Startup Failed");
+                return false;
+            }
+
+            if (!UIManager.Startup())
+            {
+                Debug.LogError("UIManager Startup Failed");
+                return false;
+            }
+
+            Attach<Debugger>(MonoBehaviourInstance.gameObject);
+            Attach<Fps>(MonoBehaviourInstance.gameObject);
+            
+            if (!LogicManager.Startup())
+            {
+                Debug.LogError("LogicManager Startup Failed");
+                return false;
+            }
+
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
             return true;
         }
 
         public static void Shutdown()
         {
+            LogicManager.Shutdown();
+            UIManager.Shutdown();
+            MotionManager.Shutdown();
+            TimerManager.Shutdown();
             AssetManager.Shutdown();
+            EventManager.Shutdown();
             ObjectPoolManager.Shutdown();
             TaskManager.Shutdown();
 
-            Detach<Debugger>(Camera.main.gameObject);
-            Detach<Fps>(Camera.main.gameObject);
+            Detach<Debugger>(MonoBehaviourInstance.gameObject);
+            Detach<Fps>(MonoBehaviourInstance.gameObject);
 
-            MonoBehaviourInstance.StopAllCoroutines();
             PlayerPrefs.Save();
         }
 
@@ -80,7 +91,12 @@ namespace Lite.Framework
         {
             TaskManager.Tick(DeltaTime);
             ObjectPoolManager.Tick(DeltaTime);
+            EventManager.Tick(DeltaTime);
             AssetManager.Tick(DeltaTime);
+            TimerManager.Tick(DeltaTime);
+            MotionManager.Tick(DeltaTime);
+            UIManager.Tick(DeltaTime);
+            LogicManager.Tick(DeltaTime);
         }
 
         public static void Restart()
@@ -114,7 +130,7 @@ namespace Lite.Framework
 
         public static void OnEnterForeground()
         {
-            if (Time.realtimeSinceStartup - EnterBackgroundTime_ >= EnterBackgroundMaxTime)
+            if (Time.realtimeSinceStartup - EnterBackgroundTime_ >= Configure.EnterBackgroundMaxTime)
             {
                 Restart();
             }

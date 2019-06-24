@@ -38,7 +38,7 @@ namespace Lite.Framework.Manager
             LoadAssetBundleCallbackList_.Clear();
             AssetBundlePathCacheList_.Clear();
 
-            if (!LoadAssetBundleManifest("StreamingAssets"))
+            if (!LoadAssetBundleManifest(Configure.AssetBundleManifestName))
             {
                 return false;
             }

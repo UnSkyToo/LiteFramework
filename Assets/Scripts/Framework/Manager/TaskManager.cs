@@ -64,16 +64,19 @@ namespace Lite.Framework.Manager
 
     public static class TaskManager
     {
+        public static UnityEngine.MonoBehaviour MonoBehaviourInstance { get; private set; }
         private static readonly List<Task> TaskList_ = new List<Task>();
 
-        public static bool Startup()
+        public static bool Startup(UnityEngine.MonoBehaviour Instance)
         {
+            MonoBehaviourInstance = Instance;
             TaskList_.Clear();
             return true;
         }
 
         public static void Shutdown()
         {
+            MonoBehaviourInstance.StopAllCoroutines();
             TaskList_.Clear();
         }
 
@@ -96,7 +99,7 @@ namespace Lite.Framework.Manager
         {
             var NewTask = new Task(TaskFunc, Callback);
             TaskList_.Add(NewTask);
-            LiteEngine.MonoBehaviourInstance.StartCoroutine(NewTask.Execute());
+            MonoBehaviourInstance.StartCoroutine(NewTask.Execute());
             return NewTask;
         }
 
@@ -104,7 +107,7 @@ namespace Lite.Framework.Manager
         {
             var NewTask = new Task(TaskFunc, Callback);
             TaskList_.Add(NewTask);
-            yield return LiteEngine.MonoBehaviourInstance.StartCoroutine(NewTask.Execute());
+            yield return MonoBehaviourInstance.StartCoroutine(NewTask.Execute());
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿//#define LITE_USE_INTERNAL_RES
+﻿#define LITE_USE_INTERNAL_RES
 
 using System;
 using UnityEngine;
