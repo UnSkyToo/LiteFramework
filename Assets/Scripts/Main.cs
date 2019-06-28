@@ -2,6 +2,7 @@
 using Lite.Framework;
 using UnityEngine;
 using UnityEngine.UI;
+using Logger = Lite.Framework.Log.Logger;
 
 public class Main : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class Main : MonoBehaviour
         }
         catch (Exception Ex)
         {
-            Debug.LogError(Ex.Message + "\r\n" + Ex.StackTrace);
+            Logger.DError($"{Ex.Message}\n{Ex.StackTrace}");
         }
     }
 
@@ -21,11 +22,11 @@ public class Main : MonoBehaviour
     {
         try
         {
-            LiteEngine.Tick(Time.deltaTime);
+            LiteEngine.Tick(UnityEngine.Time.deltaTime);
         }
         catch (Exception Ex)
         {
-            Debug.LogError(Ex.Message + "\r\n" + Ex.StackTrace);
+            Logger.DError($"{Ex.Message}\n{Ex.StackTrace}");
         }
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.F5))
@@ -48,7 +49,7 @@ public class Main : MonoBehaviour
         }
         catch (Exception Ex)
         {
-            Debug.LogError(Ex.Message + "\r\n" + Ex.StackTrace);
+            Logger.DError($"{Ex.Message}\n{Ex.StackTrace}");
         }
     }
 

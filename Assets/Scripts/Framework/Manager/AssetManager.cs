@@ -3,7 +3,6 @@
 using System;
 using UnityEngine;
 
-
 #if LITE_USE_INTERNAL_RES
 using AssetMgr = Lite.Framework.Manager.AssetInternalManager;
 #else
@@ -29,44 +28,44 @@ namespace Lite.Framework.Manager
             AssetMgr.Tick(DeltaTime);
         }
 
-        public static void CreateAsset<T>(string BundlePath, string AssetName, Action<T> Callback = null) where T : UnityEngine.Object
+        public static void CreateAssetAsync<T>(string BundlePath, string AssetName, Action<T> Callback = null) where T : UnityEngine.Object
         {
-            AssetMgr.CreateAsset<T>(BundlePath, AssetName, Callback);
+            AssetMgr.CreateAssetAsync<T>(BundlePath, AssetName, Callback);
         }
 
-        public static void CreateAsset<T>(string BundlePath, Action<T> Callback = null) where T : UnityEngine.Object
+        public static void CreateAssetAsync<T>(string BundlePath, Action<T> Callback = null) where T : UnityEngine.Object
         {
-            AssetMgr.CreateAsset(BundlePath, Callback);
+            AssetMgr.CreateAssetAsync(BundlePath, Callback);
         }
 
-        public static T CreateAssetWithCache<T>(string BundlePath, string AssetName, Action<T> Callback = null) where T : UnityEngine.Object
+        public static T CreateAssetSync<T>(string BundlePath, string AssetName) where T : UnityEngine.Object
         {
-            return AssetMgr.CreateAssetWithCache<T>(BundlePath, AssetName, Callback);
+            return AssetMgr.CreateAssetSync<T>(BundlePath, AssetName);
         }
 
-        public static void CreatePrefab(string BundlePath, string AssetName, Action<GameObject> Callback = null)
+        public static void CreatePrefabAsync(string BundlePath, string AssetName, Action<GameObject> Callback = null)
         {
-            AssetMgr.CreatePrefab(BundlePath, AssetName, Callback);
+            AssetMgr.CreatePrefabAsync(BundlePath, AssetName, Callback);
         }
 
-        public static void CreatePrefab(string BundlePath, Action<GameObject> Callback = null)
+        public static void CreatePrefabAsync(string BundlePath, Action<GameObject> Callback = null)
         {
-            AssetMgr.CreatePrefab(BundlePath, Callback);
+            AssetMgr.CreatePrefabAsync(BundlePath, Callback);
         }
 
-        public static GameObject CreatePrefabWithCache(string BundlePath, string AssetName, Action<GameObject> Callback = null)
+        public static GameObject CreatePrefabSync(string BundlePath, string AssetName)
         {
-            return AssetMgr.CreatePrefabWithCache(BundlePath, AssetName, Callback);
+            return AssetMgr.CreatePrefabSync(BundlePath, AssetName);
         }
 
-        public static void CreateData(string BundlePath, Action<byte[]> Callback = null)
+        public static void CreateDataAsync(string BundlePath, Action<byte[]> Callback = null)
         {
-            AssetMgr.CreateData(BundlePath, Callback);
+            AssetMgr.CreateDataAsync(BundlePath, Callback);
         }
 
-        public static byte[] CreateDataWithCache(string BundlePath, Action<byte[]> Callback = null)
+        public static byte[] CreateDataSync(string BundlePath)
         {
-            return AssetMgr.CreateDataWithCache(BundlePath, Callback);
+            return AssetMgr.CreateDataSync(BundlePath);
         }
 
         public static void DeleteAsset<T>(T Asset) where T : UnityEngine.Object

@@ -1,11 +1,14 @@
-﻿using Lite.Framework.Manager;
+﻿using Lite.Framework.Base;
+using Lite.Framework.Manager;
+using Lite.Logic.Lua;
 using Lite.Logic.UI;
-using UnityEngine;
 
 namespace Lite.Logic
 {
     public static class LogicManager
     {
+        private static readonly ListEx<ILogic> LogicList_ = new ListEx<ILogic>();
+
         public static bool Startup()
         {
             /*AssetManager.CreatePrefab("ui/testimage.prefab", (Obj) =>
@@ -32,18 +35,44 @@ namespace Lite.Logic
                 }
             });*/
 
-            UIManager.OpenUI<LogoUI>();
+            //UIManager.OpenUI<LogoUI>();
+
+            LogicList_.Clear();
+            RegisterLogic(new LuaLogic());
 
             return true;
         }
 
         public static void Shutdown()
         {
-
+            foreach (var Logic in LogicList_)
+            {
+                Logic.Shutdown();
+            }
+            LogicList_.Clear();
         }
 
         public static void Tick(float DeltaTime)
         {
+            LogicList_.Flush();
+            foreach (var Logic in LogicList_)
+            {
+                Logic.Tick(DeltaTime);
+            }
+        }
+
+        public static void RegisterLogic(ILogic Logic)
+        {
+            if (Logic.Startup())
+            {
+                LogicList_.Add(Logic);
+            }
+        }
+
+        public static void UnRegisterLogic(ILogic Logic)
+        {
+            Logic.Shutdown();
+            LogicList_.Remove(Logic);
         }
     }
 }

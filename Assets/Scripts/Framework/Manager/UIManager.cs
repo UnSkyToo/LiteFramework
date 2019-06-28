@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Lite.Framework.Base;
 using UnityEngine;
+using Logger = Lite.Framework.Log.Logger;
 
 namespace Lite.Framework.Manager
 {
@@ -97,7 +98,7 @@ namespace Lite.Framework.Manager
             var ScriptType = typeof(T);
             if (!Configure.UIList.ContainsKey(ScriptType))
             {
-                Debug.LogError($"Can't find UIPath : {ScriptType.Name}");
+                Logger.DWarning($"Can't find UIPath : {ScriptType.Name}");
                 return;
             }
 
@@ -212,11 +213,11 @@ namespace Lite.Framework.Manager
             if (UIObj == null)
             {
                 var UIPath = $"ui/{Path.ToLower()}.prefab";
-                AssetManager.CreatePrefab(UIPath, Obj =>
+                AssetManager.CreatePrefabAsync(UIPath, Obj =>
                 {
                     if (Obj == null)
                     {
-                        Debug.LogError("Can't create ui : " + UIPath);
+                        Logger.DWarning("Can't create ui : " + UIPath);
                         return;
                     }
                     CreateUI<T>(Obj, Path, Params);

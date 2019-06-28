@@ -3,6 +3,7 @@ using Lite.Framework.Helper;
 using Lite.Framework.Manager;
 using Lite.Logic;
 using UnityEngine;
+using Logger = Lite.Framework.Log.Logger;
 
 namespace Lite.Framework
 {
@@ -16,43 +17,43 @@ namespace Lite.Framework
             MonoBehaviourInstance = Instance;
             if (!TaskManager.Startup(MonoBehaviourInstance))
             {
-                Debug.LogError("TaskManager Startup Failed");
+                Logger.DError("TaskManager Startup Failed");
                 return false;
             }
 
             if (!ObjectPoolManager.Startup())
             {
-                Debug.LogError("ObjectPoolManager Startup Failed");
+                Logger.DError("ObjectPoolManager Startup Failed");
                 return false;
             }
 
             if (!EventManager.Startup())
             {
-                Debug.LogError("EventManager Startup Failed");
+                Logger.DError("EventManager Startup Failed");
                 return false;
             }
 
             if (!AssetManager.Startup())
             {
-                Debug.LogError("AssetManager Startup Failed");
+                Logger.DError("AssetManager Startup Failed");
                 return false;
             }
 
             if (!TimerManager.Startup())
             {
-                Debug.LogError("TimerManager Startup Failed");
+                Logger.DError("TimerManager Startup Failed");
                 return false;
             }
 
             if (!MotionManager.Startup())
             {
-                Debug.LogError("MotionManager Startup Failed");
+                Logger.DError("MotionManager Startup Failed");
                 return false;
             }
 
             if (!UIManager.Startup())
             {
-                Debug.LogError("UIManager Startup Failed");
+                Logger.DError("UIManager Startup Failed");
                 return false;
             }
 
@@ -61,7 +62,7 @@ namespace Lite.Framework
             
             if (!LogicManager.Startup())
             {
-                Debug.LogError("LogicManager Startup Failed");
+                Logger.DError("LogicManager Startup Failed");
                 return false;
             }
 

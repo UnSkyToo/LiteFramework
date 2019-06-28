@@ -1,7 +1,7 @@
 ﻿using System.IO;
-using Lite.Framework.Helper;
 using UnityEngine;
 using UnityEditor;
+using Logger = Lite.Framework.Log.Logger;
 
 public class AssetBundleOptionWindow : EditorWindow
 {
@@ -24,7 +24,7 @@ public class AssetBundleOptionWindow : EditorWindow
         {
             Directory.Delete(Application.streamingAssetsPath, true);
             Directory.CreateDirectory(Application.streamingAssetsPath);
-            Debug.LogWarning("StreamingAssets Clean");
+            Logger.DWarning("StreamingAssets Clean");
             AssetDatabase.Refresh();
         }
     }

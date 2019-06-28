@@ -33,7 +33,7 @@ namespace Lite.Framework.Extend
             var Text = GetComponent<Text>();
             if (Text == null)
             {
-                Debug.LogWarning("LetterSpacing: Missing Text component");
+                Log.Logger.DWarning("LetterSpacing : Missing Text component");
                 return;
             }
 

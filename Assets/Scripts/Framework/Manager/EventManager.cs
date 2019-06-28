@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
+using Lite.Framework.Log;
 
 namespace Lite.Framework.Manager
 {
@@ -34,7 +34,7 @@ namespace Lite.Framework.Manager
 
                     foreach (var Callback in CallbackList)
                     {
-                        Debug.LogError($"{Callback.Method.ReflectedType.Name} : {Callback.Method.Name} UnRegister");
+                        Logger.DWarning($"{Callback.Method.ReflectedType.Name} : {Callback.Method.Name} UnRegister");
                     }
                 }
             }

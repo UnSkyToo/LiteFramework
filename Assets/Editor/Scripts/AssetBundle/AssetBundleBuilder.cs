@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Lite.Framework.Helper;
 using UnityEngine;
 using UnityEditor;
+using Logger = Lite.Framework.Log.Logger;
 
 public class AssetBundleBuilder : MonoBehaviour
 {
@@ -14,11 +15,6 @@ public class AssetBundleBuilder : MonoBehaviour
             EditorUtility.DisplayDialog("Lite", "building is running", "Ok");
             return;
         }
-
-        //AssetDatabase.LoadAssetAtPath<GameObject>("Assets/1.png");
-
-        //Debug.Log(Application.streamingAssetsPath);
-        //Debug.Log(Application.persistentDataPath);
 
         AssetBundleOptionWindow.ShowWindow();
     }
@@ -81,14 +77,14 @@ public class AssetBundleBuilder : MonoBehaviour
         var Importer = AssetImporter.GetAtPath($"Assets/StandaloneAssets/{ResPath}");
         if (Importer == null)
         {
-            Debug.LogError($"unexpected asset path : {ResPath}");
+            Logger.DError($"unexpected asset path : {ResPath}");
             return;
         }
 
         /*var Index = ResPath.LastIndexOf('.');
         if (Index == -1)
         {
-            Debug.LogError($"unexpected asset path : {ResPath}");
+            Logger.DError($"unexpected asset path : {ResPath}");
             return;
         }
 
