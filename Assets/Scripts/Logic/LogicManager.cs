@@ -1,6 +1,5 @@
 ﻿using Lite.Framework.Base;
 using Lite.Framework.Manager;
-using Lite.Logic.Lua;
 using Lite.Logic.UI;
 
 namespace Lite.Logic
@@ -38,7 +37,6 @@ namespace Lite.Logic
             //UIManager.OpenUI<LogoUI>();
 
             LogicList_.Clear();
-            RegisterLogic(new LuaLogic());
 
             return true;
         }

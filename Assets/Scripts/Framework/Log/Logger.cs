@@ -67,19 +67,43 @@ namespace Lite.Framework.Log
 
     public class Logger : LoggerBase
     {
-        private static readonly Logger Default_ = null;
+        private static Logger Default_ = null;
+
+        private static bool Enabled_;
+        public static bool Enabled
+        {
+            get => Enabled_;
+            set => EnabledDefaultLogger(value);
+        }
 
         static Logger()
         {
-            Default_ = GetLogger("Default");
-
-            Default_.AttachAppender(new LogAppenderConsole(new LogFormatterNormal()));
-            //Default_.AttachAppender(new LogAppenderEmpty(null));
+            Enabled_ = false;
+            EnabledDefaultLogger(true);
         }
 
         public Logger(string Name)
             : base(Name)
         {
+        }
+
+        private static void EnabledDefaultLogger(bool Value)
+        {
+            if (Enabled_ == Value)
+            {
+                return;
+            }
+
+            Enabled_ = Value;
+            Default_ = GetLogger("Default");
+            if (Enabled_)
+            {
+                Default_.AttachAppender(new LogAppenderConsole(new LogFormatterNormal()));
+            }
+            else
+            {
+                Default_.AttachAppender(new LogAppenderEmpty(null));
+            }
         }
 
         public static Logger GetLogger(string Name)

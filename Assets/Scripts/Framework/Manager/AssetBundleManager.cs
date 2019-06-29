@@ -443,6 +443,12 @@ namespace Lite.Framework.Manager
             return Asset;
         }
 
+        public static T CreateAssetSync<T>(string BundlePath) where T : UnityEngine.Object
+        {
+            var AssetName = PathHelper.GetFileNameWithoutExt(BundlePath);
+            return CreateAssetSync<T>(BundlePath, AssetName);
+        }
+
         public static void CreatePrefabAsync(string BundlePath, string AssetName, Action<UnityEngine.GameObject> Callback = null)
         {
             var IsLoaded = LoadAssetBundleAsync<UnityEngine.Object>(AssetBundleType.Prefab, BundlePath, () =>
@@ -495,11 +501,17 @@ namespace Lite.Framework.Manager
             return Asset;
         }
 
-        public static void CreateDataAsync(string BundlePath, Action<byte[]> Callback = null)
+        public static UnityEngine.GameObject CreatePrefabSync(string BundlePath)
+        {
+            var AssetName = PathHelper.GetFileNameWithoutExt(BundlePath);
+            return CreatePrefabSync(BundlePath, AssetName);
+        }
+
+        public static void CreateDataAsync(string BundlePath, string AssetName, Action<byte[]> Callback = null)
         {
             var IsLoaded = LoadAssetBundleAsync<UnityEngine.TextAsset>(AssetBundleType.Data, BundlePath, () =>
             {
-                Callback?.Invoke(CreateDataSync(BundlePath));
+                Callback?.Invoke(CreateDataSync(BundlePath, AssetName));
             });
 
             if (!IsLoaded)
@@ -508,10 +520,17 @@ namespace Lite.Framework.Manager
             }
         }
 
-        public static byte[] CreateDataSync(string BundlePath)
+        public static void CreateDataAsync(string BundlePath, Action<byte[]> Callback = null)
         {
-            byte[] Asset = null;
+            var AssetName = PathHelper.GetFileNameWithoutExt(BundlePath);
+            CreateDataAsync(BundlePath, AssetName, Callback);
+        }
+
+        public static byte[] CreateDataSync(string BundlePath, string AssetName)
+        {
+            UnityEngine.TextAsset Asset = null;
             BundlePath = BundlePath.ToLower();
+            AssetName = AssetName.ToLower();
 
             DataBundleCache DataCache = null;
             if (!AssetBundleCacheList_.ContainsKey(BundlePath))
@@ -525,10 +544,25 @@ namespace Lite.Framework.Manager
 
             if (DataCache != null)
             {
-                Asset = DataCache.Buffer;
+                Asset = DataCache.CreateAsset(AssetName);
+
+                if (Asset != null)
+                {
+                    AssetBundlePathCacheList_.Add(Asset.GetInstanceID(), BundlePath);
+                }
+                else
+                {
+                    Logger.DWarning($"can't create asset : {BundlePath} - {AssetName}");
+                }
             }
 
-            return Asset;
+            return Asset?.bytes;
+        }
+
+        public static byte[] CreateDataSync(string BundlePath)
+        {
+            var AssetName = PathHelper.GetFileNameWithoutExt(BundlePath);
+            return CreateDataSync(BundlePath, AssetName);
         }
 
         public static void DeleteAsset<T>(T Asset) where T : UnityEngine.Object
@@ -654,7 +688,7 @@ namespace Lite.Framework.Manager
             {
                 IsLoad = false;
                 var Request = CreateBundleRequestSync(BundlePath);
-                Logger.DInfo($"Load AssetBundle : {BundlePath}");
+                //Logger.DInfo($"Load AssetBundle : {BundlePath}");
 
                 if (!Request)
                 {
@@ -873,12 +907,14 @@ namespace Lite.Framework.Manager
 
         private class DataBundleCache : AssetBundleCacheBase
         {
-            public byte[] Buffer { get; private set; }
+            private readonly Dictionary<string, UnityEngine.TextAsset> AssetList_ = null;
+            private readonly List<int> AssetInstanceIDList_ = null;
 
             public DataBundleCache(AssetBundleType BundleType, string BundlePath)
                 : base(BundleType, BundlePath)
             {
-                Buffer = null;
+                AssetList_ = new Dictionary<string, UnityEngine.TextAsset>();
+                AssetInstanceIDList_ = new List<int>();
             }
 
             protected override void OnLoad()
@@ -886,13 +922,46 @@ namespace Lite.Framework.Manager
                 var AssetList = Bundle.LoadAllAssets<UnityEngine.TextAsset>();
                 if (AssetList != null && AssetList.Length > 0)
                 {
-                    Buffer = AssetList[0].bytes;
+                    foreach (var Asset in AssetList)
+                    {
+                        AssetList_.Add(Asset.name.ToLower(), Asset);
+                        AssetInstanceIDList_.Add(Asset.GetInstanceID());
+                    }
                 }
             }
 
             protected override void OnUnload()
             {
-                Buffer = null;
+                if (AssetList_.Count > 0)
+                {
+                    foreach (var Asset in AssetList_)
+                    {
+                        UnityEngine.Resources.UnloadAsset(Asset.Value);
+                    }
+                    AssetList_.Clear();
+                }
+
+                AssetInstanceIDList_.Clear();
+            }
+
+            public UnityEngine.TextAsset CreateAsset(string AssetName)
+            {
+                AssetName = AssetName.ToLower();
+                if (!AssetList_.ContainsKey(AssetName))
+                {
+                    return null;
+                }
+
+                IncRef();
+                return AssetList_[AssetName];
+            }
+
+            public void DeleteAsset(UnityEngine.TextAsset Asset)
+            {
+                if (Asset != null && AssetInstanceIDList_.Contains(Asset.GetInstanceID()))
+                {
+                    DecRef();
+                }
             }
         }
     }

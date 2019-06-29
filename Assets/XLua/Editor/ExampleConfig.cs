@@ -247,12 +247,18 @@ public static class ExampleConfig
     [LuaCallCSharp]
     public static IEnumerable<Type> LuaCallCSharpList = new List<Type>()
     {
+        typeof(Lite.Framework.Helper.UIHelper),
+        typeof(Lite.Framework.Lua.LuaRuntime),
     };
 
     [CSharpCallLua]
     public static IEnumerable<Type> CSharpCallLuaList = new List<Type>()
     {
-        typeof(Lite.Logic.Lua.ILuaMainEntity)
+        typeof(Action),
+        typeof(Action<float>),
+        typeof(Action<LuaTable>),
+        typeof(Action<LuaTable, float>),
+        typeof(Lite.Framework.Lua.Interface.ILuaMainEntity),
     };
 
 

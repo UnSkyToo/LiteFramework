@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Lite.Framework.Base;
 using UnityEngine;
 using Logger = Lite.Framework.Log.Logger;
@@ -23,7 +24,6 @@ namespace Lite.Framework.Manager
 
         private static readonly Dictionary<uint, UIBase> UIList_ = new Dictionary<uint, UIBase>();
         private static readonly Dictionary<string, Transform> CacheList_ = new Dictionary<string, Transform>();
-        private static readonly List<string> LoadList_ = new List<string>();
         private static readonly List<UIBase> OpenList_ = new List<UIBase>();
         private static readonly List<UIBase> CloseList_ = new List<UIBase>();
 
@@ -31,7 +31,6 @@ namespace Lite.Framework.Manager
         {
             UIList_.Clear();
             CacheList_.Clear();
-            LoadList_.Clear();
             OpenList_.Clear();
             CloseList_.Clear();
 
@@ -51,7 +50,6 @@ namespace Lite.Framework.Manager
 
             UIList_.Clear();
             CacheList_.Clear();
-            LoadList_.Clear();
             OpenList_.Clear();
             CloseList_.Clear();
         }
@@ -83,9 +81,9 @@ namespace Lite.Framework.Manager
                 {
                     UIList_.Remove(UI.ID);
 
-                    if (!CacheList_.ContainsKey(UI.Name))
+                    if (!CacheList_.ContainsKey(UI.Path))
                     {
-                        CacheList_.Add(UI.Name, UI.UITransform);
+                        CacheList_.Add(UI.Path, UI.UITransform);
                     }
                 }
 
@@ -102,20 +100,24 @@ namespace Lite.Framework.Manager
                 return;
             }
 
-            if (LoadList_.Contains(ScriptType.Name))
-            {
-                return;
-            }
-
             var UI = FindUI<T>();
             if (UI == null)
             {
-                LoadList_.Add(ScriptType.Name);
                 CreateUI<T>(Configure.UIList[ScriptType], Params);
             }
         }
 
-        public static void CloseUI<T>() where T : UIBase, new()
+        public static void OpenUI<T>(string Path, params object[] Params) where T : UIBase, new()
+        {
+            CreateUI<T>(Path, Params);
+        }
+
+        public static void OpenUI<T>(T Script, string Path, params object[] Params) where T : UIBase
+        {
+            CreateUI<T>(Script, Path, Params);
+        }
+
+        public static void CloseUI<T>() where T : UIBase
         {
             var UI = FindUI<T>();
             if (UI != null)
@@ -151,8 +153,6 @@ namespace Lite.Framework.Manager
 
                 OpenList_.Clear();
             }
-
-            LoadList_.Clear();
         }
 
         public static void DeleteUnusedUI()
@@ -199,15 +199,13 @@ namespace Lite.Framework.Manager
             return false;
         }
 
-        private static void CreateUI<T>(string Path, params object[] Params) where T : UIBase, new()
+        private static void GetOrCreateGameObject(string Path, Action<GameObject> Callback)
         {
-            var ScriptType = typeof(T);
-
             Transform UIObj = null;
-            if (CacheList_.ContainsKey(ScriptType.Name))
+            if (CacheList_.ContainsKey(Path))
             {
-                UIObj = CacheList_[ScriptType.Name];
-                CacheList_.Remove(ScriptType.Name);
+                UIObj = CacheList_[Path];
+                CacheList_.Remove(Path);
             }
 
             if (UIObj == null)
@@ -217,30 +215,51 @@ namespace Lite.Framework.Manager
                 {
                     if (Obj == null)
                     {
-                        Logger.DWarning("Can't create ui : " + UIPath);
+                        Logger.DWarning("Can't Create UI : " + UIPath);
                         return;
                     }
-                    CreateUI<T>(Obj, Path, Params);
+                    Callback?.Invoke(Obj);
                 });
             }
             else
             {
-                CreateUI<T>(UIObj.gameObject, Path, Params);
+                Callback?.Invoke(UIObj.gameObject);
             }
         }
 
-        private static void CreateUI<T>(GameObject Obj, string Path, params object[] Params) where T : UIBase, new()
+        public static void CreateUI<T>(string Path, params object[] Params) where T : UIBase, new()
+        {
+            GetOrCreateGameObject(Path, (Obj) =>
+            {
+                CreateUI<T>(Obj, Path, Params);
+            });
+        }
+
+        public static void CreateUI<T>(T Script, string Path, params object[] Params) where T : UIBase
+        {
+            GetOrCreateGameObject(Path, (Obj) =>
+            {
+                CreateUI<T>(Obj, Script, Path, Params);
+            });
+        }
+
+        public static void CreateUI<T>(GameObject Obj, string Path, params object[] Params) where T : UIBase, new()
         {
             var Script = new T();
+            CreateUI<T>(Obj, Script, Path, Params);
+        }
+
+        public static void CreateUI<T>(GameObject Obj, T Script, string Path, params object[] Params) where T : UIBase
+        {
             Obj.name = Path;
             Obj.transform.SetParent(CanvasNormalTransform, false);
 
+            Script.Path = Path;
             Script.UITransform = Obj.transform;
             Script.UIRectTransform = Obj.GetComponent<RectTransform>();
             Script.UIRectTransform.SetSiblingIndex(Script.SortOrder + UIList_.Count + CacheList_.Count);
 
             OpenList_.Add(Script);
-            LoadList_.Remove(Script.Name);
             Script.Open(Params);
         }
 

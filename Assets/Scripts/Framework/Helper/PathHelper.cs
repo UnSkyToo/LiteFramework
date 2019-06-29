@@ -82,11 +82,6 @@ namespace Lite.Framework.Helper
             return $"{Application.streamingAssetsPath}/{Path}";
         }
 
-        public static string GetTemporaryCachePath(string Path)
-        {
-            return $"{Application.temporaryCachePath}/{Path}";
-        }
-
         public static string GetStandaloneAssetsPath(string Path)
         {
             return $"{Application.dataPath}/StandaloneAssets/{Path}";
@@ -94,13 +89,7 @@ namespace Lite.Framework.Helper
 
         public static string GetAssetFullPath(string Path)
         {
-            var FullPath = GetTemporaryCachePath(Path);
-            if (System.IO.File.Exists(FullPath))
-            {
-                return FullPath;
-            }
-
-            FullPath = GetPersistentDataPath(Path);
+            var FullPath = GetPersistentDataPath(Path);
             if (System.IO.File.Exists(FullPath))
             {
                 return FullPath;
@@ -112,6 +101,7 @@ namespace Lite.Framework.Helper
                 return FullPath;
             }
 
+#if UNITY_EDITOR
             FullPath = GetStandaloneAssetsPath(Path);
             if (System.IO.File.Exists(FullPath))
             {
@@ -122,6 +112,7 @@ namespace Lite.Framework.Helper
             {
                 return Path;
             }
+#endif
 
             return string.Empty;
         }

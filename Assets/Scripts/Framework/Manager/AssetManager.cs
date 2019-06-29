@@ -1,9 +1,7 @@
-﻿#define LITE_USE_INTERNAL_RES
-
-using System;
+﻿using System;
 using UnityEngine;
 
-#if LITE_USE_INTERNAL_RES
+#if UNITY_EDITOR
 using AssetMgr = Lite.Framework.Manager.AssetInternalManager;
 #else
 using AssetMgr = Lite.Framework.Manager.AssetBundleManager;
@@ -43,6 +41,11 @@ namespace Lite.Framework.Manager
             return AssetMgr.CreateAssetSync<T>(BundlePath, AssetName);
         }
 
+        public static T CreateAssetSync<T>(string BundlePath) where T : UnityEngine.Object
+        {
+            return AssetMgr.CreateAssetSync<T>(BundlePath);
+        }
+
         public static void CreatePrefabAsync(string BundlePath, string AssetName, Action<GameObject> Callback = null)
         {
             AssetMgr.CreatePrefabAsync(BundlePath, AssetName, Callback);
@@ -58,9 +61,24 @@ namespace Lite.Framework.Manager
             return AssetMgr.CreatePrefabSync(BundlePath, AssetName);
         }
 
+        public static GameObject CreatePrefabSync(string BundlePath)
+        {
+            return AssetMgr.CreatePrefabSync(BundlePath);
+        }
+
+        public static void CreateDataAsync(string BundlePath, string AssetName, Action<byte[]> Callback = null)
+        {
+            AssetMgr.CreateDataAsync(BundlePath, AssetName, Callback);
+        }
+
         public static void CreateDataAsync(string BundlePath, Action<byte[]> Callback = null)
         {
             AssetMgr.CreateDataAsync(BundlePath, Callback);
+        }
+
+        public static byte[] CreateDataSync(string BundlePath, string AssetName)
+        {
+            return AssetMgr.CreateDataSync(BundlePath, AssetName);
         }
 
         public static byte[] CreateDataSync(string BundlePath)

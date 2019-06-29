@@ -6,33 +6,9 @@ namespace Lite.Framework.Helper
 {
     public static class UIHelper
     {
-        public static Transform FindChild(Transform Parent, string ChildPath)
-        {
-            var Paths = ChildPath.Split('/');
-            var Index = 0;
-            var Current = Parent;
-
-            while (Index < Paths.Length)
-            {
-                var Name = Paths[Index];
-                var Child = Current.Find(Name);
-
-                if (Child == null)
-                {
-                    return null;
-                }
-
-                Current = Child;
-                Index++;
-            }
-
-            return Current;
-        }
-
         public static T FindComponent<T>(Transform Parent, string ChildPath)
         {
-            var Obj = FindChild(Parent, ChildPath);
-
+            var Obj = Parent?.Find(ChildPath);
             if (Obj != null)
             {
                 return Obj.GetComponent<T>();
@@ -53,7 +29,7 @@ namespace Lite.Framework.Helper
 
         public static void AddEventToChild(Transform Parent, string ChildPath, Action<GameObject> Callback, UIEventType Type = UIEventType.Click)
         {
-            var Obj = FindChild(Parent, ChildPath);
+            var Obj = Parent?.Find(ChildPath);
             if (Obj != null)
             {
                 UIEventTriggerListener.Get(Obj).AddCallback(Type, Callback);
@@ -62,7 +38,7 @@ namespace Lite.Framework.Helper
 
         public static void RemoveEventFromChild(Transform Parent, string ChildPath, Action<GameObject> Callback, UIEventType Type = UIEventType.Click)
         {
-            var Obj = FindChild(Parent, ChildPath);
+            var Obj = Parent?.Find(ChildPath);
             if (Obj != null)
             {
                 UIEventTriggerListener.Get(Obj).RemoveCallback(Type, Callback);
@@ -81,7 +57,7 @@ namespace Lite.Framework.Helper
 
         public static void AddEventToChild(Transform Parent, string ChildPath, Action Callback, UIEventType Type = UIEventType.Click)
         {
-            var Obj = FindChild(Parent, ChildPath);
+            var Obj = Parent?.Find(ChildPath);
             if (Obj != null)
             {
                 UIEventTriggerListener.Get(Obj).AddCallback(Type, Callback);
@@ -90,7 +66,7 @@ namespace Lite.Framework.Helper
 
         public static void ShowChild(Transform Parent, string ChildPath)
         {
-            var Obj = FindChild(Parent, ChildPath);
+            var Obj = Parent?.Find(ChildPath);
             if (Obj != null)
             {
                 Obj.gameObject.SetActive(true);
@@ -99,7 +75,7 @@ namespace Lite.Framework.Helper
 
         public static void HideChild(Transform Parent, string ChildPath)
         {
-            var Obj = FindChild(Parent, ChildPath);
+            var Obj = Parent?.Find(ChildPath);
             if (Obj != null)
             {
                 Obj.gameObject.SetActive(false);
@@ -126,7 +102,7 @@ namespace Lite.Framework.Helper
 
         public static void RemoveEventFromChild(Transform Parent, string ChildPath, Action Callback, UIEventType Type = UIEventType.Click)
         {
-            var Obj = FindChild(Parent, ChildPath);
+            var Obj = Parent?.Find(ChildPath);
             if (Obj != null)
             {
                 UIEventTriggerListener.Get(Obj).RemoveCallback(Type, Callback);

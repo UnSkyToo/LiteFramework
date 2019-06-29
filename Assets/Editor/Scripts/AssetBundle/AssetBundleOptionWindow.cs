@@ -22,10 +22,7 @@ public class AssetBundleOptionWindow : EditorWindow
 
         if (GUILayout.Button("Clean StreamingAssets"))
         {
-            Directory.Delete(Application.streamingAssetsPath, true);
-            Directory.CreateDirectory(Application.streamingAssetsPath);
-            Logger.DWarning("StreamingAssets Clean");
-            AssetDatabase.Refresh();
+            AssetBundleBuilder.CleanAllBundle();
         }
     }
 

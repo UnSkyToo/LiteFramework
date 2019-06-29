@@ -15,6 +15,7 @@ namespace Lite.Framework.Base
     {
         public uint ID { get; }
         public string Name { get; set; }
+        public string Path { get; set; }
         public Transform UITransform { get; set; }
         public RectTransform UIRectTransform { get; set; }
         public int Depth { get; protected set; }
@@ -60,11 +61,6 @@ namespace Lite.Framework.Base
         public void Tick(float DeltaTime)
         {
             OnTick(DeltaTime);
-        }
-
-        public Transform FindChild(string ChildPath)
-        {
-            return UIHelper.FindChild(UITransform, ChildPath);
         }
 
         public T FindComponent<T>(string ChildPath)

@@ -302,6 +302,12 @@ namespace Lite.Framework.Manager
             return Asset;
         }
 
+        public static T CreateAssetSync<T>(string BundlePath) where T : UnityEngine.Object
+        {
+            var AssetName = PathHelper.GetFileNameWithoutExt(BundlePath);
+            return CreateAssetSync<T>(BundlePath, AssetName);
+        }
+
         public static void CreatePrefabAsync(string BundlePath, string AssetName, Action<UnityEngine.GameObject> Callback = null)
         {
             Callback?.Invoke(CreatePrefabSync(BundlePath, AssetName));
@@ -346,12 +352,24 @@ namespace Lite.Framework.Manager
             return Asset;
         }
 
-        public static void CreateDataAsync(string BundlePath, Action<byte[]> Callback = null)
+        public static UnityEngine.GameObject CreatePrefabSync(string BundlePath)
         {
-            Callback?.Invoke(CreateDataSync(BundlePath));
+            var AssetName = PathHelper.GetFileNameWithoutExt(BundlePath);
+            return CreatePrefabSync(BundlePath, AssetName);
         }
 
-        public static byte[] CreateDataSync(string BundlePath)
+        public static void CreateDataAsync(string BundlePath, string AssetName, Action<byte[]> Callback = null)
+        {
+            Callback?.Invoke(CreateDataSync(BundlePath, AssetName));
+        }
+
+        public static void CreateDataAsync(string BundlePath, Action<byte[]> Callback = null)
+        {
+            var AssetName = PathHelper.GetFileNameWithoutExt(BundlePath);
+            CreateDataAsync(BundlePath, AssetName, Callback);
+        }
+
+        public static byte[] CreateDataSync(string BundlePath, string AssetName)
         {
             byte[] Asset = null;
             BundlePath = BundlePath.ToLower();
@@ -372,6 +390,12 @@ namespace Lite.Framework.Manager
             }
 
             return Asset;
+        }
+
+        public static byte[] CreateDataSync(string BundlePath)
+        {
+            var AssetName = PathHelper.GetFileNameWithoutExt(BundlePath);
+            return CreateDataSync(BundlePath, AssetName);
         }
 
         public static void DeleteAsset<T>(T Asset) where T : UnityEngine.Object
@@ -478,7 +502,7 @@ namespace Lite.Framework.Manager
                 IsLoad = false;
                 var FullPath = GetInternalAssetPath();
                 var AssetList = AssetDatabase.LoadAllAssetsAtPath(FullPath);
-                Logger.DInfo($"Load AssetBundle : {FullPath}");
+                //Logger.DInfo($"Load AssetBundle : {FullPath}");
 
                 if (AssetList.Length == 0)
                 {
@@ -705,7 +729,7 @@ namespace Lite.Framework.Manager
                 IsLoad = false;
                 var FullPath = GetInternalAssetPath();
 
-                Logger.DInfo($"Load AssetBundle : {FullPath}");
+                //Logger.DInfo($"Load AssetBundle : {FullPath}");
 
                 if (!File.Exists(FullPath))
                 {

@@ -7,6 +7,8 @@ using Logger = Lite.Framework.Log.Logger;
 
 public class AssetBundleBuilder : MonoBehaviour
 {
+    private static List<string> LuaFileList_ = new List<string>();
+
     [MenuItem("Lite/AssetBundle Builder")]
     private static void BuildAssets()
     {
@@ -23,8 +25,10 @@ public class AssetBundleBuilder : MonoBehaviour
     {
         AssetDatabase.RemoveUnusedAssetBundleNames();
 
+        LuaFileList_.Clear();
         var RootPath = $"{Application.dataPath}/StandaloneAssets/";
         var AssetsList = CollectAllAssetBundlePath(RootPath, RootPath);
+        AssetsList = HandleAllLuaFile(AssetsList);
         ConfigurationAssetBundle(AssetsList);
 
         if (!Directory.Exists(Application.streamingAssetsPath))
@@ -34,9 +38,49 @@ public class AssetBundleBuilder : MonoBehaviour
 
         // Start Build
         BuildPipeline.BuildAssetBundles(Application.streamingAssetsPath, Options, Target);
+        DeleteAllLuaFile();
         EditorUtility.DisplayDialog("Lite", "building done", "Ok");
 
         AssetDatabase.Refresh();
+    }
+
+    private static void DeleteAllLuaFile()
+    {
+        foreach (var LuaFile in LuaFileList_)
+        {
+            File.Delete(LuaFile);
+            File.Delete($"{LuaFile}.meta");
+        }
+        LuaFileList_.Clear();
+    }
+
+    private static void HandleLuaFile(string FilePath)
+    {
+        var OldFilePath = $"Assets/StandaloneAssets/{FilePath}";
+        var NewFilePath = $"Assets/StandaloneAssets/{FilePath}.bytes";
+        LuaFileList_.Add(NewFilePath);
+        File.Copy(OldFilePath, NewFilePath, true);
+    }
+
+    private static List<string> HandleAllLuaFile(List<string> AssetsList)
+    {
+        var FileList = new List<string>();
+
+        foreach (var Asset in AssetsList)
+        {
+            if (Asset.EndsWith(".lua"))
+            {
+                HandleLuaFile(Asset);
+                FileList.Add($"{Asset}.bytes");
+            }
+            else
+            {
+                FileList.Add(Asset);
+            }
+        }
+
+        AssetDatabase.Refresh();
+        return FileList;
     }
 
     private static List<string> CollectAllAssetBundlePath(string RootPath, string CurrentPath)
@@ -51,6 +95,7 @@ public class AssetBundleBuilder : MonoBehaviour
             {
                 continue;
             }
+
             Result.Add(FilePath.Substring(RootPath.Length));
         }
 
@@ -108,5 +153,26 @@ public class AssetBundleBuilder : MonoBehaviour
 
         Importer.assetBundleName = BundleName;
         Importer.assetBundleVariant = string.Empty;
+    }
+
+    public static void CleanAllBundle()
+    {
+        var RootPath = $"{Application.dataPath}/StandaloneAssets/";
+        var AssetList = CollectAllAssetBundlePath(RootPath, RootPath);
+        foreach (var Asset in AssetList)
+        {
+            var Importer = AssetImporter.GetAtPath($"Assets/StandaloneAssets/{Asset}");
+            if (Importer != null)
+            {
+                Importer.assetBundleName = string.Empty;
+                Importer.assetBundleVariant = string.Empty;
+            }
+        }
+
+        Directory.Delete(Application.streamingAssetsPath, true);
+        Directory.CreateDirectory(Application.streamingAssetsPath);
+        AssetDatabase.RemoveUnusedAssetBundleNames();
+        AssetDatabase.Refresh();
+        Logger.DWarning("StreamingAssets Clean");
     }
 }

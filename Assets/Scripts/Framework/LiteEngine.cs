@@ -1,5 +1,6 @@
 ﻿using Lite.Framework.Extend;
 using Lite.Framework.Helper;
+using Lite.Framework.Lua;
 using Lite.Framework.Manager;
 using Lite.Logic;
 using UnityEngine;
@@ -66,6 +67,12 @@ namespace Lite.Framework
                 return false;
             }
 
+            if (!LuaRuntime.Startup())
+            {
+                Logger.DWarning("LuaRuntime Startup Failed");
+                //return false;
+            }
+
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
             return true;
@@ -73,6 +80,7 @@ namespace Lite.Framework
 
         public static void Shutdown()
         {
+            LuaRuntime.Shutdown();
             LogicManager.Shutdown();
             UIManager.Shutdown();
             MotionManager.Shutdown();
@@ -98,6 +106,7 @@ namespace Lite.Framework
             MotionManager.Tick(DeltaTime);
             UIManager.Tick(DeltaTime);
             LogicManager.Tick(DeltaTime);
+            LuaRuntime.Tick(DeltaTime);
         }
 
         public static void Restart()
