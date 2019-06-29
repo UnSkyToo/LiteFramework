@@ -4,34 +4,49 @@ function BindHandler(obj, method)
     end
 end
 
-local setmetatableindex_
-setmetatableindex_ = function(t, index)
-    if type(t) == "userdata" then
-        local peer = tolua.getpeer(t)
-        if not peer then
-            peer = {}
-            tolua.setpeer(t, peer)
-        end
-        setmetatableindex_(peer, index)
-    else
-        local mt = getmetatable(t)
-        if not mt then
-            mt = {} 
-        end
-        
-        if not mt.__index then
-            mt.__index = index
-            setmetatable(t, mt)
-        elseif mt.__index ~= index then
-        
-            local ttt = {}
-            setmetatable(ttt,index)
-        
-            setmetatableindex_(mt, index)
-        end
+function BaseClass(classname, base)  
+    local cls = {}  
+    if base then
+        setmetatable(cls, {__index = base})
+        cls.base = base
     end
+  
+    cls.__cname = classname  
+    cls.__index = cls
+
+    cls.New = function(...)
+        local instance = setmetatable({}, cls)
+        local create
+        create = function(c, ...)
+             if c.base then
+                  create(c.base, ...)
+             end
+             if c.Ctor then
+                  c.Ctor(instance, ...)
+             end
+        end
+        instance.class = cls
+        cls.realize = instance
+        create(instance, ...)
+        return instance
+    end
+    cls.Del = function()
+        if not cls.realize then
+            return
+        end
+
+        cls.realize:Dtor()
+    end
+
+    cls.Create = function(_, ...)
+        return cls.New(...)
+    end
+    cls.Delete = function(_)
+        cls.Del()
+    end
+
+    return cls  
 end
-setmetatableindex = setmetatableindex_
 
 function BaseClass(classname, ...)
     local cls = {__cname = classname}
