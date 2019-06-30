@@ -1,4 +1,5 @@
-﻿using Lite.Framework.Extend;
+﻿using Lite.Framework.Base;
+using Lite.Framework.Extend;
 using Lite.Framework.Helper;
 using Lite.Framework.Manager;
 using UnityEngine;
@@ -13,43 +14,52 @@ namespace Lite.Framework
 
         public static bool Startup(MonoBehaviour Instance)
         {
+            Logger.DInfo("Lite Engine Startup");
             MonoBehaviourInstance = Instance;
+
+            Logger.DInfo("TaskManager Startup");
             if (!TaskManager.Startup(MonoBehaviourInstance))
             {
                 Logger.DError("TaskManager Startup Failed");
                 return false;
             }
 
+            Logger.DInfo("ObjectPoolManager Startup");
             if (!ObjectPoolManager.Startup())
             {
                 Logger.DError("ObjectPoolManager Startup Failed");
                 return false;
             }
 
+            Logger.DInfo("EventManager Startup");
             if (!EventManager.Startup())
             {
                 Logger.DError("EventManager Startup Failed");
                 return false;
             }
 
+            Logger.DInfo("AssetManager Startup");
             if (!AssetManager.Startup())
             {
                 Logger.DError("AssetManager Startup Failed");
                 return false;
             }
 
+            Logger.DInfo("TimerManager Startup");
             if (!TimerManager.Startup())
             {
                 Logger.DError("TimerManager Startup Failed");
                 return false;
             }
 
+            Logger.DInfo("MotionManager Startup");
             if (!MotionManager.Startup())
             {
                 Logger.DError("MotionManager Startup Failed");
                 return false;
             }
 
+            Logger.DInfo("UIManager Startup");
             if (!UIManager.Startup())
             {
                 Logger.DError("UIManager Startup Failed");
@@ -60,6 +70,7 @@ namespace Lite.Framework
             Attach<Fps>(MonoBehaviourInstance.gameObject);
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
+            Logger.DInfo("GameLauncher Startup");
             if (!GameLauncher.Startup())
             {
                 Logger.DError("GameLauncher Startup Failed");
@@ -129,6 +140,8 @@ namespace Lite.Framework
 
         public static void OnEnterForeground()
         {
+            EventManager.Send<EnterForegroundEvent>();
+
             if (Time.realtimeSinceStartup - EnterBackgroundTime_ >= Configure.EnterBackgroundMaxTime)
             {
                 Restart();
@@ -139,6 +152,7 @@ namespace Lite.Framework
 
         public static void OnEnterBackground()
         {
+            EventManager.Send<EnterBackgroundEvent>();
             EnterBackgroundTime_ = Time.realtimeSinceStartup;
         }
     }

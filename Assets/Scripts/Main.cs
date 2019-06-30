@@ -22,7 +22,7 @@ public class Main : MonoBehaviour
     {
         try
         {
-            LiteEngine.Tick(UnityEngine.Time.deltaTime);
+            LiteEngine.Tick(Time.deltaTime);
         }
         catch (Exception Ex)
         {

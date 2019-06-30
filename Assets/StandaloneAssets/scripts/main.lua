@@ -17,5 +17,13 @@ function main:OnTick(dt)
 	--print('main tick ' .. dt)
 end
 
+function main:OnEnterForeground()
+	print('OnEnterForeground')
+end
+
+function main:OnEnterBackground()
+	print('OnEnterBackground')
+end
+
 print('lite framework startup')
 return main

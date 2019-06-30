@@ -1,4 +1,5 @@
 ﻿using System;
+using Lite.Framework.Base;
 using Lite.Framework.Log;
 using Lite.Framework.Lua.Interface;
 using Lite.Framework.Manager;
@@ -31,11 +32,17 @@ namespace Lite.Framework.Lua
                 Logger.DWarning("lua main start failed");
             }
 
+            EventManager.Register<EnterForegroundEvent>(OnEnterForegroundEvent);
+            EventManager.Register<EnterBackgroundEvent>(OnEnterBackgroundEvent);
+
             return State;
         }
 
         public static void Shutdown()
         {
+            EventManager.UnRegister<EnterForegroundEvent>(OnEnterForegroundEvent);
+            EventManager.UnRegister<EnterBackgroundEvent>(OnEnterBackgroundEvent);
+
             MainEntity_?.OnStop();
             MainEntity_ = null;
             GC.Collect();
@@ -72,6 +79,16 @@ namespace Lite.Framework.Lua
             {
                 UIManager.CloseUI(UI);
             }
+        }
+
+        private static void OnEnterForegroundEvent(EnterForegroundEvent Msg)
+        {
+            MainEntity_?.OnEnterForeground();
+        }
+
+        private static void OnEnterBackgroundEvent(EnterBackgroundEvent Msg)
+        {
+            MainEntity_?.OnEnterBackground();
         }
     }
 }

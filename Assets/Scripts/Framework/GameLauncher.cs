@@ -11,6 +11,7 @@ namespace Lite.Framework
 
         public static bool Startup()
         {
+            Logger.DInfo("Preload Startup");
             IsLaunch_ = false;
             Preload((IsDone) =>
             {
@@ -21,12 +22,14 @@ namespace Lite.Framework
                     return;
                 }
 
+                Logger.DInfo("LogicManager Startup");
                 if (!LogicManager.Startup())
                 {
                     IsLaunch_ = false;
                     Logger.DWarning("LogicManager Startup Failed");
                 }
 
+                Logger.DInfo("LuaRuntime Startup");
                 if (!LuaRuntime.Startup())
                 {
                     IsLaunch_ = false;

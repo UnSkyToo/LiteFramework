@@ -1,27 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using Lite.Framework.Base;
 using Lite.Framework.Log;
 
 namespace Lite.Framework.Manager
 {
-    public abstract class GameEvent
-    {
-    }
-
     public static class EventManager
     {
         private abstract class EventListener
         {
-            public abstract void Trigger(GameEvent Msg);
+            public abstract void Trigger(EventBase Msg);
 
             public abstract void Check();
         }
 
-        private class EventListenerImpl<T> : EventListener where T : GameEvent
+        private class EventListenerImpl<T> : EventListener where T : EventBase
         {
             public event Action<T> OnEvent = null;
 
-            public override void Trigger(GameEvent Msg)
+            public override void Trigger(EventBase Msg)
             {
                 OnEvent?.Invoke((T)Msg);
             }
@@ -62,7 +59,7 @@ namespace Lite.Framework.Manager
         {
         }
 
-        public static void Send<T>(T Event) where T : GameEvent
+        public static void Send<T>(T Event) where T : EventBase
         {
             var EventName = typeof(T).FullName;
             if (EventList_.ContainsKey(EventName))
@@ -71,13 +68,13 @@ namespace Lite.Framework.Manager
             }
         }
 
-        public static void Send<T>() where T : GameEvent, new()
+        public static void Send<T>() where T : EventBase, new()
         {
             var Event = new T();
             Send(Event);
         }
 
-        public static void Register<T>(Action<T> Callback) where T : GameEvent
+        public static void Register<T>(Action<T> Callback) where T : EventBase
         {
             var EventName = typeof(T).FullName;
             if (!EventList_.ContainsKey(EventName))
@@ -88,7 +85,7 @@ namespace Lite.Framework.Manager
             ((EventListenerImpl<T>)EventList_[EventName]).OnEvent += Callback;
         }
 
-        public static void UnRegister<T>(Action<T> Callback) where T : GameEvent
+        public static void UnRegister<T>(Action<T> Callback) where T : EventBase
         {
             var EventName = typeof(T).FullName;
             if (EventList_.ContainsKey(EventName))
