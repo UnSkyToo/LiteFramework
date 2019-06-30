@@ -1,8 +1,6 @@
 ﻿using Lite.Framework.Extend;
 using Lite.Framework.Helper;
-using Lite.Framework.Lua;
 using Lite.Framework.Manager;
-using Lite.Logic;
 using UnityEngine;
 using Logger = Lite.Framework.Log.Logger;
 
@@ -60,28 +58,20 @@ namespace Lite.Framework
 
             Attach<Debugger>(MonoBehaviourInstance.gameObject);
             Attach<Fps>(MonoBehaviourInstance.gameObject);
-            
-            if (!LogicManager.Startup())
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
+            if (!GameLauncher.Startup())
             {
-                Logger.DError("LogicManager Startup Failed");
+                Logger.DError("GameLauncher Startup Failed");
                 return false;
             }
-
-            if (!LuaRuntime.Startup())
-            {
-                Logger.DWarning("LuaRuntime Startup Failed");
-                //return false;
-            }
-
-            Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
             return true;
         }
 
         public static void Shutdown()
         {
-            LuaRuntime.Shutdown();
-            LogicManager.Shutdown();
+            GameLauncher.Shutdown();
             UIManager.Shutdown();
             MotionManager.Shutdown();
             TimerManager.Shutdown();
@@ -105,8 +95,7 @@ namespace Lite.Framework
             TimerManager.Tick(DeltaTime);
             MotionManager.Tick(DeltaTime);
             UIManager.Tick(DeltaTime);
-            LogicManager.Tick(DeltaTime);
-            LuaRuntime.Tick(DeltaTime);
+            GameLauncher.Tick(DeltaTime);
         }
 
         public static void Restart()

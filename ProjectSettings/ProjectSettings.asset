@@ -543,7 +543,7 @@ PlayerSettings:
   webGLThreadsSupport: 0
   webGLWasmStreaming: 0
   scriptingDefineSymbols:
-    1: 
+    1: LITE_USE_INTERNAL_ASSET
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}

@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using UnityEngine;
 using UnityEditor;
+using GUILayout = UnityEngine.GUILayout;
 using Logger = Lite.Framework.Log.Logger;
 
 public class AssetBundleOptionWindow : EditorWindow
@@ -17,7 +18,12 @@ public class AssetBundleOptionWindow : EditorWindow
 
         if (GUILayout.Button("Start Build"))
         {
-            AssetBundleBuilder.BuildAsset(GetCurrentTarget(), GetCurrentOptions());
+            AssetBundleBuilder.BuildAsset(GetCurrentTarget(), GetCurrentOptions(), true);
+        }
+
+        if (GUILayout.Button("Start Build With No Collect"))
+        {
+            AssetBundleBuilder.BuildAsset(GetCurrentTarget(), GetCurrentOptions(), false);
         }
 
         if (GUILayout.Button("Clean StreamingAssets"))

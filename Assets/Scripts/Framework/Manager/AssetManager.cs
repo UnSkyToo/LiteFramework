@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-#if UNITY_EDITOR
+#if UNITY_EDITOR && LITE_USE_INTERNAL_ASSET
 using AssetMgr = Lite.Framework.Manager.AssetInternalManager;
 #else
 using AssetMgr = Lite.Framework.Manager.AssetBundleManager;

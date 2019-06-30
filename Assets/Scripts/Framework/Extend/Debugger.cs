@@ -159,13 +159,13 @@ namespace Lite.Framework.Extend
         {
             GUILayout.BeginHorizontal();
 
-            if (GUILayout.Button(ClearLabel_, GUILayout.Width(Screen.width * 0.2f),
+            if (GUILayout.Button(ClearLabel_, GUILayout.Width(Screen.width * 0.15f),
                 GUILayout.Height(Screen.height * 0.05f)))
             {
                 Logs_.Clear();
             }
 
-            if (GUILayout.Button(HideLabel_, GUILayout.Width(Screen.width * 0.2f),
+            if (GUILayout.Button(HideLabel_, GUILayout.Width(Screen.width * 0.15f),
                 GUILayout.Height(Screen.height * 0.05f)))
             {
                 ExchangeWindow();
@@ -173,7 +173,7 @@ namespace Lite.Framework.Extend
 
             if (OnlyShowError_)
             {
-                if (GUILayout.Button(ShowAllLabel_, GUILayout.Width(Screen.width * 0.2f),
+                if (GUILayout.Button(ShowAllLabel_, GUILayout.Width(Screen.width * 0.15f),
                     GUILayout.Height(Screen.height * 0.05f)))
                 {
                     OnlyShowError_ = false;
@@ -181,17 +181,29 @@ namespace Lite.Framework.Extend
             }
             else
             {
-                if (GUILayout.Button(OnlyShowErrorLabel_, GUILayout.Width(Screen.width * 0.2f),
+                if (GUILayout.Button(OnlyShowErrorLabel_, GUILayout.Width(Screen.width * 0.15f),
                     GUILayout.Height(Screen.height * 0.05f)))
                 {
                     OnlyShowError_ = true;
                 }
             }
 
-            Collapse_ = GUILayout.Toggle(Collapse_, CollapseLabel_, GUILayout.Width(Screen.width * 0.15f),
+            if (GUILayout.Button(CollapseLabel_, GUILayout.Width(Screen.width * 0.15f),
+                GUILayout.Height(Screen.height * 0.05f)))
+            {
+                Collapse_ = !Collapse_;
+            }
+
+            if (GUILayout.Button(StackTraceLabel_, GUILayout.Width(Screen.width * 0.15f),
+                GUILayout.Height(Screen.height * 0.05f)))
+            {
+                ShowStackTrace_ = !ShowStackTrace_;
+            }
+
+            /*Collapse_ = GUILayout.Toggle(Collapse_, CollapseLabel_, GUILayout.Width(Screen.width * 0.15f),
                 GUILayout.Height(Screen.height * 0.05f));
             ShowStackTrace_ = GUILayout.Toggle(ShowStackTrace_, StackTraceLabel_,
-                GUILayout.Width(Screen.width * 0.15f), GUILayout.Height(Screen.height * 0.05f));
+                GUILayout.Width(Screen.width * 0.15f), GUILayout.Height(Screen.height * 0.05f));*/
             GUILayout.EndHorizontal();
         }
 

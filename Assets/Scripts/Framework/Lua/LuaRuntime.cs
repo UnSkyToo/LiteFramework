@@ -50,7 +50,7 @@ namespace Lite.Framework.Lua
 
         private static byte[] StandaloneLuaLoader(ref string LuaPath)
         {
-#if UNITY_EDITOR
+#if UNITY_EDITOR && LITE_USE_INTERNAL_ASSET
             var FullPath = $"scripts/{LuaPath.Replace('.', '/')}.lua";
 #else
             var FullPath = $"scripts/{LuaPath.Replace('.', '/')}.lua.bytes";

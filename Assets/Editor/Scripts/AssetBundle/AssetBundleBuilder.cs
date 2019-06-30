@@ -21,26 +21,33 @@ public class AssetBundleBuilder : MonoBehaviour
         AssetBundleOptionWindow.ShowWindow();
     }
 
-    public static void BuildAsset(BuildTarget Target, BuildAssetBundleOptions Options)
+    public static void BuildAsset(BuildTarget Target, BuildAssetBundleOptions Options, bool IsCollectInfo)
     {
-        AssetDatabase.RemoveUnusedAssetBundleNames();
-
-        LuaFileList_.Clear();
-        var RootPath = $"{Application.dataPath}/StandaloneAssets/";
-        var AssetsList = CollectAllAssetBundlePath(RootPath, RootPath);
-        AssetsList = HandleAllLuaFile(AssetsList);
-        ConfigurationAssetBundle(AssetsList);
-
         if (!Directory.Exists(Application.streamingAssetsPath))
         {
             Directory.CreateDirectory(Application.streamingAssetsPath);
         }
 
+        if (IsCollectInfo)
+        {
+            AssetDatabase.RemoveUnusedAssetBundleNames();
+
+            LuaFileList_.Clear();
+            var RootPath = $"{Application.dataPath}/StandaloneAssets/";
+            var AssetsList = CollectAllAssetBundlePath(RootPath, RootPath);
+            AssetsList = HandleAllLuaFile(AssetsList);
+            ConfigurationAssetBundle(AssetsList);
+        }
+
         // Start Build
         BuildPipeline.BuildAssetBundles(Application.streamingAssetsPath, Options, Target);
-        DeleteAllLuaFile();
-        EditorUtility.DisplayDialog("Lite", "building done", "Ok");
 
+        if (IsCollectInfo)
+        {
+            DeleteAllLuaFile();
+        }
+
+        EditorUtility.DisplayDialog("Lite", "building done", "Ok");
         AssetDatabase.Refresh();
     }
 
