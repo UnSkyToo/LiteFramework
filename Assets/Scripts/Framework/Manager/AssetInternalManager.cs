@@ -475,6 +475,7 @@ namespace Lite.Framework.Manager
         {
             public AssetBundleType BundleType { get; }
             public string BundlePath { get; }
+            public string BundleName => PathHelper.GetFileNameWithoutExt(BundlePath);
 
             public bool IsLoad { get; protected set; }
             public bool Unused => (RefCount_ <= 0 && IsLoad == true);
@@ -662,7 +663,7 @@ namespace Lite.Framework.Manager
                 {
                     foreach (var Asset in AssetList)
                     {
-                        if (Asset is UnityEngine.GameObject ObjAsset)
+                        if (Asset.name.ToLower() == BundleName.ToLower() && Asset is UnityEngine.GameObject ObjAsset)
                         {
                             var Pool = ObjectPoolManager.AddPool($"{BundlePath}_{Asset.name}".ToLower(), ObjAsset);
                             ObjectPools_.Add(Pool.PoolName, Pool);

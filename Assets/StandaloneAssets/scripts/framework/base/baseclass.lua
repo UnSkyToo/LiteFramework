@@ -11,7 +11,7 @@ function BaseClass(classname, base)
         cls.base = base
     end
   
-    cls.__cname = classname  
+    cls.Name = classname
     cls.__index = cls
 
     cls.New = function(...)

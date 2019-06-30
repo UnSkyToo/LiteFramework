@@ -11,6 +11,7 @@ using System;
 using XLua;
 using System.Reflection;
 using System.Linq;
+using UnityEngine;
 
 //配置的详细介绍请看Doc下《XLua的配置.doc》
 public static class ExampleConfig
@@ -247,6 +248,9 @@ public static class ExampleConfig
     [LuaCallCSharp]
     public static IEnumerable<Type> LuaCallCSharpList = new List<Type>()
     {
+        typeof(Lite.Framework.Base.UIBase),
+        typeof(Lite.Framework.Base.UIDepthMode),
+        typeof(Lite.Framework.Base.UIEventType),
         typeof(Lite.Framework.Helper.UIHelper),
         typeof(Lite.Framework.Lua.LuaRuntime),
     };
@@ -256,11 +260,18 @@ public static class ExampleConfig
     {
         typeof(Action),
         typeof(Action<float>),
+        typeof(Action<GameObject>),
         typeof(Action<LuaTable>),
         typeof(Action<LuaTable, float>),
         typeof(Lite.Framework.Lua.Interface.ILuaMainEntity),
     };
 
+    [GCOptimize]
+    public static IEnumerable<Type> OptimizeList = new List<Type>()
+    {
+        typeof(Lite.Framework.Base.UIDepthMode),
+        typeof(Lite.Framework.Base.UIEventType),
+    };
 
     //黑名单
     [BlackList]

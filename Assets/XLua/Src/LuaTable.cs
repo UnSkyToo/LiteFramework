@@ -129,6 +129,31 @@ namespace XLua
 #endif
         }
 
+        public bool Exists<T>(string path)
+        {
+#if THREAD_SAFE || HOTFIX_ENABLE
+            lock (luaEnv.luaEnvLock)
+            {
+#endif
+                var L = luaEnv.L;
+                var translator = luaEnv.translator;
+                int oldTop = LuaAPI.lua_gettop(L);
+                LuaAPI.lua_getref(L, luaReference);
+                if (0 != LuaAPI.xlua_pgettable_bypath(L, -1, path))
+                {
+                    return false;
+                }
+                LuaTypes lua_type = LuaAPI.lua_type(L, -1);
+                if (lua_type == LuaTypes.LUA_TNIL && typeof(T).IsValueType())
+                {
+                    return false;
+                }
+
+                return true;
+#if THREAD_SAFE || HOTFIX_ENABLE
+            }
+#endif
+        }
 
         public T GetInPath<T>(string path)
         {

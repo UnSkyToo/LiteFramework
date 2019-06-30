@@ -23,6 +23,21 @@ namespace Lite.Framework.Lua
             OnShow_ = LuaEntity.GetInPath<Action<LuaTable>>("OnShow");
             OnHide_ = LuaEntity.GetInPath<Action<LuaTable>>("OnHide");
             OnTick_ = LuaEntity.GetInPath<Action<LuaTable, float>>("OnTick");
+
+            if (LuaEntity.Exists<string>("Name"))
+            {
+                Name = LuaEntity.GetInPath<string>("Name");
+            }
+
+            if (LuaEntity.Exists<UIDepthMode>("DepthMode"))
+            {
+                DepthMode = LuaEntity.GetInPath<UIDepthMode>("DepthMode");
+            }
+
+            if (LuaEntity.Exists<int>("Depth"))
+            {
+                Depth = LuaEntity.GetInPath<int>("Depth");
+            }
         }
 
         protected override void OnOpen(params object[] Params)

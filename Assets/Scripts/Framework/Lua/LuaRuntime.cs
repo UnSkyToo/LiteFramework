@@ -55,6 +55,7 @@ namespace Lite.Framework.Lua
 #else
             var FullPath = $"scripts/{LuaPath.Replace('.', '/')}.lua.bytes";
 #endif
+            //LuaPath = Helper.PathHelper.GetAssetFullPath(FullPath);
             return AssetManager.CreateDataSync(FullPath);
         }
 
@@ -66,7 +67,7 @@ namespace Lite.Framework.Lua
 
         public static void CloseLuaUI(LuaTable LuaEntity)
         {
-            var UI = LuaEntity.GetInPath<UIBaseLua>("_CSEntity_");
+            var UI = LuaEntity?.GetInPath<UIBaseLua>("_CSEntity_");
             if (UI != null)
             {
                 UIManager.CloseUI(UI);

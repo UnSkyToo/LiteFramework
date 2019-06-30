@@ -63,9 +63,24 @@ namespace Lite.Framework.Base
             OnTick(DeltaTime);
         }
 
-        public T FindComponent<T>(string ChildPath)
+        public Transform FindChild(string ChildPath)
+        {
+            return UIHelper.FindChild(UITransform, ChildPath);
+        }
+
+        public T FindComponent<T>(string ChildPath) where T : Component
         {
             return UIHelper.FindComponent<T>(UITransform, ChildPath);
+        }
+
+        public Component FindComponent(string ChildParent, Type CType)
+        {
+            return UIHelper.FindComponent(UITransform, ChildParent, CType);
+        }
+
+        public Component FindComponent(string ChildParent, string CType)
+        {
+            return UIHelper.FindComponent(UITransform, ChildParent, CType);
         }
 
         public void AddEvent(Action<GameObject> Callback, UIEventType Type = UIEventType.Click)
@@ -88,7 +103,7 @@ namespace Lite.Framework.Base
             UIHelper.RemoveEventFromChild(UITransform, ChildPath, Callback, Type);
         }
 
-        public void AddEvent(Action Callback, UIEventType Type = UIEventType.Click)
+        /*public void AddEvent(Action Callback, UIEventType Type = UIEventType.Click)
         {
             UIHelper.AddEvent(UITransform, Callback, Type);
         }
@@ -106,7 +121,7 @@ namespace Lite.Framework.Base
         public void RemoveEventFromChild(string ChildPath, Action Callback, UIEventType Type = UIEventType.Click)
         {
             UIHelper.RemoveEventFromChild(UITransform, ChildPath, Callback, Type);
-        }
+        }*/
 
         public void ShowChild(string ChildPath)
         {
