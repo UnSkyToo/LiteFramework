@@ -2,27 +2,27 @@ require 'framework.init'
 
 local main = {}
 
-function main:OnStart()
+function main:Startup()
 	print('main start')
 	self.lo = UIManager:OpenUI('logoui', 'logoui')
 	return true
 end
 
-function main:OnStop()
+function main:Shutdown()
 	UIManager:CloseUI(self.lo)
 	print('main stop')
 end
 
-function main:OnTick(dt)
+function main:Tick(dt)
 	--print('main tick ' .. dt)
 end
 
-function main:OnEnterForeground()
-	print('OnEnterForeground')
+function main:EnterForeground()
+	print('EnterForeground')
 end
 
-function main:OnEnterBackground()
-	print('OnEnterBackground')
+function main:EnterBackground()
+	print('EnterBackground')
 end
 
 print('lite framework startup')

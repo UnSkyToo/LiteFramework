@@ -1,5 +1,7 @@
 ﻿using System;
 using Lite.Framework.Helper;
+using Lite.Framework.Manager;
+using Lite.Framework.Motion;
 using UnityEngine;
 
 namespace Lite.Framework.Base
@@ -141,6 +143,16 @@ namespace Lite.Framework.Base
         public void EnableTouched(string ChildPath, bool Enabled)
         {
             UIHelper.EnableTouched(UITransform, ChildPath, Enabled);
+        }
+
+        public MotionBase ExecuteMotion(MotionBase Motion)
+        {
+            return MotionManager.Execute(UITransform, Motion);
+        }
+
+        public void AbandonMotion(MotionBase Motion)
+        {
+            MotionManager.Abandon(Motion);
         }
 
         protected virtual void OnOpen(params object[] Params)

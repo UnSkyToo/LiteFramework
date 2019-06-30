@@ -36,16 +36,22 @@ namespace Lite.Framework.Manager
             }
         }
 
-        public static void Execute(Transform Master, MotionBase Motion)
+        public static MotionBase Execute(Transform Master, MotionBase Motion)
         {
             Motion.Master = Master;
             Motion.Enter();
             MotionList_.Add(Motion);
+            return Motion;
         }
 
-        public static void ExecuteMotion(this Transform Master, MotionBase Motion)
+        public static void Abandon(MotionBase Motion)
         {
-            Execute(Master, Motion);
+            Motion.Stop();
+        }
+
+        public static MotionBase ExecuteMotion(this Transform Master, MotionBase Motion)
+        {
+            return Execute(Master, Motion);
         }
     }
 }

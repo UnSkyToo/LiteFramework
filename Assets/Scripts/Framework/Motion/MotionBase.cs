@@ -15,6 +15,11 @@ namespace Lite.Framework.Motion
             IsEnd = true;
         }
 
+        public void Stop()
+        {
+            IsEnd = true;
+        }
+
         public abstract void Enter();
 
         public abstract void Tick(float DeltaTime);

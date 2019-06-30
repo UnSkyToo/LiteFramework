@@ -11,8 +11,7 @@ namespace Lite.Framework.Motion
         private float EndAlpha_;
         private bool IsRelative_;
 
-        private Graphic UIGraphic_;
-        private Color Color_;
+        private CanvasGroup Group_;
 
         public MotionFade(float Time, float Alpha, bool IsRelative)
             : base()
@@ -27,15 +26,13 @@ namespace Lite.Framework.Motion
         {
             IsEnd = false;
             CurrentTime_ = 0;
-            UIGraphic_ = Master.GetComponent<Graphic>();
-            if (UIGraphic_ == null)
+            Group_ = Master.GetComponent<CanvasGroup>();
+            if (Group_ == null)
             {
-                IsEnd = true;
-                return;
+                Group_ = Master.gameObject.AddComponent<CanvasGroup>();
             }
 
-            Color_ = new Color(UIGraphic_.color.r, UIGraphic_.color.g, UIGraphic_.color.b, UIGraphic_.color.a);
-            BeginAlpha_ = Color_.a;
+            BeginAlpha_ = Group_.alpha;
 
             if (IsRelative_)
             {
@@ -53,13 +50,11 @@ namespace Lite.Framework.Motion
             var T = CurrentTime_ / TotalTime_;
             if (T >= 1.0f)
             {
-                Color_.a = EndAlpha_;
-                UIGraphic_.color = Color_;
+                Group_.alpha = EndAlpha_;
                 IsEnd = true;
             }
 
-            Color_.a = Mathf.Lerp(BeginAlpha_, EndAlpha_, T);
-            UIGraphic_.color = Color_;
+            Group_.alpha = Mathf.Lerp(BeginAlpha_, EndAlpha_, T);
         }
     }
 

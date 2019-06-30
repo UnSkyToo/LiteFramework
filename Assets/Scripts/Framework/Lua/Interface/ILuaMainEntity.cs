@@ -2,10 +2,10 @@
 {
     public interface ILuaMainEntity
     {
-        bool OnStart();
-        void OnStop();
-        void OnTick(float DeltaTime);
-        void OnEnterForeground();
-        void OnEnterBackground();
+        bool Startup();
+        void Shutdown();
+        void Tick(float DeltaTime);
+        void EnterForeground();
+        void EnterBackground();
     }
 }

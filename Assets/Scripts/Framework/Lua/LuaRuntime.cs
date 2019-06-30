@@ -26,7 +26,7 @@ namespace Lite.Framework.Lua
                 return false;
             }
 
-            var State = MainEntity_.OnStart();
+            var State = MainEntity_.Startup();
             if (!State)
             {
                 Logger.DWarning("lua main start failed");
@@ -43,7 +43,7 @@ namespace Lite.Framework.Lua
             EventManager.UnRegister<EnterForegroundEvent>(OnEnterForegroundEvent);
             EventManager.UnRegister<EnterBackgroundEvent>(OnEnterBackgroundEvent);
 
-            MainEntity_?.OnStop();
+            MainEntity_?.Shutdown();
             MainEntity_ = null;
             GC.Collect();
             GC.WaitForPendingFinalizers();
@@ -52,7 +52,7 @@ namespace Lite.Framework.Lua
 
         public static void Tick(float DeltaTime)
         {
-            MainEntity_?.OnTick(DeltaTime);
+            MainEntity_?.Tick(DeltaTime);
         }
 
         private static byte[] StandaloneLuaLoader(ref string LuaPath)
@@ -83,12 +83,12 @@ namespace Lite.Framework.Lua
 
         private static void OnEnterForegroundEvent(EnterForegroundEvent Msg)
         {
-            MainEntity_?.OnEnterForeground();
+            MainEntity_?.EnterForeground();
         }
 
         private static void OnEnterBackgroundEvent(EnterBackgroundEvent Msg)
         {
-            MainEntity_?.OnEnterBackground();
+            MainEntity_?.EnterBackground();
         }
     }
 }

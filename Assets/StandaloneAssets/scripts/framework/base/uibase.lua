@@ -46,3 +46,11 @@ end
 function UIBase:EnableTouched(path, enabled)
 	self._CSEntity_:EnableTouched(path, enabled)
 end
+
+function UIBase:ExecuteMotion(motion)
+	self._CSEntity_:ExecuteMotion(motion)
+end
+
+function UIBase:AbandonMotion(motion)
+	self._CSEntity_:AbandonMotion(motion)
+end

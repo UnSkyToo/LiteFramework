@@ -253,6 +253,19 @@ public static class ExampleConfig
         typeof(Lite.Framework.Base.UIEventType),
         typeof(Lite.Framework.Helper.UIHelper),
         typeof(Lite.Framework.Lua.LuaRuntime),
+        // Motions
+        typeof(Lite.Framework.Motion.MotionBase),
+        typeof(Lite.Framework.Motion.MotionCallback),
+        typeof(Lite.Framework.Motion.MotionFade),
+        typeof(Lite.Framework.Motion.MotionFadeIn),
+        typeof(Lite.Framework.Motion.MotionFadeOut),
+        typeof(Lite.Framework.Motion.MotionMove),
+        typeof(Lite.Framework.Motion.MotionParallel),
+        typeof(Lite.Framework.Motion.MotionRepeatSequence),
+        typeof(Lite.Framework.Motion.MotionScale),
+        typeof(Lite.Framework.Motion.MotionSequence),
+        typeof(Lite.Framework.Motion.MotionWaitTime),
+        typeof(Lite.Framework.Manager.MotionManager),
     };
 
     [CSharpCallLua]

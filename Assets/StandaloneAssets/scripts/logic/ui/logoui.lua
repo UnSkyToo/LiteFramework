@@ -18,6 +18,10 @@ function LogoUI:OnOpen()
 	local txt = self:FindComponent('Tips/Value', UIText)
 	txt.text = 'asd1123123'
 
+	local mo = MotionRepeatSequence(MotionFadeOut(1), MotionFadeIn(1))
+	self:ExecuteMotion(mo)
+
+
 	self.a = 1
 	self:AddEventToChild('Button', function(obj)
 		print(obj.name .. self.a)
@@ -29,7 +33,10 @@ function LogoUI:OnOpen()
 		--self:RemoveEventFromChild('Button')
 		self:EnableTouched('Button', self.aa)
 		self.aa = not self.aa
+
+		self:AbandonMotion(mo)
 	end)
+
 end
 
 function LogoUI:OnClose()
