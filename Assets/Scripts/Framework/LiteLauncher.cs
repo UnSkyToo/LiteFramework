@@ -74,7 +74,7 @@ namespace Lite.Framework
 
         private static void Preload(Action<bool> Callback)
         {
-            TimerManager.AddTimer(1, () => { Callback?.Invoke(true); });
+            TimerManager.AddTimer(1, () => { Callback?.Invoke(true); }, 1);
         }
     }
 }

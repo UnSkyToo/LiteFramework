@@ -4,12 +4,12 @@ local main = {}
 
 function main:Startup()
 	print('main start')
-	--self.lo = UIManager:OpenUI('logoui', 'logoui')
+	self.lo = UIManager:OpenUI('loginui', 'loginui')
 	return true
 end
 
 function main:Shutdown()
-	--UIManager:CloseUI(self.lo)
+	UIManager:CloseUI(self.lo)
 	print('main stop')
 end
 
