@@ -5,18 +5,17 @@ namespace Lite.Framework.Motion
 {
     public class MotionCallback : MotionBase
     {
-        private readonly Action<Transform> Callback_;
+        private readonly Action Callback_;
 
-        public MotionCallback(Action<Transform> Callback)
+        public MotionCallback()
             : base()
         {
-            Callback_ = Callback;
             IsEnd = true;
         }
 
         public override void Enter()
         {
-            Callback_?.Invoke(Master);
+            Callback_?.Invoke();
         }
 
         public override void Exit()

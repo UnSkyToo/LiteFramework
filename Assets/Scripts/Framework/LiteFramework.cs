@@ -7,14 +7,14 @@ using Logger = Lite.Framework.Log.Logger;
 
 namespace Lite.Framework
 {
-    public static class LiteEngine
+    public static class LiteFramework
     {
         private static MonoBehaviour MonoBehaviourInstance { get; set; }
         private static float EnterBackgroundTime_ = 0.0f;
 
         public static bool Startup(MonoBehaviour Instance)
         {
-            Logger.DInfo("Lite Engine Startup");
+            Logger.DInfo("Lite Framework Startup");
             MonoBehaviourInstance = Instance;
 
             Logger.DInfo("TaskManager Startup");
@@ -70,10 +70,10 @@ namespace Lite.Framework
             Attach<Fps>(MonoBehaviourInstance.gameObject);
             Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
-            Logger.DInfo("GameLauncher Startup");
-            if (!GameLauncher.Startup())
+            Logger.DInfo("LiteLauncher Startup");
+            if (!LiteLauncher.Startup())
             {
-                Logger.DError("GameLauncher Startup Failed");
+                Logger.DError("LiteLauncher Startup Failed");
                 return false;
             }
 
@@ -82,7 +82,7 @@ namespace Lite.Framework
 
         public static void Shutdown()
         {
-            GameLauncher.Shutdown();
+            LiteLauncher.Shutdown();
             UIManager.Shutdown();
             MotionManager.Shutdown();
             TimerManager.Shutdown();
@@ -106,7 +106,7 @@ namespace Lite.Framework
             TimerManager.Tick(DeltaTime);
             MotionManager.Tick(DeltaTime);
             UIManager.Tick(DeltaTime);
-            GameLauncher.Tick(DeltaTime);
+            LiteLauncher.Tick(DeltaTime);
         }
 
         public static void Restart()

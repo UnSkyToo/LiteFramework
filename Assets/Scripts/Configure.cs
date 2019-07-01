@@ -11,7 +11,7 @@ namespace Lite
 
         public static readonly Dictionary<Type, string> UIList = new Dictionary<Type, string>
         {
-            {typeof(LogoUI), "LogoUI"},
+            {typeof(LogoUI), "logoui"},
         };
     }
 }

@@ -10,7 +10,7 @@ public class Main : MonoBehaviour
     {
         try
         {
-            Debug.Assert(LiteEngine.Startup(this));
+            Debug.Assert(LiteFramework.Startup(this));
         }
         catch (Exception Ex)
         {
@@ -22,7 +22,7 @@ public class Main : MonoBehaviour
     {
         try
         {
-            LiteEngine.Tick(Time.deltaTime);
+            LiteFramework.Tick(Time.deltaTime);
         }
         catch (Exception Ex)
         {
@@ -31,7 +31,7 @@ public class Main : MonoBehaviour
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.F5))
         {
-            LiteEngine.Restart();
+            LiteFramework.Restart();
         }
 
         if (Input.GetKeyDown(KeyCode.F9))
@@ -45,7 +45,7 @@ public class Main : MonoBehaviour
     {
         try
         {
-            LiteEngine.Shutdown();
+            LiteFramework.Shutdown();
         }
         catch (Exception Ex)
         {
@@ -57,11 +57,11 @@ public class Main : MonoBehaviour
     {
         if (Pause)
         {
-            LiteEngine.OnEnterBackground();
+            LiteFramework.OnEnterBackground();
         }
         else
         {
-            LiteEngine.OnEnterForeground();
+            LiteFramework.OnEnterForeground();
         }
     }
 

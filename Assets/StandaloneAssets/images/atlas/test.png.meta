@@ -1,0 +1,3470 @@
+fileFormatVersion: 2
+guid: 126a1a209839cf14d993f4227284deaa
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: btn_anniu01_normal.png
+    21300002: btn_anniu02_normal.png
+    21300004: btn_anniu03_disable.png
+    21300006: btn_anniu06_disable.png
+    21300008: btn_anniu06_normal.png
+    21300010: btn_anniu06_normal_lv.png
+    21300012: btn_anniu07_normal.png
+    21300014: btn_anniu07_normal_lv.png
+    21300016: btn_anniu07_zuixao02_normal.png
+    21300018: btn_anniu07_zuixao_disable.png
+    21300020: btn_anniu07_zuixao_normal.png
+    21300022: btn_anniu08_disable.png
+    21300024: btn_anniu08_normal.png
+    21300026: btn_anniu09_normal.png
+    21300028: btn_back_jiantou_normal.png
+    21300030: btn_back_normal.png
+    21300032: btn_biaoqian01_highlight.png
+    21300034: btn_biaoqian01_normal.png
+    21300036: btn_biaoqian_keji_disable.png
+    21300038: btn_biaoqian_keji_highlight.png
+    21300040: btn_biaoqian_keji_normal.png
+    21300042: btn_biaoqian_keji_zhihui.png
+    21300044: btn_jianzhushengji_huangse.png
+    21300046: btn_jianzhushengji_huangse02.png
+    21300048: btn_jianzhushengji_lvse.png
+    21300050: btn_jianzhushengji_lvse02.png
+    21300052: btn_shijiezhanbao_highlight.png
+    21300054: btn_shijiezhanbao_normal.png
+    21300056: btn_tanchuangyeqian03_highlight.png
+    21300058: btn_tanchuangyeqian03_normal.png
+    21300060: btn_tanchuangyeqian04_highlight.png
+    21300062: btn_tanchuangyeqian04_normal.png
+    21300064: btn_tanchuangyeqian05_highlight.png
+    21300066: btn_tanchuangyeqian05_normal.png
+    21300068: btn_tanchuangyeqian_disable.png
+    21300070: btn_tanchuangyeqian_highlight.png
+    21300072: btn_tanchuangyeqian_normal.png
+    21300074: btn_wenhao_normal.png
+    21300076: btn_yeqian_highlight.png
+    21300078: btn_yeqian_normal.png
+    21300080: panel_jiantoudi_1.png
+    21300082: panel_jiantoudi_2.png
+    21300084: pic_baoxiang02.png
+    21300086: pic_baoxiang02dakai.png
+    21300088: pic_biaoqian.png
+    21300090: pic_biaoqian01.png
+    21300092: pic_biaoqian02.png
+    21300094: pic_biaoqiandi.png
+    21300096: pic_dengl_gonggaotanchuang.png
+    21300098: pic_dengl_gonggaotanchuang_title.png
+    21300100: pic_dengl_guanbi.png
+    21300102: pic_dian.png
+    21300104: pic_gantanhao.png
+    21300106: pic_gongfang_yidashangxiandi.png
+    21300108: pic_gonglve.png
+    21300110: pic_guanbi.png
+    21300112: pic_guanbi_shijie.png
+    21300114: pic_guojia01_jingdutiao2.png
+    21300116: pic_guojia02_jingdutiao2.png
+    21300118: pic_guojia03_jingdutiao2.png
+    21300120: pic_guojia_guojiadongliang_guanzhi_wukapaiwenhao.png
+    21300122: pic_guojia_guojiadongliang_pinzhikuangxinxidi.png
+    21300124: pic_guojia_guojiadongliang_renmingtihuanguanzhi_fangdajing.png
+    21300126: pic_guojia_guojiajichu_jiantou.png
+    21300128: pic_guojia_renwu_tips_di.png
+    21300130: pic_heiszhezhao01.png
+    21300132: pic_huanwen.png
+    21300134: pic_jia.png
+    21300136: pic_jiahao.png
+    21300138: pic_jian.png
+    21300140: pic_jiantou02.png
+    21300142: pic_jiantou03.png
+    21300144: pic_jiayuan_suo_hui.png
+    21300146: pic_jiayuan_tiejiangpu_biaotidi.png
+    21300148: pic_jiayuan_ziyuandi.png
+    21300150: pic_jiban_toumingchen.png
+    21300152: pic_jijiebiaoqian.png
+    21300154: pic_jindutiao01.png
+    21300156: pic_jindutiao01_di.png
+    21300158: pic_jindutiao01_di02.png
+    21300160: pic_jindutiao02.png
+    21300162: pic_jindutiao_1.png
+    21300164: pic_jindutiao_2.png
+    21300166: pic_jindutiao_yxlb.png
+    21300168: pic_jindutiaodi_3.png
+    21300170: pic_jingjichang_dianfengzhangbao_lishizhanbao_redupaiming_di1ming_di.png
+    21300172: pic_jingjichang_dianfengzhangbao_lishizhanbao_redupaiming_di2ming_di.png
+    21300174: pic_jingjichang_dianfengzhangbao_lishizhanbao_redupaiming_di3ming_di.png
+    21300176: pic_jingjichang_dianfengzhangbao_mingchengxiadedi.png
+    21300178: pic_jingjichang_jingdutiao1.png
+    21300180: pic_jingjichang_jingdutiao2.png
+    21300182: pic_jingjichang_jingdutiao2di.png
+    21300184: pic_jingjichang_jingdutiao3.png
+    21300186: pic_junfu_biaoqianmingchengdi.png
+    21300188: pic_junfu_tujian_jinjiexinxidi.png
+    21300190: pic_kaiguan.png
+    21300192: pic_longwen.png
+    21300194: pic_luxian.png
+    21300196: pic_luxian1.png
+    21300198: pic_name_kuang.png
+    21300200: pic_renwu_ziyuandi.png
+    21300202: pic_shangdian_lioaotianqipao.png
+    21300204: pic_shangdian_zhekoudi.png
+    21300206: pic_shengjijiasui_xinxidi3.png
+    21300208: pic_shijiezhanbao_duiwu.png
+    21300210: pic_shijiezhanbao_duiwu1.png
+    21300212: pic_shijiezhanbao_duiwu_hui.png
+    21300214: pic_shijiezhanbao_duiwu_xuanzhe.png
+    21300216: pic_shijiezhanbao_duiwu_xuanzhe1.png
+    21300218: pic_shijiezhanbao_duiwu_xuanzhehui.png
+    21300220: pic_shijiezhangongjiangli_ziyuandi01.png
+    21300222: pic_shuoming_titledi.png
+    21300224: pic_shurudi_01.png
+    21300226: pic_suipian.png
+    21300228: pic_suipian_xuanzhongkuang.png
+    21300230: pic_suo.png
+    21300232: pic_suo2.png
+    21300234: pic_suo_hui.png
+    21300236: pic_tianxiadashi_jindutiao_shu.png
+    21300238: pic_tianxiadashi_jindutiao_wei.png
+    21300240: pic_tianxiadashi_jindutiao_wu.png
+    21300242: pic_tips.png
+    21300244: pic_tips_xian.png
+    21300246: pic_title_02.png
+    21300248: pic_tongyong_tishi_di.png
+    21300250: pic_wenzi_zhandouli_2.png
+    21300252: pic_wujiang_jinjie_xinxigeduan.png
+    21300254: pic_wujiang_ziyuandixiazhezhao.png
+    21300256: pic_xiala_jiantou.png
+    21300258: pic_xingxing.png
+    21300260: pic_xingxing_2.png
+    21300262: pic_xingxing_3.png
+    21300264: pic_xinxidi01.png
+    21300266: pic_xinxidi02.png
+    21300268: pic_xinxigeduan.png
+    21300270: pic_xinximianban.png
+    21300272: pic_xinximianban02.png
+    21300274: pic_xinximianban04.png
+    21300276: pic_xuanze_X.png
+    21300278: pic_xuanze_gou.png
+    21300280: pic_xuanzhongkuang_bian.png
+    21300282: pic_xuanzhongkuang_di.png
+    21300284: pic_xuanzhongkuang_yuanxing_bian.png
+    21300286: pic_yuanxing_xuanzhongkuang.png
+    21300288: pic_zhanbao_shuzidi.png
+    21300290: pic_zhanxing_dikuang1.png
+    21300292: pic_zhanxing_dikuang1_disable.png
+    21300294: pic_zhanxing_dikuang2.png
+    21300296: pic_zhanxing_dikuang2_disable.png
+    21300298: pic_zhanxing_jiaobiao.png
+    21300300: pic_zhengwu_xuanzhongkuang.png
+    21300302: pic_zhezhao.png
+    21300304: pic_zhuxiantuitu_jiantou03.png
+    21300306: pic_zhuxiantuitu_jiantou04.png
+    21300308: pic_ziyuanshuliang_di.png
+    21300310: window_di.png
+    21300312: window_title_01.png
+    21300314: window_title_01_xia.png
+    21300316: window_title_02_di.png
+    21300318: window_title_02shang.png
+  externalObjects: {}
+  serializedVersion: 9
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: btn_anniu01_normal.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 197
+        width: 146
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bb5d16c27a4eab46b4570c45b57a54e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_anniu02_normal.png
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 289
+        width: 146
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 688aa24de97d27d44b6e455fb4852309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_anniu03_disable.png
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 220
+        width: 146
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f28fc4bb1bad7b4188c4b221ada6836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_anniu06_disable.png
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 610
+        width: 115
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73c2df38514ca974a8925ad290c21e4e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_anniu06_normal.png
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 448
+        width: 115
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0193e18d621b80f48ad99bd63233a165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_anniu06_normal_lv.png
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 393
+        width: 115
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73fe33ea06736564cb46c818b33a2afd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_anniu07_normal.png
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 160
+        width: 145
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2cbb9f1584883b44bb53dbf62952305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_anniu07_normal_lv.png
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 151
+        width: 145
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e3446546b3d0cd4ea8815dd28ac47be
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_anniu07_zuixao02_normal.png
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 399
+        width: 80
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0cdd5c594c01be489e2991992186b48
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_anniu07_zuixao_disable.png
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 421
+        width: 80
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43e15c303d27c12499b56d55851df703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_anniu07_zuixao_normal.png
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 382
+        width: 80
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 765ad603121111c49a0327cd0d3d8e62
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_anniu08_disable.png
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 605
+        width: 109
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 314f67b5b8199244f95c446fee05b7ff
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_anniu08_normal.png
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 457
+        width: 109
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f971106c03cbc9442858f36f417e822a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_anniu09_normal.png
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 335
+        width: 109
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2c4a6decd6becb47929fa3a1974e782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_back_jiantou_normal.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 129
+        width: 135
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1db505ca2450dbc43a2bcb5b1c7269e4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_back_normal.png
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 55
+        width: 135
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e3817e6d544701489ea6a1b60bbc6de
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_biaoqian01_highlight.png
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 515
+        width: 124
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d4c59a3617da8d4399c11e28bf1ebd2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_biaoqian01_normal.png
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 503
+        width: 124
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c250c85593591ae49a87de2d0bf3ed0a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_biaoqian_keji_disable.png
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 402
+        width: 148
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e587adacc6220c6478f4622f1491188c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_biaoqian_keji_highlight.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 366
+        width: 148
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88e4302931e68154286c0f668ec34ac5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_biaoqian_keji_normal.png
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 441
+        width: 148
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae014f23c07aa5148a016bb91cc57787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_biaoqian_keji_zhihui.png
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 358
+        width: 148
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b11b2570930f1c4a8bcb2e0c54e850a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_jianzhushengji_huangse.png
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 831
+        width: 62
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23108b0d0dd78b24988831e16a6e538b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_jianzhushengji_huangse02.png
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 786
+        width: 75
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d01d8c2b91114141a52a9c9a63c47cb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_jianzhushengji_lvse.png
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 785
+        width: 62
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32f2ddbe1fb495c4cb85c865e6ad84de
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_jianzhushengji_lvse02.png
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 359
+        width: 75
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95c8e5d1ca4c59245b62c0579cb9a966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_shijiezhanbao_highlight.png
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 307
+        width: 142
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4710841b33627040b62fe3939b78515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_shijiezhanbao_normal.png
+      rect:
+        serializedVersion: 2
+        x: 839
+        y: 124
+        width: 142
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccd6909abcb1ab047b937a3b249c32c6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_tanchuangyeqian03_highlight.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 527
+        width: 162
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68b5838dfc828cb4998b38365a97da53
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_tanchuangyeqian03_normal.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 266
+        width: 146
+        height: 97
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70ea4461d414d734fa124acb74d94be7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_tanchuangyeqian04_highlight.png
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 559
+        width: 158
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e19917b89714b4439c8f93696e0d4ea
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_tanchuangyeqian04_normal.png
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 485
+        width: 156
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 309e06314f88310498ba2a86d51264ce
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_tanchuangyeqian05_highlight.png
+      rect:
+        serializedVersion: 2
+        x: 847
+        y: 195
+        width: 136
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcbdcd403bab8e445af4204cd1f21155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_tanchuangyeqian05_normal.png
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 61
+        width: 136
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4cbd93ed176ebe469501d1f6f0ecf73
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_tanchuangyeqian_disable.png
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 175
+        width: 145
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0972171e74985b45b0f98293457541d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_tanchuangyeqian_highlight.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 449
+        width: 159
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 670f1f629e4127a42b71a60856357618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_tanchuangyeqian_normal.png
+      rect:
+        serializedVersion: 2
+        x: 552
+        y: 229
+        width: 143
+        height: 75
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0798e5a822f22342bf68d8223dd41f7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_wenhao_normal.png
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 478
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fdf54dbfc3953934dbece41db9118791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_yeqian_highlight.png
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 291
+        width: 92
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bc275e329285fa4184bae1c3b531251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: btn_yeqian_normal.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 49
+        width: 92
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2ac59ab9f9c12645a79e5a0e64495d4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panel_jiantoudi_1.png
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 299
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46d1600d03e940449a18c5f8e0df7fb5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: panel_jiantoudi_2.png
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 245
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b63c163eb13d5674a83b7091b3da0ed7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_baoxiang02.png
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 917
+        width: 71
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfb7f09d58caea1469d46abebf68c74c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_baoxiang02dakai.png
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 846
+        width: 71
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbbf4f2858a93264d8a31d1db486bebb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_biaoqian.png
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 129
+        width: 92
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76d175ee877309c429f6f9972d4282e4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_biaoqian01.png
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 198
+        width: 92
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 363ec6d744daa8940a5d93dc2e23c31b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_biaoqian02.png
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 154
+        width: 92
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f60f300de5c79d146b67999b86201f24
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_biaoqiandi.png
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 634
+        width: 160
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee3580921ea108a4a95a233e3ea219da
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_dengl_gonggaotanchuang.png
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 320
+        width: 86
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3638c059005ef4942ae1d4f06047d443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_dengl_gonggaotanchuang_title.png
+      rect:
+        serializedVersion: 2
+        x: 721
+        y: 967
+        width: 284
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3f5a7fb9f91a714eafbcdab6dc0364a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_dengl_guanbi.png
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 492
+        width: 82
+        height: 137
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55e1448f8e9c51d47ad8b012e953d650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_dian.png
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 752
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc810feb8854c3b4b8e6dc5e2fdecb63
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_gantanhao.png
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 5
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e9f05b39cc4c0b4e8bc79c1e9b519a6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_gongfang_yidashangxiandi.png
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 866
+        width: 228
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2896948d4bec7fd41bcd7ccc5a65fcf6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_gonglve.png
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 378
+        width: 54
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3f03ceacce67574c9422498fe7685b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_guanbi.png
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 42
+        width: 40
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ebc3bc7eb8fc014dbef5136a42e2905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_guanbi_shijie.png
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 177
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 602959e6ecfe1b44ab3f962ef0bf9a10
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_guojia01_jingdutiao2.png
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 907
+        width: 239
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 509606a57353e4f4d9d934178d1ca51d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_guojia02_jingdutiao2.png
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 874
+        width: 239
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03a4e2fd9407ec94bb1374d33351be83
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_guojia03_jingdutiao2.png
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 914
+        width: 240
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f02c35d346405c041af7fc8f8240b27d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_guojia_guojiadongliang_guanzhi_wukapaiwenhao.png
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 338
+        width: 42
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dee8ee3b0bb4e8f41a44cb6c51d7f8c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_guojia_guojiadongliang_pinzhikuangxinxidi.png
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 660
+        width: 194
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cdb5b0d43210bd4fa5ed8f2bec279ba
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_guojia_guojiadongliang_renmingtihuanguanzhi_fangdajing.png
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 12
+        width: 34
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77dd869b362005248bfc4ceb34d024ed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_guojia_guojiajichu_jiantou.png
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 267
+        width: 20
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fdac09f1c483d24caedb25d7408e497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_guojia_renwu_tips_di.png
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 675
+        width: 20
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fdaae874d26cb44fb09c4376982c163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_heiszhezhao01.png
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 225
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e4e7c884bfdef44193034808c9038cc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_huanwen.png
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 593
+        width: 180
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dd8e21fd49ffb0429ef572134e9c098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jia.png
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 153
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ffa9ea37d3a44748abaca880df9b4af
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jiahao.png
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 739
+        width: 62
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ff449a2e2e0dfc4bbc32f3ceb43a49d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jian.png
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 154
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d7eb9db7008e3d4ea8fd60721307840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jiantou02.png
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 697
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f503ae2cc3918b4188b6ea99d20ca5f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jiantou03.png
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 693
+        width: 62
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0264abe5fa2e2a489c0edf8e115517e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jiayuan_suo_hui.png
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 266
+        width: 54
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99e0f714d17ad4d41aa132ca99f4bca8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jiayuan_tiejiangpu_biaotidi.png
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 438
+        width: 56
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e75e2339e3fb3c342843ab29459def02
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jiayuan_ziyuandi.png
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 204
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 214800534e7d945409d916b14c921b65
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jiban_toumingchen.png
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 663
+        width: 33
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b13bffaa63a32ba46ac96b5108e1171f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jijiebiaoqian.png
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 260
+        width: 138
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e5fccf882b5a7742afac08f3c66ae31
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jindutiao01.png
+      rect:
+        serializedVersion: 2
+        x: 895
+        y: 365
+        width: 98
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bd2b7468e934fd4385579225326b07d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jindutiao01_di.png
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 409
+        width: 102
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9a925da78bdb7f4d83f8a05b9115674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jindutiao01_di02.png
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 385
+        width: 102
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 292005db597ea524f92eca09b6519fc0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jindutiao02.png
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 433
+        width: 108
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a157cb383677fc7468529cf1a4c555ef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jindutiao_1.png
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 404
+        width: 44
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c32fe43f4b2378844a2ab219efefe4f4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jindutiao_2.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 974
+        width: 322
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22174d149ad04154d96ca81a317e98a8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jindutiao_yxlb.png
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 593
+        width: 131
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 370a5bdebfd6e2e4cbe8283e2f0ff8d8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jindutiaodi_3.png
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 403
+        width: 47
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ae1820dbe7e935409333f73f3a37923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jingjichang_dianfengzhangbao_lishizhanbao_redupaiming_di1ming_di.png
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 524
+        width: 178
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 305ab449b2f29d64a84f5e2d24c70234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jingjichang_dianfengzhangbao_lishizhanbao_redupaiming_di2ming_di.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 696
+        width: 178
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79ba0adb65520234799a0e6b135475b6
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jingjichang_dianfengzhangbao_lishizhanbao_redupaiming_di3ming_di.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 627
+        width: 178
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e242c2ab9fc93749b7215e305249695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jingjichang_dianfengzhangbao_mingchengxiadedi.png
+      rect:
+        serializedVersion: 2
+        x: 1002
+        y: 383
+        width: 20
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a046263e259880e498051b9dbd573a5e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jingjichang_jingdutiao1.png
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 241
+        width: 53
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d25ede3109485348bc2341cfc014844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jingjichang_jingdutiao2.png
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 547
+        width: 66
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a53c17e77b729148bdfeade25c8f126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jingjichang_jingdutiao2di.png
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 219
+        width: 53
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5f707a25fa0fde4caf4467ad3330981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_jingjichang_jingdutiao3.png
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 235
+        width: 45
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 343b5c38e1bbd1f4a87d10978a9be845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_junfu_biaoqianmingchengdi.png
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 460
+        width: 82
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eda9c0991d0d7324cb0593ebb7ca25fe
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_junfu_tujian_jinjiexinxidi.png
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 955
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 230201998573caa4fac57a2e763ec124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_kaiguan.png
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 290
+        width: 42
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18d9b176e0c0350488a1cbda5f28948d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_longwen.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 765
+        width: 302
+        height: 206
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 964e0bde404dbc645a8835f22cb17ef0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_luxian.png
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 996
+        width: 14
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d77437eb3b5fda146ba86dd13a0c535f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_luxian1.png
+      rect:
+        serializedVersion: 2
+        x: 918
+        y: 731
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6c5f4df54d212143823b213c5957156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_name_kuang.png
+      rect:
+        serializedVersion: 2
+        x: 962
+        y: 875
+        width: 58
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a5730b1bd190e34cbe160b0952cb28f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_renwu_ziyuandi.png
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 920
+        width: 58
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26941f86fcce78349b299fe6a417f8b2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_shangdian_lioaotianqipao.png
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 682
+        width: 73
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cc69b4f37d871a4cac082e7bb1ae7c7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_shangdian_zhekoudi.png
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 826
+        width: 47
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8eed8c1b2e48224e8ea78401b45c8fa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_shengjijiasui_xinxidi3.png
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 136
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c9c762f7914d10429722dd65b9cc474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_shijiezhanbao_duiwu.png
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 738
+        width: 67
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f19d4733de69a7242b2115cd9f4bce6e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_shijiezhanbao_duiwu1.png
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 709
+        width: 67
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b566794a75ef0844bb35cf4c7d476be
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_shijiezhanbao_duiwu_hui.png
+      rect:
+        serializedVersion: 2
+        x: 644
+        y: 572
+        width: 67
+        height: 134
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 623bf129ff7f19746987180f2c9d13a0
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_shijiezhanbao_duiwu_xuanzhe.png
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 599
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9dd2fb76176aa045bdea6d768ebffa8
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_shijiezhanbao_duiwu_xuanzhe1.png
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 564
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34ea6a80a6ab74741af48e8dfa290d0c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_shijiezhanbao_duiwu_xuanzhehui.png
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 529
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab0309d6fd9ce01458ba758541e5c1fa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_shijiezhangongjiangli_ziyuandi01.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 4
+        width: 90
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b84c77da2189a2840ab2cf5a9a7c1eae
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_shuoming_titledi.png
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 988
+        width: 343
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b319220d8cad846ba0da6b50fa8f3a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_shurudi_01.png
+      rect:
+        serializedVersion: 2
+        x: 688
+        y: 123
+        width: 142
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc18ee7408137e240bb0d5074726d8f7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_suipian.png
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 634
+        width: 23
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb26e9d7cc792b7458a75bf6f2a2c968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_suipian_xuanzhongkuang.png
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 223
+        width: 108
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0092501f6483cc140a3571dad2e53826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_suo.png
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 837
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f55129250a4ecf4181fe419e79762b3
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_suo2.png
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 536
+        width: 57
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f72162d8a5d92f42b13d07600282944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_suo_hui.png
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 480
+        width: 57
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41d973f327a3a2b4ca12efeffdfc4d00
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_tianxiadashi_jindutiao_shu.png
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 894
+        width: 240
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65cab4f162f53ce4ab7718b2417f34e2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_tianxiadashi_jindutiao_wei.png
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 947
+        width: 240
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e73b10e4b2199047af3d7673c4fc438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_tianxiadashi_jindutiao_wu.png
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 927
+        width: 240
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4de5f2a68b4a8e54791b7186c8fe620c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_tips.png
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 432
+        width: 43
+        height: 43
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9626aa386f651674cb5c001fb4b6dfc5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_tips_xian.png
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 727
+        width: 198
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de23cb423a399b04fa5fd40da23c9664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_title_02.png
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 701
+        width: 180
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02445b28405717b47a3b9c3a10871210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_tongyong_tishi_di.png
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 741
+        width: 200
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dc977cd21dbac04198bed5aaaaf9356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_wenzi_zhandouli_2.png
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 806
+        width: 191
+        height: 65
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e4f9314c500d3d4e98a8f933e7be7ba
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_wujiang_jinjie_xinxigeduan.png
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 781
+        width: 84
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd4cd14bdc051f8448816b0c0ff5a979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_wujiang_ziyuandixiazhezhao.png
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 981
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 317b4f937250f1b4e834d1c8208fb6a1
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_xiala_jiantou.png
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 494
+        width: 41
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb5805b1835eaba47904b4812b546535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_xingxing.png
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 491
+        width: 55
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 183f77aa448d17248bf551d6630ba1e2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_xingxing_2.png
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 243
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5708dde2fbd4b14caccee3cc4ff9c92
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_xingxing_3.png
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 435
+        width: 55
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6d76a4d3d99ff64ea6489a4f4857a67
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_xinxidi01.png
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 715
+        width: 120
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 395be48a32062fe4fb326617865f7b14
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_xinxidi02.png
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 665
+        width: 120
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62ffc02fbf1d8994a98dc203c1ed551d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_xinxigeduan.png
+      rect:
+        serializedVersion: 2
+        x: 1008
+        y: 974
+        width: 8
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9417634c315c5134f99d72ac23a578a4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_xinximianban.png
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 784
+        width: 210
+        height: 79
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bb9544fcb6b5cf48b07d2b900c6cf82
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_xinximianban02.png
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 922
+        width: 45
+        height: 69
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb4cb8986528beb4caf4d1c9b219ce32
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_xinximianban04.png
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 632
+        width: 83
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 444b6814f9f5b3f45aa72ebb0c3fcaab
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_xuanze_X.png
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 309
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f94034e8a11cbf44b9da15081b8cc4aa
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_xuanze_gou.png
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 176
+        width: 36
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 616be8f6b5e8a8b4bb088d753863b058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_xuanzhongkuang_bian.png
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 263
+        width: 45
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83f91b70df9ab3f41a3d355a1c8f9882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_xuanzhongkuang_di.png
+      rect:
+        serializedVersion: 2
+        x: 505
+        y: 354
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4def2fcd7c0c16499a28932784491fb
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_xuanzhongkuang_yuanxing_bian.png
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 89
+        width: 35
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54b0bf841b3282b4f8e5df48e16608ed
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_yuanxing_xuanzhongkuang.png
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 253
+        width: 146
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da05ec7557e84b045ac154244bc9a2a2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_zhanbao_shuzidi.png
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 592
+        width: 57
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 770f4754babe0fc4bb6bcd15ab132aa4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_zhanxing_dikuang1.png
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 906
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b037a496594edf74f8aae847dd7d2f76
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_zhanxing_dikuang1_disable.png
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 878
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47cb251b5913b3343b1f2ac30be59501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_zhanxing_dikuang2.png
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 341
+        width: 22
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28f28989042f48e479429b0715d50eb5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_zhanxing_dikuang2_disable.png
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 267
+        width: 22
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 850324697accd09409b2cc5d82b3b2ee
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_zhanxing_jiaobiao.png
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 877
+        width: 64
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c31672f242debb0429df77eb7797a601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_zhengwu_xuanzhongkuang.png
+      rect:
+        serializedVersion: 2
+        x: 503
+        y: 306
+        width: 46
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 075573a9f091a2149a63d1e106b3a52c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_zhezhao.png
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 936
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45327d03a7dd7ba4c927d0b664e3b5f2
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_zhuxiantuitu_jiantou03.png
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 150
+        width: 52
+        height: 82
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbc930b2d30ac014fb4f015ec4a1d40c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_zhuxiantuitu_jiantou04.png
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 425
+        width: 40
+        height: 66
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 267e9edbf04e89e4fb03569119b12125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pic_ziyuanshuliang_di.png
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 125
+        width: 142
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 100aba15d9ec52340854790dc9de7125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: window_di.png
+      rect:
+        serializedVersion: 2
+        x: 306
+        y: 658
+        width: 58
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b810fa3b71953d489ed22beabf5c0bc
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: window_title_01.png
+      rect:
+        serializedVersion: 2
+        x: 375
+        y: 934
+        width: 268
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efb9ca214a882ec4989d8f44e6f08615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: window_title_01_xia.png
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 667
+        width: 166
+        height: 31
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5eefcdb3aab821468d39bc47e6f1ce9
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: window_title_02_di.png
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 994
+        width: 370
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df5b447e39b3e204c80b5862b061a039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: window_title_02shang.png
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 769
+        width: 183
+        height: 34
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b7b458cef92a79478d62d705f08b5ef
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 10b34e3c70f002f459bea0a040c62c7a
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

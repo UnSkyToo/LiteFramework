@@ -1,20 +1,27 @@
 ﻿using System;
 using Lite.Framework.Log;
 using Lite.Framework.Lua;
+using Lite.Framework.Manager;
 using Lite.Logic;
+using Lite.Logic.UI;
 
 namespace Lite.Framework
 {
-    public static class GameLauncher
+    public static class LiteLauncher
     {
         private static bool IsLaunch_;
 
         public static bool Startup()
         {
-            Logger.DInfo("Preload Startup");
+            UIManager.OpenUI<LogoUI>();
+            
+            Logger.DInfo("Preload Start...");
             IsLaunch_ = false;
             Preload((IsDone) =>
             {
+                UIManager.CloseUI<LogoUI>();
+
+                Logger.DInfo("Preload End...");
                 if (!IsDone)
                 {
                     IsLaunch_ = false;
@@ -67,7 +74,7 @@ namespace Lite.Framework
 
         private static void Preload(Action<bool> Callback)
         {
-            Callback?.Invoke(true);
+            TimerManager.AddTimer(1, () => { Callback?.Invoke(true); });
         }
     }
 }
