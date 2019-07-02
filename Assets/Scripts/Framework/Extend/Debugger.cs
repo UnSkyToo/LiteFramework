@@ -21,9 +21,6 @@ namespace Lite.Framework.Extend
             {LogType.Log, Color.white}
         };
 
-        private float ShakeOldY_ = 0;
-        private float ShakeNewY_ = 0;
-        private float ShakeY_ = 0;
         private const float ShakeAcceleration_ = 3.0f;
         private const string WindowTitle_ = "Console";
         private static readonly GUIContent ClearLabel_ = new GUIContent("Clear", "clear the contents of the console");
@@ -74,7 +71,7 @@ namespace Lite.Framework.Extend
             {
                 ExchangeWindow();
             }
-#else
+#endif
         if (Input.touchCount == NeedTouchCount_)
         {
             TouchedTime_ += Time.deltaTime;
@@ -89,7 +86,6 @@ namespace Lite.Framework.Extend
         {
             TouchedTime_ = 0.0f;
         }
-#endif
         }
 
         void OnGUI()

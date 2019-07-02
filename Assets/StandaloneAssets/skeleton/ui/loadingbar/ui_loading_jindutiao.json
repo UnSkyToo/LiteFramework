@@ -1,0 +1,86 @@
+{
+"skeleton": { "hash": "7bFeEotjqfIzMiVwDzwTemiCM14", "spine": "3.5.46", "width": 0, "height": 0 },
+"bones": [
+	{ "name": "root" },
+	{ "name": "bone", "parent": "root" }
+],
+"slots": [
+	{ "name": "ui_loading_jindutiao_00000", "bone": "bone" }
+],
+"skins": {
+	"default": {
+		"ui_loading_jindutiao_00000": {
+			"ui_loading_jindutiao_00000": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00001": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00002": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00003": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00004": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00005": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00006": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00007": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00008": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00009": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00010": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00011": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00012": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00013": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00014": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00015": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00016": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00017": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00018": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00019": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00020": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00021": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00022": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00023": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00024": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00025": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00026": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00027": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00028": { "width": 1270, "height": 14 },
+			"ui_loading_jindutiao_00029": { "width": 1270, "height": 14 }
+		}
+	}
+},
+"animations": {
+	"animation": {
+		"slots": {
+			"ui_loading_jindutiao_00000": {
+				"attachment": [
+					{ "time": 0, "name": "ui_loading_jindutiao_00000" },
+					{ "time": 0.0333, "name": "ui_loading_jindutiao_00001" },
+					{ "time": 0.0667, "name": "ui_loading_jindutiao_00002" },
+					{ "time": 0.1, "name": "ui_loading_jindutiao_00003" },
+					{ "time": 0.1333, "name": "ui_loading_jindutiao_00004" },
+					{ "time": 0.1667, "name": "ui_loading_jindutiao_00005" },
+					{ "time": 0.2, "name": "ui_loading_jindutiao_00006" },
+					{ "time": 0.2333, "name": "ui_loading_jindutiao_00007" },
+					{ "time": 0.2667, "name": "ui_loading_jindutiao_00008" },
+					{ "time": 0.3, "name": "ui_loading_jindutiao_00009" },
+					{ "time": 0.3333, "name": "ui_loading_jindutiao_00010" },
+					{ "time": 0.3667, "name": "ui_loading_jindutiao_00011" },
+					{ "time": 0.4, "name": "ui_loading_jindutiao_00012" },
+					{ "time": 0.4333, "name": "ui_loading_jindutiao_00013" },
+					{ "time": 0.4667, "name": "ui_loading_jindutiao_00014" },
+					{ "time": 0.5, "name": "ui_loading_jindutiao_00015" },
+					{ "time": 0.5333, "name": "ui_loading_jindutiao_00016" },
+					{ "time": 0.5667, "name": "ui_loading_jindutiao_00017" },
+					{ "time": 0.6, "name": "ui_loading_jindutiao_00018" },
+					{ "time": 0.6333, "name": "ui_loading_jindutiao_00019" },
+					{ "time": 0.6667, "name": "ui_loading_jindutiao_00020" },
+					{ "time": 0.7, "name": "ui_loading_jindutiao_00021" },
+					{ "time": 0.7333, "name": "ui_loading_jindutiao_00022" },
+					{ "time": 0.7667, "name": "ui_loading_jindutiao_00023" },
+					{ "time": 0.8, "name": "ui_loading_jindutiao_00024" },
+					{ "time": 0.8333, "name": "ui_loading_jindutiao_00025" },
+					{ "time": 0.8667, "name": "ui_loading_jindutiao_00026" },
+					{ "time": 0.9, "name": "ui_loading_jindutiao_00027" },
+					{ "time": 0.9333, "name": "ui_loading_jindutiao_00028" },
+					{ "time": 0.9667, "name": "ui_loading_jindutiao_00029" }
+				]
+			}
+		}
+	}
+}
+}

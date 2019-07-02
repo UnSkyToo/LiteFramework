@@ -1,9 +1,11 @@
 ﻿using System;
-using Lite.Framework.Log;
 using Lite.Framework.Lua;
 using Lite.Framework.Manager;
 using Lite.Logic;
 using Lite.Logic.UI;
+using UnityEngine;
+using UnityEngine.UI;
+using Logger = Lite.Framework.Log.Logger;
 
 namespace Lite.Framework
 {

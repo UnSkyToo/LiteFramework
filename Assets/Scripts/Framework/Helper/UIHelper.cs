@@ -8,12 +8,12 @@ namespace Lite.Framework.Helper
     {
         public static Transform FindChild(Transform Parent, string ChildPath)
         {
-            return Parent?.Find(ChildPath);
+            return Parent == null ? null : Parent.Find(ChildPath);
         }
 
         public static T FindComponent<T>(Transform Parent, string ChildPath) where T : Component
         {
-            var Obj = Parent?.Find(ChildPath);
+            var Obj = FindChild(Parent, ChildPath);
             if (Obj != null)
             {
                 return Obj.GetComponent<T>();
@@ -21,9 +21,9 @@ namespace Lite.Framework.Helper
             return null;
         }
 
-        public static Component FindComponent(Transform Parent, string ChildParent, Type CType)
+        public static Component FindComponent(Transform Parent, string ChildPath, Type CType)
         {
-            var Obj = Parent?.Find(ChildParent);
+            var Obj = FindChild(Parent, ChildPath);
             if (Obj != null)
             {
                 return Obj.GetComponent(CType);
@@ -31,9 +31,9 @@ namespace Lite.Framework.Helper
             return null;
         }
 
-        public static Component FindComponent(Transform Parent, string ChildParent, string CType)
+        public static Component FindComponent(Transform Parent, string ChildPath, string CType)
         {
-            var Obj = Parent?.Find(ChildParent);
+            var Obj = FindChild(Parent, ChildPath);
             if (Obj != null)
             {
                 return Obj.GetComponent(CType);
@@ -43,17 +43,27 @@ namespace Lite.Framework.Helper
 
         public static void AddEvent(Transform Obj, Action<GameObject> Callback, UIEventType Type = UIEventType.Click)
         {
+            if (Obj == null)
+            {
+                return;
+            }
+
             UIEventTriggerListener.Get(Obj).AddCallback(Type, Callback);
         }
 
         public static void RemoveEvent(Transform Obj, Action<GameObject> Callback, UIEventType Type = UIEventType.Click)
         {
+            if (Obj == null)
+            {
+                return;
+            }
+
             UIEventTriggerListener.Get(Obj).RemoveCallback(Type, Callback);
         }
 
         public static void AddEventToChild(Transform Parent, string ChildPath, Action<GameObject> Callback, UIEventType Type = UIEventType.Click)
         {
-            var Obj = Parent?.Find(ChildPath);
+            var Obj = FindChild(Parent, ChildPath);
             if (Obj != null)
             {
                 UIEventTriggerListener.Get(Obj).AddCallback(Type, Callback);
@@ -62,7 +72,7 @@ namespace Lite.Framework.Helper
 
         public static void RemoveEventFromChild(Transform Parent, string ChildPath, Action<GameObject> Callback, UIEventType Type = UIEventType.Click)
         {
-            var Obj = Parent?.Find(ChildPath);
+            var Obj = FindChild(Parent, ChildPath);
             if (Obj != null)
             {
                 UIEventTriggerListener.Get(Obj).RemoveCallback(Type, Callback);
@@ -99,7 +109,7 @@ namespace Lite.Framework.Helper
 
         public static void ShowChild(Transform Parent, string ChildPath)
         {
-            var Obj = Parent?.Find(ChildPath);
+            var Obj = FindChild(Parent, ChildPath);
             if (Obj != null)
             {
                 Obj.gameObject.SetActive(true);
@@ -108,7 +118,7 @@ namespace Lite.Framework.Helper
 
         public static void HideChild(Transform Parent, string ChildPath)
         {
-            var Obj = Parent?.Find(ChildPath);
+            var Obj = FindChild(Parent, ChildPath);
             if (Obj != null)
             {
                 Obj.gameObject.SetActive(false);
@@ -117,8 +127,13 @@ namespace Lite.Framework.Helper
 
         public static void EnableTouched(Transform Target, bool Enabled)
         {
+            if (Target == null)
+            {
+                return;
+            }
+
             var Listener = Target.GetComponent<UIEventTriggerListener>();
-            if (Listener)
+            if (Listener != null)
             {
                 Listener.enabled = Enabled;
             }
@@ -127,7 +142,7 @@ namespace Lite.Framework.Helper
         public static void EnableTouched(Transform Parent, string ChildPath, bool Enabled)
         {
             var Listener = FindComponent<UIEventTriggerListener>(Parent, ChildPath);
-            if (Listener)
+            if (Listener != null)
             {
                 Listener.enabled = Enabled;
             }
@@ -135,6 +150,11 @@ namespace Lite.Framework.Helper
 
         public static void RemoveAllEvent(Transform Parent, bool Recursively)
         {
+            if (Parent == null)
+            {
+                return;
+            }
+
             UIEventTriggerListener.Remove(Parent);
 
             if (!Recursively)
@@ -152,27 +172,29 @@ namespace Lite.Framework.Helper
 
         public static void RemoveAllChildren(Transform Parent)
         {
-            if (Parent != null)
+            if (Parent == null)
             {
-                var ChildCount = Parent.childCount;
+                return;
+            }
 
-                for (var Index = 0; Index < ChildCount; ++Index)
-                {
-                    UnityEngine.Object.Destroy(Parent.GetChild(Index).gameObject);
-                }
+            var ChildCount = Parent.childCount;
+            for (var Index = 0; Index < ChildCount; ++Index)
+            {
+                UnityEngine.Object.Destroy(Parent.GetChild(Index)?.gameObject);
             }
         }
 
         public static void HideAllChildren(Transform Parent)
         {
-            if (Parent != null)
+            if (Parent == null)
             {
-                var ChildCount = Parent.childCount;
+                return;
+            }
 
-                for (var Index = 0; Index < ChildCount; ++Index)
-                {
-                    Parent.GetChild(Index).gameObject.SetActive(false);
-                }
+            var ChildCount = Parent.childCount;
+            for (var Index = 0; Index < ChildCount; ++Index)
+            {
+                Parent.GetChild(Index)?.gameObject.SetActive(false);
             }
         }
     }

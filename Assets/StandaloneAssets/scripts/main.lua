@@ -4,7 +4,7 @@ local main = {}
 
 function main:Startup()
 	print('main start')
-	self.lo = UIManager:OpenUI('loginui', 'loginui')
+	self.lo = UIManager:OpenUI('loadingui', 'loadingui')
 	return true
 end
 

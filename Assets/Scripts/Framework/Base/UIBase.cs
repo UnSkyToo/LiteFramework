@@ -51,13 +51,19 @@ namespace Lite.Framework.Base
         public void Show()
         {
             OnShow();
-            UITransform.gameObject.SetActive(true);
+            if (UITransform != null)
+            {
+                UITransform.gameObject.SetActive(true);
+            }
         }
 
         public void Hide()
         {
             OnHide();
-            UITransform.gameObject.SetActive(false);
+            if (UITransform != null)
+            {
+                UITransform.gameObject.SetActive(false);
+            }
         }
 
         public void Tick(float DeltaTime)

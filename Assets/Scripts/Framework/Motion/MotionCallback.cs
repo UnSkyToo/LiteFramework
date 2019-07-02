@@ -7,9 +7,10 @@ namespace Lite.Framework.Motion
     {
         private readonly Action Callback_;
 
-        public MotionCallback()
+        public MotionCallback(Action Callback)
             : base()
         {
+            Callback_ = Callback;
             IsEnd = true;
         }
 
