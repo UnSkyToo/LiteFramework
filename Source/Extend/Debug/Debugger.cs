@@ -8,7 +8,7 @@ namespace LiteFramework.Extend.Debug
 
         public static float Scale { get; set; } = 1.0f;
         public static Rect MiniBounds { get; set; } = new Rect(10, 10, 100, 60);
-        public static Rect NormalBounds { get; set; } = new Rect(10,10, 640, 480);
+        public static Rect NormalBounds { get; set; } = new Rect(10,10, 640, 800);
 
         private const string WindowTitle_ = "<b>Lite Debuger</b>";
 
@@ -92,7 +92,7 @@ namespace LiteFramework.Extend.Debug
         {
             Scale = Mathf.Max((float)Screen.width / 720.0f, 1);
             MiniBounds = new Rect(10, 10, 100, 60);
-            NormalBounds = new Rect(10, 10, 640, 480);
+            NormalBounds = new Rect(10, 10, 640, 800);
         }
 
         private void DrawMiniWindow(int WindowID)

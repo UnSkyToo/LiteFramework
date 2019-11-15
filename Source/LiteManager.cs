@@ -23,6 +23,8 @@ namespace LiteFramework
         private static MonoBehaviour MonoBehaviourInstance { get; set; }
         private static float EnterBackgroundTime_ = 0.0f;
 
+        private static ILogic MainLogic_;
+
         public static bool Startup(MonoBehaviour Instance, ILogic Logic)
         {
             IsPause = true;
@@ -45,8 +47,15 @@ namespace LiteFramework
                 return false;
             }
 
-            if (!LiteGameManager.Startup(Logic))
+            if (!LiteGameManager.Startup())
             {
+                return false;
+            }
+
+            MainLogic_ = Logic;
+            if (MainLogic_ == null || !MainLogic_.Startup())
+            {
+                LLogger.LError("Logic Startup Failed");
                 return false;
             }
 
@@ -58,6 +67,8 @@ namespace LiteFramework
         public static void Shutdown()
         {
             OnEnterBackground();
+
+            MainLogic_?.Shutdown();
             LiteGameManager.Shutdown();
             LiteCoreManager.Shutdown();
 
@@ -90,6 +101,7 @@ namespace LiteFramework
             var Dt = DeltaTime/* * TimeScale*/;
             LiteCoreManager.Tick(Dt);
             LiteGameManager.Tick(Dt);
+            MainLogic_?.Tick(Dt);
         }
 
         public static void Restart()
@@ -102,7 +114,7 @@ namespace LiteFramework
             IsRestart = false;
             Debug.ClearDeveloperConsole();
             Shutdown();
-            IsPause = !Startup(MonoBehaviourInstance, LiteGameManager.MainLogic);
+            IsPause = !Startup(MonoBehaviourInstance, MainLogic_);
         }
 
         public static T Attach<T>() where T : MonoBehaviour
