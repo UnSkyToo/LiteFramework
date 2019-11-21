@@ -9,6 +9,7 @@ namespace LiteFramework.Core.Motion
         private float CurrentTime_;
         private Vector3 BeginScale_;
         private Vector3 EndScale_;
+        private Vector3 TargetScale_;
 
         public ScaleMotion(float Time, Vector3 Scale, bool IsRelative)
             : base()
@@ -24,10 +25,11 @@ namespace LiteFramework.Core.Motion
             IsEnd = false;
             CurrentTime_ = 0;
             BeginScale_ = Master.localScale;
+            TargetScale_ = EndScale_;
 
             if (IsRelative_)
             {
-                EndScale_ += BeginScale_;
+                TargetScale_ += BeginScale_;
             }
         }
 
@@ -41,11 +43,11 @@ namespace LiteFramework.Core.Motion
             var T = CurrentTime_ / TotalTime_;
             if (T >= 1.0f)
             {
-                Master.localScale = EndScale_;
+                Master.localScale = TargetScale_;
                 IsEnd = true;
             }
 
-            Master.localScale = Vector3.Lerp(BeginScale_, EndScale_, T);
+            Master.localScale = Vector3.Lerp(BeginScale_, TargetScale_, T);
         }
     }
 }

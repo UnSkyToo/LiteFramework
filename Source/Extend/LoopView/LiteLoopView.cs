@@ -25,11 +25,12 @@ namespace LiteFramework.Extend.LoopView
         public RectTransform Viewport;
         public RectTransform Content;
         public Vector2 ItemSize;
-        public float Space;
+        public float ItemSpace;
+        public float ItemOffset;
         public float Elasticity = 0.1f;
         public int TotalCount;
 
-        private bool Inertia_ = true;
+        protected bool Inertia_ = true;
         private float DecelerationRate_ = 0.135f;
         private int ViewItemCount_;
 
@@ -39,12 +40,12 @@ namespace LiteFramework.Extend.LoopView
         private Vector2 Velocity_;
 
         private Vector2 PointerStartLocalCursor_;
-        private Vector2 ContentStartPosition_;
-        private bool Dragging_;
+        protected Vector2 ContentStartPosition_;
+        protected bool Dragging_;
 
-        private Vector2 PrevPosition_;
+        protected Vector2 PrevPosition_;
 
-        private int CurrentIndex_;
+        protected int CurrentIndex_;
         private int PreviousIndex_;
         private bool IsInit_;
 
@@ -111,7 +112,7 @@ namespace LiteFramework.Extend.LoopView
             FillItemList();
         }
 
-        private void ClearItemList()
+        protected  virtual void ClearItemList()
         {
             for (var Index = 0; Index < ItemList_.Count; ++Index)
             {
@@ -120,7 +121,7 @@ namespace LiteFramework.Extend.LoopView
             ItemList_.Clear();
         }
 
-        private void FillItemList()
+        protected  virtual void FillItemList()
         {
             ClearItemList();
             for (var Index = 0; Index < ViewItemCount_; ++Index)
@@ -205,7 +206,7 @@ namespace LiteFramework.Extend.LoopView
             return Bound;
         }
 
-        private void UpdateBounds()
+        protected void UpdateBounds()
         {
             ViewBounds_ = new Bounds(Viewport.rect.center, Viewport.rect.size);
             ContentBounds_ = GetBounds();
@@ -249,7 +250,7 @@ namespace LiteFramework.Extend.LoopView
                                         1.0)) * ViewSize * Mathf.Sign(OverStretching);
         }
 
-        private void SetContentAnchoredPosition(Vector2 Position)
+        protected void SetContentAnchoredPosition(Vector2 Position)
         {
             InternalSetContentAnchoredPosition(ref Position);
 

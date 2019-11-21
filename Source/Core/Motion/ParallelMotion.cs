@@ -15,6 +15,8 @@
 
         public override void Enter()
         {
+            IsEnd = Count_ == 0;
+
             for (var Index = 0; Index < Count_; ++Index)
             {
                 SubMotions_[Index].Master = Master;

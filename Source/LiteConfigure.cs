@@ -5,7 +5,19 @@ namespace LiteFramework
     public static class LiteConfigure
     {
         public const string LiteFrameworkVersion = "19.10.31.0";
-        public const bool IsDebugMode = true;
+        private const bool IsDebugMode_ = true;
+        public static bool IsDebugMode
+        {
+            get
+            {
+                if (UnityEngine.Debug.isDebugBuild)
+                {
+                    return IsDebugMode_;
+                }
+
+                return false;
+            }
+        }
         public const bool EnterBackgroundAutoRestart = false;
         public const float EnterBackgroundMaxTime = 90.0f;
         public const string AssetBundleManifestName = "StreamingAssets.lite";

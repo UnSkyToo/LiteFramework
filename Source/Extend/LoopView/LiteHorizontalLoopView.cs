@@ -53,12 +53,12 @@ namespace LiteFramework.Extend.LoopView
 #endif
         protected override int InternalCalculateViewItemCount()
         {
-            return Mathf.RoundToInt(transform.GetComponent<RectTransform>().sizeDelta.x / ItemSize.x) + 1;
+            return Mathf.CeilToInt(transform.GetComponent<RectTransform>().sizeDelta.x / ItemSize.x) + 1;
         }
 
         protected override Vector2 InternalCalculateContentSize()
         {
-            return new Vector2(TotalCount * (ItemSize.x + Space), 0);
+            return new Vector2(TotalCount * (ItemSize.x + ItemSpace) + ItemOffset, 0);
         }
 
         protected override ItemEntity InternalCreateItem(int Index)
@@ -77,17 +77,17 @@ namespace LiteFramework.Extend.LoopView
 
         protected override Vector2 InternalGetItemPosition(int Index)
         {
-            return new Vector2(Index * (ItemSize.x + Space) + (ItemSize.x * 0.5f), 0);
+            return new Vector2(Index * (ItemSize.x + ItemSpace) + (ItemSize.x * 0.5f) + ItemOffset, 0);
         }
 
         protected override int InternalCalculateIndex(Vector2 Position)
         {
-            return Mathf.FloorToInt(-Position.x / (ItemSize.x + Space));
+            return Mathf.FloorToInt((-Position.x - ItemOffset) / (ItemSize.x + ItemSpace));
         }
 
         protected override Vector2 InternalCalculatePositionWithIndex(int Index)
         {
-            return new Vector2(-Index * (ItemSize.x + Space), 0);
+            return new Vector2(-Index * (ItemSize.x + ItemSpace), 0);
         }
 
         protected override Vector2 InternalCalculateOffset(ref Bounds ViewBounds, ref Bounds ContentBounds,

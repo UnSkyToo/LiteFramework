@@ -19,5 +19,8 @@ namespace LiteFramework.Game.Sfx
         {
             IsAlive = false;
         }
+
+        public abstract void Pause();
+        public abstract void Resume();
     }
 }

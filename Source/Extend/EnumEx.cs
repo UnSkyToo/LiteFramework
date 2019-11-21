@@ -4,7 +4,7 @@ namespace LiteFramework.Extend
 {
     public static class EnumEx
     {
-        public static int Count<T>()
+        public static int Count<T>() where T : Enum
         {
             return Enum.GetNames(typeof(T)).Length;
         }

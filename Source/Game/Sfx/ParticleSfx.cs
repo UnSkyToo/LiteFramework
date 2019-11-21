@@ -55,5 +55,15 @@ namespace LiteFramework.Game.Sfx
                 Finished_ = Finished;
             }
         }
+
+        public override void Pause()
+        {
+            Particle_.Pause(true);
+        }
+
+        public override void Resume()
+        {
+            Particle_.Play(true);
+        }
     }
 }

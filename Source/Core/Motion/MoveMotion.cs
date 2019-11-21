@@ -9,6 +9,7 @@ namespace LiteFramework.Core.Motion
         private float CurrentTime_;
         private Vector3 BeginPosition_;
         private Vector3 EndPosition_;
+        private Vector3 TargetPosition_;
 
         public MoveMotion(float Time, Vector3 Position, bool IsRelative)
             : base()
@@ -24,10 +25,11 @@ namespace LiteFramework.Core.Motion
             IsEnd = false;
             CurrentTime_ = 0;
             BeginPosition_ = Master.localPosition;
+            TargetPosition_ = EndPosition_;
 
             if (IsRelative_)
             {
-                EndPosition_ += BeginPosition_;
+                TargetPosition_ += BeginPosition_;
             }
         }
 
@@ -41,11 +43,11 @@ namespace LiteFramework.Core.Motion
             var T = CurrentTime_ / TotalTime_;
             if (T >= 1.0f)
             {
-                Master.localPosition = EndPosition_;
+                Master.localPosition = TargetPosition_;
                 IsEnd = true;
             }
 
-            Master.localPosition = Vector3.Lerp(BeginPosition_, EndPosition_, T);
+            Master.localPosition = Vector3.Lerp(BeginPosition_, TargetPosition_, T);
         }
     }
 }

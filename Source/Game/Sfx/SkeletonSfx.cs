@@ -44,6 +44,16 @@ namespace LiteFramework.Game.Sfx
             return Graphic_.AnimationState.GetCurrent(0).IsComplete;
         }
 
+        public override void Pause()
+        {
+            Graphic_.freeze = true;
+        }
+
+        public override void Resume()
+        {
+            Graphic_.freeze = false;
+        }
+
         public override void Play(string AnimationName, bool IsLoop = false, Action Finished = null)
         {
             if (Graphic_.SkeletonData.FindAnimation(AnimationName) == null)

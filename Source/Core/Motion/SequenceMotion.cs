@@ -18,6 +18,7 @@
 
         public override void Enter()
         {
+            IsEnd = Count_ == 0;
             ActiveNextMotion();
         }
 
