@@ -167,6 +167,11 @@ namespace LiteFramework.Game.UI
             UIHelper.SetActive(UITransform, ChildPath, Value);
         }
 
+        public bool IsActive(string ChildPath)
+        {
+            return UIHelper.IsActive(UITransform, ChildPath);
+        }
+
         public void EnableTouched(bool Enabled)
         {
             UIHelper.EnableTouched(UITransform, Enabled);

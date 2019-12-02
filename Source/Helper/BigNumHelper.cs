@@ -150,6 +150,11 @@ namespace LiteFramework.Helper
 
         public static BigInteger Mul(BigInteger Base, float Factor)
         {
+            if (Mathf.Approximately(Factor, 1.0f))
+            {
+                return Base;
+            }
+
             if (Factor < CarryValueFloat_ && Base < MaxMulValue_)
             {
                 return (int)((int) Base * Factor);

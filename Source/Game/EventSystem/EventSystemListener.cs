@@ -43,6 +43,16 @@ namespace LiteFramework.Game.EventSystem
             GetOrCreateHandler(Master.gameObject, Type).RemoveCallback(Callback);
         }
 
+        public static void ClearCallback(Transform Master, EventSystemType Type)
+        {
+            var Handler = Master.GetComponent(EventHandlerList_[Type]) as EventSystemBaseHandler;
+            if (Handler != null)
+            {
+                Handler.Dispose();
+                UnityEngine.Object.DestroyImmediate(Handler);
+            }
+        }
+
         public static void ClearCallback(Transform Master)
         {
             if (Master.GetComponent(typeof(EventSystemBaseHandler)) == null)
@@ -52,12 +62,7 @@ namespace LiteFramework.Game.EventSystem
 
             for (var Index = 0; Index < EventTypeCount_; ++Index)
             {
-                var Handler = Master.GetComponent(EventHandlerList_[(EventSystemType)Index]) as EventSystemBaseHandler;
-                if (Handler != null)
-                {
-                    Handler.Dispose();
-                    UnityEngine.Object.DestroyImmediate(Handler);
-                }
+                ClearCallback(Master, (EventSystemType)Index);
             }
         }
 

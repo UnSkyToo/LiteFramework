@@ -31,47 +31,78 @@ namespace LiteFramework.Core.Archive
             return Default;
         }
 
-        public T[] ReadArray<T>(string Key, T[] Default) where T : IArchiveInfo, new()
+        public T[] ReadArray<T>(string Key, T[] Default)
         {
             if (!CacheList_.ContainsKey(Key))
             {
                 return Default;
             }
 
-            if (CacheList_[Key] is object[] ArrayObj)
+            if (CacheList_[Key] is T[] Value)
             {
-                var OutputArray = new T[ArrayObj.Length];
-                for (var Index = 0; Index < ArrayObj.Length; ++Index)
+                if (Default != null && Value.Length < Default.Length)
                 {
-                    OutputArray[Index] = (T) ArrayObj[Index];
+                    var NewValue = new T[Default.Length];
+
+                    for (var Index = 0; Index < NewValue.Length; ++Index)
+                    {
+                        if (Index < Value.Length)
+                        {
+                            NewValue[Index] = Value[Index];
+                        }
+                        else
+                        {
+                            NewValue[Index] = Default[Index];
+                        }
+                    }
+
+                    return NewValue;
                 }
-                return OutputArray;
+
+                return Value;
             }
 
             LLogger.LWarning($"archive type error : {Key} - {typeof(T)}");
             return Default;
         }
 
-        public T[,] ReadArray2<T>(string Key, T[,] Default) where T : IArchiveInfo, new()
+        public T[,] ReadArray2<T>(string Key, T[,] Default)
         {
             if (!CacheList_.ContainsKey(Key))
             {
                 return Default;
             }
 
-            if (CacheList_[Key] is object[,] ArrayObj)
+            if (CacheList_[Key] is T[,] Value)
             {
-                var Width = ArrayObj.GetLength(0);
-                var Height = ArrayObj.GetLength(1);
-                var OutputArray = new T[Width, Height];
-                for (var X = 0; X < Width; ++X)
+                var Len1 = Value.GetLength(0);
+                var Len2 = Value.GetLength(1);
+                var NewLen1 = Default?.GetLength(0) ?? Len1;
+                var NewLen2 = Default?.GetLength(1) ?? Len2;
+
+                if (Len1 < NewLen1 || Len2 < NewLen2)
                 {
-                    for (var Y = 0; Y < Height; ++Y)
+                    var NewValue = new T[NewLen1, NewLen2];
+
+                    for (var X = 0; X < NewLen1; ++X)
                     {
-                        OutputArray[X, Y] = (T) ArrayObj[X, Y];
+                        for (var Y = 0; Y < NewLen2; ++Y)
+                        {
+                            if (X < Len1 && Y < Len2)
+                            {
+                                NewValue[X, Y] = Value[X, Y];
+                            }
+                            else
+                            {
+                                NewValue[X, Y] = Default[X, Y];
+                            }
+                        }
                     }
+
+                    return NewValue;
                 }
-                return OutputArray;
+
+                return Value;
             }
 
             LLogger.LWarning($"archive type error : {Key} - {typeof(T)}");
@@ -92,6 +123,73 @@ namespace LiteFramework.Core.Archive
 
             LLogger.LWarning($"archive type error : {Key} - {typeof(T)}");
             return new T();
+        }
+
+        public T[] ReadSubArray<T>(string Key, T[] Default) where T : IArchiveInfo, new()
+        {
+            if (!CacheList_.ContainsKey(Key))
+            {
+                return Default;
+            }
+
+            if (CacheList_[Key] is object[] ArrayObj)
+            {
+                var Len = Default?.Length ?? ArrayObj.Length;
+                var OutputArray = new T[Len];
+                for (var Index = 0; Index < Len; ++Index)
+                {
+                    if (Index < ArrayObj.Length)
+                    {
+                        OutputArray[Index] = (T) ArrayObj[Index];
+                    }
+                    else
+                    {
+                        OutputArray[Index] = Default[Index];
+                    }
+                }
+
+                return OutputArray;
+            }
+
+            LLogger.LWarning($"archive type error : {Key} - {typeof(T)}");
+            return Default;
+        }
+
+        public T[,] ReadSubArray2<T>(string Key, T[,] Default) where T : IArchiveInfo, new()
+        {
+            if (!CacheList_.ContainsKey(Key))
+            {
+                return Default;
+            }
+
+            if (CacheList_[Key] is object[,] ArrayObj)
+            {
+                var Len1 = ArrayObj.GetLength(0);
+                var Len2 = ArrayObj.GetLength(1);
+                var Width = Default?.GetLength(0) ?? Len1;
+                var Height = Default?.GetLength(1) ?? Len2;
+                var OutputArray = new T[Width, Height];
+
+                for (var X = 0; X < Width; ++X)
+                {
+                    for (var Y = 0; Y < Height; ++Y)
+                    {
+                        if (X < Len1 && Y < Len2)
+                        {
+                            OutputArray[X, Y] = (T) ArrayObj[X, Y];
+                        }
+                        else
+                        {
+                            OutputArray[X, Y] = Default[X, Y];
+                        }
+                    }
+                }
+
+                return OutputArray;
+            }
+
+            LLogger.LWarning($"archive type error : {Key} - {typeof(T)}");
+            return Default;
         }
 
         public void Flush()
@@ -174,6 +272,7 @@ namespace LiteFramework.Core.Archive
                     {
                         return (Key, null);
                     }
+
                     var Height = Stream.ReadInt16();
 
                     var Array2T = Type.GetType(Stream.ReadString());

@@ -12,7 +12,7 @@ namespace LiteFramework.Game.Base
         public Vector2 Position
         {
             get => Transform_.localPosition;
-            set => Transform_.localPosition = new Vector3(value.x, value.y, 1 - Mathf.Clamp(value.y / (float)Screen.height, -1, 1));
+            set => Transform_.localPosition = new Vector3(value.x, value.y, GetZOrder(value));
         }
 
         public Vector2 Scale
@@ -40,14 +40,17 @@ namespace LiteFramework.Game.Base
             NotDeleteAsset_ = NotDeleteAsset;
 
             KeepName_ = KeepName;
-            if (!KeepName_)
+            if (!KeepName_ && Transform_ != null)
             {
                 Transform_.name = $"{Name}<{ID}>";
             }
 
-            //Position = Vector2.zero;
-            //Scale = Vector2.one;
-            Rotation = Quaternion.identity;
+            if (Transform_ != null)
+            {
+                //Position = Vector2.zero;
+                //Scale = Vector2.one;
+                Rotation = Quaternion.identity;
+            }
 
             HasMotion_ = false;
         }
@@ -64,6 +67,11 @@ namespace LiteFramework.Game.Base
                 }
                 Transform_ = null;
             }
+        }
+
+        protected virtual float GetZOrder(Vector2 Value)
+        {
+            return 1 - Mathf.Clamp(Value.y / (float) Screen.height, -1, 1);
         }
 
         public Transform GetTransform()

@@ -68,6 +68,21 @@ namespace LiteFramework.Helper
             RemoveEvent(Entity?.GetTransform(), Callback, Type);
         }
 
+        public static void RemoveEvent(Transform Obj, EventSystemType Type = EventSystemType.Click)
+        {
+            if (Obj == null)
+            {
+                return;
+            }
+
+            EventSystemListener.ClearCallback(Obj, Type);
+        }
+
+        public static void RemoveEvent(GameEntity Entity, EventSystemType Type = EventSystemType.Click)
+        {
+            RemoveEvent(Entity?.GetTransform(), Type);
+        }
+
         public static void AddEventToChild(Transform Parent, string ChildPath, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             var Obj = Parent?.Find(ChildPath);

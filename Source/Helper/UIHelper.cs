@@ -284,6 +284,22 @@ namespace LiteFramework.Helper
             SetActive(Entity?.GetTransform(), ChildPath, Value);
         }
 
+        public static bool IsActive(Transform Parent, string ChildPath)
+        {
+            var Obj = FindChild(Parent, ChildPath);
+            if (Obj != null)
+            {
+                return Obj.gameObject.activeSelf;
+            }
+
+            return false;
+        }
+
+        public static bool IsActive(GameEntity Entity, string ChildPath)
+        {
+            return IsActive(Entity?.GetTransform(), ChildPath);
+        }
+
         public static void EnableTouched(Transform Target, bool Value)
         {
             if (Target == null)

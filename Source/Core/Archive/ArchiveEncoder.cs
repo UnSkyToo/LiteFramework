@@ -27,7 +27,10 @@ namespace LiteFramework.Core.Archive
             CacheList_.Add(Key, Value);
         }
 
-        public void WriteArray<T>(string Key, T[] Value) where T : IArchiveInfo, new()
+        /// <summary>
+        /// only support (Int32, BigInteger, string)
+        /// </summary>
+        public void WriteArray<T>(string Key, T[] Value)
         {
             if (CacheList_.ContainsKey(Key))
             {
@@ -39,7 +42,10 @@ namespace LiteFramework.Core.Archive
             CacheList_.Add(Key, Value);
         }
 
-        public void WriteArray2<T>(string Key, T[,] Value) where T : IArchiveInfo, new()
+        /// <summary>
+        /// only support (Int32, BigInteger)
+        /// </summary>
+        public void WriteArray2<T>(string Key, T[,] Value)
         {
             if (CacheList_.ContainsKey(Key))
             {
@@ -52,6 +58,30 @@ namespace LiteFramework.Core.Archive
         }
 
         public void WriteSub<T>(string Key, T Value) where T : IArchiveInfo, new()
+        {
+            if (CacheList_.ContainsKey(Key))
+            {
+                LLogger.LWarning($"archive repeat key : {Key}");
+                CacheList_[Key] = Value;
+                return;
+            }
+
+            CacheList_.Add(Key, Value);
+        }
+
+        public void WriteSubArray<T>(string Key, T[] Value) where T : IArchiveInfo, new()
+        {
+            if (CacheList_.ContainsKey(Key))
+            {
+                LLogger.LWarning($"archive repeat key : {Key}");
+                CacheList_[Key] = Value;
+                return;
+            }
+
+            CacheList_.Add(Key, Value);
+        }
+
+        public void WriteSubArray2<T>(string Key, T[,] Value) where T : IArchiveInfo, new()
         {
             if (CacheList_.ContainsKey(Key))
             {
