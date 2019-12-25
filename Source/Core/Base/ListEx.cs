@@ -7,17 +7,20 @@ namespace LiteFramework.Core.Base
     public class ListEx<T> : IEnumerable<T>
     {
         private bool Dirty_;
+        private bool InEach_;
 
         private readonly List<T> Values_;
         private readonly List<T> AddList_;
         private readonly List<T> RemoveList_;
 
-        public int Count => Values_.Count;
-        public int RealCount => AddList_.Count + Values_.Count + RemoveList_.Count;
+        public int Count => AddList_.Count + Values_.Count - RemoveList_.Count;
+
+        public T this[int Index] => Values_[Index];
 
         public ListEx()
         {
             Dirty_ = false;
+            InEach_ = false;
 
             Values_ = new List<T>();
             AddList_ = new List<T>();
@@ -43,27 +46,72 @@ namespace LiteFramework.Core.Base
             Values_.Clear();
         }
 
+        public bool Contains(T Item)
+        {
+            return Values_.Contains(Item) || AddList_.Contains(Item);
+        }
+
         public void Foreach(Action<T> TickFunc)
         {
             Flush();
+            InEach_ = true;
             foreach (var Item in Values_)
             {
                 TickFunc?.Invoke(Item);
             }
+            InEach_ = false;
+        }
+
+        /// <summary>
+        /// Return T when TickFunc return true
+        /// </summary>
+        public T ForeachReturn(Func<T, bool> TickFunc)
+        {
+            Flush();
+            InEach_ = true;
+            foreach (var Item in Values_)
+            {
+                if (TickFunc?.Invoke(Item) == true)
+                {
+                    return Item;
+                }
+            }
+            InEach_ = false;
+            return default;
         }
 
         public void Foreach<P>(Action<T, P> TickFunc, P Param)
         {
             Flush();
+            InEach_ = true;
             foreach (var Item in Values_)
             {
                 TickFunc?.Invoke(Item, Param);
             }
+            InEach_ = false;
+        }
+
+        /// <summary>
+        /// Return T when TickFunc return true
+        /// </summary>
+        public T ForeachReturn<P>(Func<T, P, bool> TickFunc, P Param)
+        {
+            Flush();
+            InEach_ = true;
+            foreach (var Item in Values_)
+            {
+                if (TickFunc?.Invoke(Item, Param) == true)
+                {
+                    return Item;
+                }
+            }
+            InEach_ = false;
+            return default;
         }
 
         public void Flush()
         {
-            if (Dirty_)
+            if (Dirty_ && !InEach_)
             {
                 foreach (var Item in RemoveList_)
                 {

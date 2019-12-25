@@ -22,6 +22,11 @@ namespace LiteFramework.Game.EventSystem
 
         public void AddCallback(UnityAction Callback)
         {
+            if (Callback == null)
+            {
+                return;
+            }
+
             EventCallbackEx_ += Callback;
         }
 

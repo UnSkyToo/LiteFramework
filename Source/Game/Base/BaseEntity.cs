@@ -1,10 +1,9 @@
-﻿using System;
-using LiteFramework.Core.Base;
+﻿using LiteFramework.Core.Base;
 using LiteFramework.Interface;
 
 namespace LiteFramework.Game.Base
 {
-    public abstract class BaseEntity : BaseObject, IDisposable, ITick
+    public abstract class BaseEntity : BaseObject, ISubstance
     {
         public string Name { get; protected set; }
         public bool IsAlive { get; set; }
@@ -16,7 +15,11 @@ namespace LiteFramework.Game.Base
             this.IsAlive = true;
         }
 
-        public abstract void Dispose();
+        public virtual void Dispose()
+        {
+            IsAlive = false;
+        }
+
         public abstract void Tick(float DeltaTime);
     }
 }

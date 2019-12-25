@@ -233,6 +233,10 @@ namespace LiteFramework.Core.Archive
                     return (Key, Stream.ReadString());
                 case ArchiveDataType.BigInteger:
                     return (Key, Stream.ReadBigInteger());
+                case ArchiveDataType.Vector2:
+                    return (Key, new UnityEngine.Vector2(Stream.ReadFloat(), Stream.ReadFloat()));
+                case ArchiveDataType.Vector2Int:
+                    return (Key, new UnityEngine.Vector2Int(Stream.ReadInt32(), Stream.ReadInt32()));
                 case ArchiveDataType.ArrayInt32:
                     return (Key, Stream.ReadArrayInt32());
                 case ArchiveDataType.Array2Int32:

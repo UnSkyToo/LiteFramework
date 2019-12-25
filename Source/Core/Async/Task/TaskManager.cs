@@ -45,7 +45,7 @@ namespace LiteFramework.Core.Async.Task
                 }
             });
 
-            if (MainThreadTaskList_.RealCount > 0)
+            if (MainThreadTaskList_.Count > 0)
             {
                 lock (MainThreadLock_)
                 {

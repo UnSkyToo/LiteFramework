@@ -147,6 +147,16 @@ namespace LiteFramework.Core.Archive
                     Stream.WriteInt8((byte)ArchiveDataType.BigInteger);
                     Stream.WriteBigInteger(BigIntegerData);
                     break;
+                case UnityEngine.Vector2 Vec2:
+                    Stream.WriteInt8((byte)ArchiveDataType.Vector2);
+                    Stream.WriteFloat(Vec2.x);
+                    Stream.WriteFloat(Vec2.y);
+                    break;
+                case UnityEngine.Vector2Int Vec2Int:
+                    Stream.WriteInt8((byte)ArchiveDataType.Vector2Int);
+                    Stream.WriteInt32(Vec2Int.x);
+                    Stream.WriteInt32(Vec2Int.y);
+                    break;
                 case int[] ArrayInt32Data:
                     Stream.WriteInt8((byte)ArchiveDataType.ArrayInt32);
                     Stream.WriteArrayInt32(ArrayInt32Data);

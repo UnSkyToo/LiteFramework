@@ -83,6 +83,16 @@ namespace LiteFramework.Helper
             RemoveEvent(Entity?.GetTransform(), Type);
         }
 
+        public static void ClearEvent(Transform Obj, EventSystemType Type)
+        {
+            EventSystemListener.ClearCallback(Obj, Type);
+        }
+
+        public static void ClearEvent(GameEntity Entity, EventSystemType Type)
+        {
+            ClearEvent(Entity?.GetTransform(), Type);
+        }
+
         public static void AddEventToChild(Transform Parent, string ChildPath, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             var Obj = Parent?.Find(ChildPath);
@@ -137,6 +147,20 @@ namespace LiteFramework.Helper
         public static void RemoveEventFromChild(GameEntity Entity, string ChildPath, UnityAction Callback, EventSystemType Type = EventSystemType.Click)
         {
             RemoveEventFromChild(Entity?.GetTransform(), ChildPath, Callback, Type);
+        }
+
+        public static void ClearEventFromChild(Transform Parent, string ChildPath, EventSystemType Type)
+        {
+            var Obj = Parent?.Find(ChildPath);
+            if (Obj != null)
+            {
+                EventSystemListener.ClearCallback(Obj, Type);
+            }
+        }
+
+        public static void ClearEventFromChild(GameEntity Entity, string ChildPath, EventSystemType Type)
+        {
+            ClearEventFromChild(Entity?.GetTransform(), ChildPath, Type);
         }
 
         public static void RemoveAllEvent(Transform Parent, bool Recursively)

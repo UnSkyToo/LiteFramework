@@ -92,6 +92,11 @@ namespace LiteFramework.Game.UI
             return UIHelper.FindChild(UITransform, ChildPath);
         }
 
+        public T GetComponent<T>() where T : Component
+        {
+            return UITransform.GetComponent<T>();
+        }
+
         public T GetComponent<T>(string ChildPath) where T : Component
         {
             return UIHelper.GetComponent<T>(UITransform, ChildPath);

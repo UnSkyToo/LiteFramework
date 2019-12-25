@@ -67,6 +67,8 @@ namespace LiteFramework.Game.Base
                 }
                 Transform_ = null;
             }
+
+            base.Dispose();
         }
 
         protected virtual float GetZOrder(Vector2 Value)

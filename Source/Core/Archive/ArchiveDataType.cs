@@ -13,6 +13,8 @@
         Double,
         String,
         BigInteger,
+        Vector2,
+        Vector2Int,
         ArrayInt32,
         Array2Int32,
         ArrayBigInteger,
