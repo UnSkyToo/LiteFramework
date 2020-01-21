@@ -7,7 +7,7 @@ namespace LiteFramework.Core.Base
     public class ListEx<T> : IEnumerable<T>
     {
         private bool Dirty_;
-        private bool InEach_;
+        private int InEach_;
 
         private readonly List<T> Values_;
         private readonly List<T> AddList_;
@@ -20,7 +20,7 @@ namespace LiteFramework.Core.Base
         public ListEx()
         {
             Dirty_ = false;
-            InEach_ = false;
+            InEach_ = 0;
 
             Values_ = new List<T>();
             AddList_ = new List<T>();
@@ -54,12 +54,12 @@ namespace LiteFramework.Core.Base
         public void Foreach(Action<T> TickFunc)
         {
             Flush();
-            InEach_ = true;
+            InEach_++;
             foreach (var Item in Values_)
             {
                 TickFunc?.Invoke(Item);
             }
-            InEach_ = false;
+            InEach_--;
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace LiteFramework.Core.Base
         public T ForeachReturn(Func<T, bool> TickFunc)
         {
             Flush();
-            InEach_ = true;
+            InEach_++;
             foreach (var Item in Values_)
             {
                 if (TickFunc?.Invoke(Item) == true)
@@ -76,19 +76,19 @@ namespace LiteFramework.Core.Base
                     return Item;
                 }
             }
-            InEach_ = false;
+            InEach_--;
             return default;
         }
 
         public void Foreach<P>(Action<T, P> TickFunc, P Param)
         {
             Flush();
-            InEach_ = true;
+            InEach_++;
             foreach (var Item in Values_)
             {
                 TickFunc?.Invoke(Item, Param);
             }
-            InEach_ = false;
+            InEach_--;
         }
 
         /// <summary>
@@ -97,7 +97,7 @@ namespace LiteFramework.Core.Base
         public T ForeachReturn<P>(Func<T, P, bool> TickFunc, P Param)
         {
             Flush();
-            InEach_ = true;
+            InEach_++;
             foreach (var Item in Values_)
             {
                 if (TickFunc?.Invoke(Item, Param) == true)
@@ -105,13 +105,13 @@ namespace LiteFramework.Core.Base
                     return Item;
                 }
             }
-            InEach_ = false;
+            InEach_--;
             return default;
         }
 
         public void Flush()
         {
-            if (Dirty_ && !InEach_)
+            if (Dirty_ && InEach_ == 0)
             {
                 foreach (var Item in RemoveList_)
                 {

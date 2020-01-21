@@ -17,6 +17,11 @@ namespace LiteFramework.Core.Archive
 
         public void Write<T>(string Key, T Value)
         {
+            if (Value == null)
+            {
+                return;
+            }
+
             if (CacheList_.ContainsKey(Key))
             {
                 LLogger.LWarning($"archive repeat key : {Key}");
@@ -32,6 +37,11 @@ namespace LiteFramework.Core.Archive
         /// </summary>
         public void WriteArray<T>(string Key, T[] Value)
         {
+            if (Value == null)
+            {
+                return;
+            }
+
             if (CacheList_.ContainsKey(Key))
             {
                 LLogger.LWarning($"archive repeat key : {Key}");
@@ -47,6 +57,11 @@ namespace LiteFramework.Core.Archive
         /// </summary>
         public void WriteArray2<T>(string Key, T[,] Value)
         {
+            if (Value == null)
+            {
+                return;
+            }
+
             if (CacheList_.ContainsKey(Key))
             {
                 LLogger.LWarning($"archive repeat key : {Key}");
@@ -59,6 +74,11 @@ namespace LiteFramework.Core.Archive
 
         public void WriteSub<T>(string Key, T Value) where T : IArchiveInfo, new()
         {
+            if (Value == null)
+            {
+                return;
+            }
+
             if (CacheList_.ContainsKey(Key))
             {
                 LLogger.LWarning($"archive repeat key : {Key}");
@@ -71,6 +91,11 @@ namespace LiteFramework.Core.Archive
 
         public void WriteSubArray<T>(string Key, T[] Value) where T : IArchiveInfo, new()
         {
+            if (Value == null)
+            {
+                return;
+            }
+
             if (CacheList_.ContainsKey(Key))
             {
                 LLogger.LWarning($"archive repeat key : {Key}");
@@ -83,6 +108,11 @@ namespace LiteFramework.Core.Archive
 
         public void WriteSubArray2<T>(string Key, T[,] Value) where T : IArchiveInfo, new()
         {
+            if (Value == null)
+            {
+                return;
+            }
+
             if (CacheList_.ContainsKey(Key))
             {
                 LLogger.LWarning($"archive repeat key : {Key}");
