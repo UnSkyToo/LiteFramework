@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using LiteFramework.Helper;
 
 namespace LiteFramework.Core.Motion
 {
@@ -10,7 +9,7 @@ namespace LiteFramework.Core.Motion
         private readonly float EndAlpha_;
         private float CurrentTime_;
 
-        private CanvasGroup Group_;
+        private MotionAlphaBox AlphaBox_;
 
         public FadeMotion(float Time, float BeginAlpha, float EndAlpha)
             : base()
@@ -25,8 +24,8 @@ namespace LiteFramework.Core.Motion
         {
             IsEnd = false;
             CurrentTime_ = 0;
-            Group_ = Master.GetOrAddComponent<CanvasGroup>();
-            Group_.alpha = BeginAlpha_;
+            AlphaBox_ = new MotionAlphaBox(Master);
+            AlphaBox_.SetAlpha(BeginAlpha_);
         }
 
         public override void Exit()
@@ -39,11 +38,11 @@ namespace LiteFramework.Core.Motion
             var T = CurrentTime_ / TotalTime_;
             if (T >= 1.0f)
             {
-                Group_.alpha = EndAlpha_;
+                AlphaBox_.SetAlpha(EndAlpha_);
                 IsEnd = true;
             }
 
-            Group_.alpha = Mathf.Lerp(BeginAlpha_, EndAlpha_, T);
+            AlphaBox_.SetAlpha(Mathf.Lerp(BeginAlpha_, EndAlpha_, T));
         }
     }
 

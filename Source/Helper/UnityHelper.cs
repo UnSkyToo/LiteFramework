@@ -58,7 +58,7 @@ namespace LiteFramework.Helper
 
         public static void AddSortingOrder(GameObject Parent, int Order)
         {
-            var Render = Parent.GetComponent<Renderer>();
+            /*var Render = Parent.GetComponent<Renderer>();
             if (Render != null)
             {
                 Render.sortingOrder += Order;
@@ -68,7 +68,7 @@ namespace LiteFramework.Helper
             if (Canvas != null)
             {
                 Canvas.sortingOrder += Order;
-            }
+            }*/
 
             var ChildrenR = Parent.GetComponentsInChildren<Renderer>();
             foreach (var Child in ChildrenR)

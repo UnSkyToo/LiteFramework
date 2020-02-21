@@ -41,7 +41,7 @@ namespace LiteFramework.Core.Motion
 
         public static BaseMotion Execute(Transform Master, BaseMotion Motion)
         {
-            if (Motion == null)
+            if (Master == null || Motion == null)
             {
                 return null;
             }

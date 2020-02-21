@@ -82,6 +82,7 @@ namespace LiteFramework.Core.Async.Group
             {
                 IsEnd = true;
                 Callback_?.Invoke();
+                return;
             }
 
             if (!IsParallel_)
