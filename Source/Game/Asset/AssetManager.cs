@@ -19,12 +19,12 @@ namespace LiteFramework.Game.Asset
 
         public static void Shutdown()
         {
-            Loader_.Shutdown();
+            Loader_?.Shutdown();
         }
 
         public static void Tick(float DeltaTime)
         {
-            Loader_.Tick(DeltaTime);
+            Loader_?.Tick(DeltaTime);
         }
 
         public static bool AssetCacheExisted(string AssetPath)

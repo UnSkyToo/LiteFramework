@@ -5,9 +5,9 @@ namespace LiteFramework.Core.Motion
 {
     public class MotionAlphaBox
     {
-        private SpriteRenderer Renderer_;
+        private readonly SpriteRenderer Renderer_;
+        private readonly CanvasGroup Group_;
         private Color OriginColor_;
-        private CanvasGroup Group_;
 
         public MotionAlphaBox(Transform Master)
         {

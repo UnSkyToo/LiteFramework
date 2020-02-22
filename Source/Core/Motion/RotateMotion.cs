@@ -24,10 +24,6 @@ namespace LiteFramework.Core.Motion
             BeginRotate_ = Master.localRotation;
         }
 
-        public override void Exit()
-        {
-        }
-
         public override void Tick(float DeltaTime)
         {
             CurrentTime_ += DeltaTime;

@@ -28,10 +28,6 @@ namespace LiteFramework.Core.Motion
             AlphaBox_.SetAlpha(BeginAlpha_);
         }
 
-        public override void Exit()
-        {
-        }
-
         public override void Tick(float DeltaTime)
         {
             CurrentTime_ += DeltaTime;

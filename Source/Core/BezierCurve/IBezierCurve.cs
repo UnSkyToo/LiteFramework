@@ -4,6 +4,6 @@ namespace LiteFramework.Core.BezierCurve
 {
     public interface IBezierCurve
     {
-        Vector2 Lerp(float Time);
+        Vector3 Lerp(float Time);
     }
 }

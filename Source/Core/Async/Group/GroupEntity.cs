@@ -74,6 +74,13 @@ namespace LiteFramework.Core.Async.Group
             return Item;
         }
 
+        public GroupWaitConditional CreateWaitConditional(Func<bool> ConditionFunc)
+        {
+            var Item = new GroupWaitConditional(this, ConditionFunc);
+            ItemList_.Add(Item);
+            return Item;
+        }
+
         public void ItemDone()
         {
             DoneCount_++;

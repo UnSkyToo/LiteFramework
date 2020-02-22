@@ -10,20 +10,11 @@ namespace LiteFramework.Core.Motion
             : base()
         {
             Callback_ = Callback;
-            IsEnd = true;
         }
 
         public override void Enter()
         {
             Callback_?.Invoke();
-        }
-
-        public override void Exit()
-        {
-        }
-
-        public override void Tick(float DeltaTime)
-        {
         }
     }
 
@@ -37,20 +28,31 @@ namespace LiteFramework.Core.Motion
         {
             Callback_ = Callback;
             Param_ = Param;
-            IsEnd = true;
         }
 
         public override void Enter()
         {
             Callback_?.Invoke(Param_);
         }
+    }
 
-        public override void Exit()
+    public class CallbackMotion<T1, T2> : BaseMotion
+    {
+        private readonly Action<T1, T2> Callback_;
+        private readonly T1 Param1_;
+        private readonly T2 Param2_;
+
+        public CallbackMotion(Action<T1, T2> Callback, T1 Param1, T2 Param2)
+            : base()
         {
+            Callback_ = Callback;
+            Param1_ = Param1;
+            Param2_ = Param2;
         }
 
-        public override void Tick(float DeltaTime)
+        public override void Enter()
         {
+            Callback_?.Invoke(Param1_, Param2_);
         }
     }
 }

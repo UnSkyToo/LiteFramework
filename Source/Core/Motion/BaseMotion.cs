@@ -19,10 +19,16 @@ namespace LiteFramework.Core.Motion
             IsEnd = true;
         }
 
-        public abstract void Enter();
+        public virtual void Enter()
+        {
+        }
 
-        public abstract void Tick(float DeltaTime);
+        public virtual void Tick(float DeltaTime)
+        {
+        }
 
-        public abstract void Exit();
+        public virtual void Exit()
+        {
+        }
     }
 }

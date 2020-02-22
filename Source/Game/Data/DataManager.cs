@@ -18,25 +18,42 @@ namespace LiteFramework.Game.Data
         {
         }
 
-        public static void Load(AssetUri Uri, Action<bool> Callback)
+        public static void LoadAsync(AssetUri Uri, Action<bool> Callback)
         {
             if (!DataList_.ContainsKey(Uri.AssetName))
             {
-                var Data = new DataTable(Uri.AssetName);
-                DataList_.Add(Uri.AssetName, Data);
-
                 AssetManager.CreateDataAsync(Uri, Buffer =>
                 {
+                    var Data = new DataTable(Uri.AssetName);
                     var Succeeded = Data.Parse(Buffer);
 
-                    if (!Succeeded)
+                    if (Succeeded)
                     {
-                        DataList_.Remove(Uri.AssetName);
+                        DataList_.Add(Uri.AssetName, Data);
                     }
 
                     Callback?.Invoke(Succeeded);
                 });
             }
+        }
+
+        public static bool LoadSync(AssetUri Uri)
+        {
+            if (!DataList_.ContainsKey(Uri.AssetName))
+            {
+                var Buffer = AssetManager.CreateDataSync(Uri);
+                var Data = new DataTable(Uri.AssetName);
+                var Succeeded = Data.Parse(Buffer);
+
+                if (Succeeded)
+                {
+                    DataList_.Add(Uri.AssetName, Data);
+                }
+
+                return Succeeded;
+            }
+
+            return true;
         }
 
         public static DataTable GetTable(string DataName)

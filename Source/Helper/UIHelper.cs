@@ -14,6 +14,22 @@ namespace LiteFramework.Helper
     {
         private static readonly Material GrayMaterial_ = new Material(Shader.Find("Lite/GrayUI"));
 
+        public static Transform CreateUIPanel(Transform Parent, string Name, int Order)
+        {
+            var Obj = new GameObject(Name);
+            var RectTrans = Obj.AddComponent<RectTransform>();
+            RectTrans.anchorMin = Vector2.zero;
+            RectTrans.anchorMax = Vector2.one;
+            RectTrans.anchoredPosition = Vector2.zero;
+            RectTrans.sizeDelta = Vector2.zero;
+            Obj.layer = LayerMask.NameToLayer("UI");
+            Obj.transform.SetParent(Parent, false);
+            Obj.AddComponent<Canvas>().overrideSorting = true;
+            Obj.GetComponent<Canvas>().sortingOrder = Order;
+            Obj.AddComponent<GraphicRaycaster>();
+            return Obj.transform;
+        }
+
         public static Vector2 ScreenPosToCanvasPos(RectTransform Parent, Vector2 ScreenPos)
         {
             RectTransformUtility.ScreenPointToLocalPointInRectangle(Parent, ScreenPos, Camera.main, out var Pos);

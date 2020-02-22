@@ -21,7 +21,7 @@ namespace LiteFramework.Core.Async.Task
 
         public static void Shutdown()
         {
-            MonoBehaviourInstance.StopAllCoroutines();
+            MonoBehaviourInstance?.StopAllCoroutines();
             foreach (var Entity in TaskList_)
             {
                 Entity.Dispose();

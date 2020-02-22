@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using LiteFramework.Core.BezierCurve;
+using UnityEngine;
 
 namespace LiteFramework.Core.Motion
 {
@@ -33,8 +34,41 @@ namespace LiteFramework.Core.Motion
             }
         }
 
-        public override void Exit()
+        public override void Tick(float DeltaTime)
         {
+            CurrentTime_ += DeltaTime;
+            var T = CurrentTime_ / TotalTime_;
+            if (T >= 1.0f)
+            {
+                T = 1.0f;
+                IsEnd = true;
+            }
+
+            Master.localPosition = Vector3.Lerp(BeginPosition_, TargetPosition_, T);
+        }
+    }
+
+    public class BezierMoveMotion : BaseMotion
+    {
+        private readonly bool IsRelative_;
+        private readonly float TotalTime_;
+        private readonly IBezierCurve BezierCurve_;
+        private float CurrentTime_;
+        private Vector3 BasePosition_;
+
+        public BezierMoveMotion(float Time, IBezierCurve BezierCurve, bool IsRelative)
+            : base()
+        {
+            IsRelative_ = IsRelative;
+            TotalTime_ = Time;
+            BezierCurve_ = BezierCurve;
+        }
+
+        public override void Enter()
+        {
+            IsEnd = false;
+            CurrentTime_ = 0;
+            BasePosition_ = IsRelative_ ? Master.localPosition : Vector3.zero;
         }
 
         public override void Tick(float DeltaTime)
@@ -43,11 +77,11 @@ namespace LiteFramework.Core.Motion
             var T = CurrentTime_ / TotalTime_;
             if (T >= 1.0f)
             {
-                Master.localPosition = TargetPosition_;
+                T = 1.0f;
                 IsEnd = true;
             }
 
-            Master.localPosition = Vector3.Lerp(BeginPosition_, TargetPosition_, T);
+            Master.localPosition = BasePosition_ + BezierCurve_.Lerp(T);
         }
     }
 }

@@ -33,10 +33,6 @@ namespace LiteFramework.Core.Motion
             }
         }
 
-        public override void Exit()
-        {
-        }
-
         public override void Tick(float DeltaTime)
         {
             CurrentTime_ += DeltaTime;

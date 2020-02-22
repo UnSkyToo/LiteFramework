@@ -77,4 +77,37 @@ namespace LiteFramework.Core.Async.Group
             Timer_ = TimerManager.AddTimer(WaitTime_, Done, 1);
         }
     }
+
+    public class GroupWaitConditional : GroupItem
+    {
+        private readonly Func<bool> ConditionFunc_;
+        private TimerEntity Timer_;
+
+        public GroupWaitConditional(GroupEntity Master, Func<bool> ConditionFunc)
+            : base(Master, null)
+        {
+            ConditionFunc_ = ConditionFunc;
+        }
+
+        public override void Dispose()
+        {
+            TimerManager.StopTimer(Timer_);
+            Timer_ = null;
+
+            base.Dispose();
+        }
+
+        public override void Execute()
+        {
+            Timer_ = TimerManager.AddTimer(0, TickFunc);
+        }
+
+        private void TickFunc()
+        {
+            if (ConditionFunc_?.Invoke() ?? true)
+            {
+                Done();
+            }
+        }
+    }
 }

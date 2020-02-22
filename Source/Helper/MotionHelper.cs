@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using LiteFramework.Core.BezierCurve;
 using LiteFramework.Core.Motion;
 using UnityEngine;
 
@@ -85,9 +86,27 @@ namespace LiteFramework.Helper
             return this;
         }
 
+        public MotionContainer Wait(Func<bool> ConditionFunc)
+        {
+            MotionList_.Add(new WaitConditionalMotion(ConditionFunc));
+            return this;
+        }
+
         public MotionContainer Move(float Time, Vector3 Position, bool IsRelative)
         {
             MotionList_.Add(new MoveMotion(Time, Position, IsRelative));
+            return this;
+        }
+
+        public MotionContainer BezierMove(float Time, IBezierCurve BezierCurve, bool IsRelative)
+        {
+            MotionList_.Add(new BezierMoveMotion(Time, BezierCurve, IsRelative));
+            return this;
+        }
+
+        public MotionContainer BezierMove(float Time, Vector3 Begin, Vector3 Control, Vector3 End, bool IsRelative)
+        {
+            MotionList_.Add(new BezierMoveMotion(Time, BezierCurveFactory.CreateBezierCurve(Begin, Control, End), IsRelative));
             return this;
         }
 
@@ -133,9 +152,9 @@ namespace LiteFramework.Helper
             return this;
         }
 
-        public MotionContainer Active(bool Value)
+        public MotionContainer Callback<T1, T2>(Action<T1, T2> Callback, T1 Param1, T2 Param2)
         {
-            MotionList_.Add(new ActiveMotion(Value));
+            MotionList_.Add(new CallbackMotion<T1, T2>(Callback, Param1, Param2));
             return this;
         }
 
@@ -166,6 +185,12 @@ namespace LiteFramework.Helper
         public MotionContainer SetAlpha(float Alpha)
         {
             MotionList_.Add(new SetAlphaMotion(Alpha));
+            return this;
+        }
+
+        public MotionContainer SetActive(bool Value)
+        {
+            MotionList_.Add(new SetActiveMotion(Value));
             return this;
         }
 

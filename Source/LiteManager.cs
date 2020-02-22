@@ -3,8 +3,10 @@ using LiteFramework.Core.Event;
 using LiteFramework.Core.Log;
 using LiteFramework.Extend.Debug;
 using LiteFramework.Game;
+using LiteFramework.Helper;
 using LiteFramework.Interface;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace LiteFramework
 {
@@ -59,7 +61,7 @@ namespace LiteFramework
                 return false;
             }
 
-            Screen.sleepTimeout = SleepTimeout.NeverSleep;
+            InitConfigure();
             IsPause = false;
             return true;
         }
@@ -69,6 +71,9 @@ namespace LiteFramework
             OnEnterBackground();
 
             MainLogic_?.Shutdown();
+
+            DialogHelper.Clear();
+            MaskLayerHelper.DisposeMaskLayer();
             LiteGameManager.Shutdown();
             LiteCoreManager.Shutdown();
 
@@ -104,6 +109,19 @@ namespace LiteFramework
             MainLogic_?.Tick(Dt);
         }
 
+        private static void InitConfigure()
+        {
+            var Ratio = (float)Screen.height / (float)Screen.width;
+            LiteConfigure.IsWidthMatch = Ratio >= (LiteConfigure.WindowHeight / LiteConfigure.WindowWidth);
+            LiteConfigure.CanvasRoot.GetComponent<CanvasScaler>().matchWidthOrHeight = LiteConfigure.IsWidthMatch ? 0 : 1;
+            Camera.main.orthographicSize = Screen.height / 100.0f / 2.0f;
+
+            Application.targetFrameRate = 60;
+            Input.multiTouchEnabled = true;
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
+            Random.InitState((int)System.DateTime.Now.Ticks);
+        }
+
         public static void Restart()
         {
             IsRestart = true;
@@ -119,19 +137,19 @@ namespace LiteFramework
 
         public static T Attach<T>() where T : MonoBehaviour
         {
-            var Component = MonoBehaviourInstance.gameObject.GetComponent<T>();
+            var Component = MonoBehaviourInstance?.gameObject.GetComponent<T>();
 
             if (Component != null)
             {
                 return Component;
             }
 
-            return MonoBehaviourInstance.gameObject.AddComponent<T>();
+            return MonoBehaviourInstance?.gameObject.AddComponent<T>();
         }
 
         public static void Detach<T>() where T : MonoBehaviour
         {
-            var Component = MonoBehaviourInstance.gameObject.GetComponent<T>();
+            var Component = MonoBehaviourInstance?.gameObject.GetComponent<T>();
 
             if (Component != null)
             {
