@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace LiteFramework.Core.Base
 {
     public class DictionaryEx<TKey, TValue>
     {
         private bool Dirty_;
-        private bool InEach_;
+        private int InEach_;
 
         private readonly Dictionary<TKey, TValue> Values_;
         private readonly Dictionary<TKey, TValue> AddList_;
@@ -35,7 +34,7 @@ namespace LiteFramework.Core.Base
         public DictionaryEx()
         {
             Dirty_ = false;
-            InEach_ = false;
+            InEach_ = 0;
 
             Values_ = new Dictionary<TKey, TValue>();
             AddList_ = new Dictionary<TKey, TValue>();
@@ -66,33 +65,33 @@ namespace LiteFramework.Core.Base
             return Values_.ContainsKey(Key) || AddList_.ContainsKey(Key);
         }
 
-        public void Foreach(Action<TKey, TValue> TickFunc)
+        public void Foreach(LiteAction<TKey, TValue> TickFunc)
         {
             Flush();
 
-            InEach_ = true;
+            InEach_++;
             foreach (var Item in Values_)
             {
                 TickFunc?.Invoke(Item.Key, Item.Value);
             }
-            InEach_ = false;
+            InEach_--;
         }
 
-        public void Foreach<P>(Action<TKey, TValue, P> TickFunc, P Param)
+        public void Foreach<T>(LiteAction<TKey, TValue, T> TickFunc, T Param)
         {
             Flush();
 
-            InEach_ = true;
+            InEach_++;
             foreach (var Item in Values_)
             {
                 TickFunc?.Invoke(Item.Key, Item.Value, Param);
             }
-            InEach_ = false;
+            InEach_--;
         }
 
         public void Flush()
         {
-            if (Dirty_ && !InEach_)
+            if (Dirty_ && InEach_ == 0)
             {
                 foreach (var Item in RemoveList_)
                 {

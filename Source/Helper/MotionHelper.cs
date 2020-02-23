@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using LiteFramework.Core.BezierCurve;
 using LiteFramework.Core.Motion;
 using UnityEngine;
@@ -86,7 +85,7 @@ namespace LiteFramework.Helper
             return this;
         }
 
-        public MotionContainer Wait(Func<bool> ConditionFunc)
+        public MotionContainer Wait(LiteFunc<bool> ConditionFunc)
         {
             MotionList_.Add(new WaitConditionalMotion(ConditionFunc));
             return this;
@@ -140,19 +139,19 @@ namespace LiteFramework.Helper
             return this;
         }
 
-        public MotionContainer Callback(Action Callback)
+        public MotionContainer Callback(LiteAction Callback)
         {
             MotionList_.Add(new CallbackMotion(Callback));
             return this;
         }
 
-        public MotionContainer Callback<T>(Action<T> Callback, T Param)
+        public MotionContainer Callback<T>(LiteAction<T> Callback, T Param)
         {
             MotionList_.Add(new CallbackMotion<T>(Callback, Param));
             return this;
         }
 
-        public MotionContainer Callback<T1, T2>(Action<T1, T2> Callback, T1 Param1, T2 Param2)
+        public MotionContainer Callback<T1, T2>(LiteAction<T1, T2> Callback, T1 Param1, T2 Param2)
         {
             MotionList_.Add(new CallbackMotion<T1, T2>(Callback, Param1, Param2));
             return this;

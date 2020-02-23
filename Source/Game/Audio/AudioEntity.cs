@@ -24,7 +24,7 @@ namespace LiteFramework.Game.Audio
                 return;
             }
 
-            Carrier = new GameObject($"AudioClip_{Clip.name}_{ID}");
+            Carrier = new GameObject($"AudioClip_{Clip.name}_{SerialID}");
             Source = Carrier.AddComponent<AudioSource>();
             Source.clip = Clip;
             Source.volume = Volume;

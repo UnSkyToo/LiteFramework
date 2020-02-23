@@ -267,7 +267,7 @@ namespace LiteFramework.Game.UI
 
         public static T CreateUI<T>(Transform Obj, T Script, UIDescriptor Desc, params object[] Params) where T : BaseUI
         {
-            Obj.name = $"{Desc.Uri.AssetName}<{Script.ID}>";
+            Obj.name = $"{Desc.Uri.AssetName}<{Script.SerialID}>";
             Obj.localRotation = Quaternion.identity;
 
             switch (Script.DepthMode)

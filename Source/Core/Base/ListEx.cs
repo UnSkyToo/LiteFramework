@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 namespace LiteFramework.Core.Base
@@ -51,9 +50,10 @@ namespace LiteFramework.Core.Base
             return Values_.Contains(Item) || AddList_.Contains(Item);
         }
 
-        public void Foreach(Action<T> TickFunc)
+        public void Foreach(LiteAction<T> TickFunc)
         {
             Flush();
+
             InEach_++;
             foreach (var Item in Values_)
             {
@@ -65,9 +65,10 @@ namespace LiteFramework.Core.Base
         /// <summary>
         /// Return T when TickFunc return true
         /// </summary>
-        public T ForeachReturn(Func<T, bool> TickFunc)
+        public T ForeachReturn(LiteFunc<T, bool> TickFunc)
         {
             Flush();
+
             InEach_++;
             foreach (var Item in Values_)
             {
@@ -80,9 +81,10 @@ namespace LiteFramework.Core.Base
             return default;
         }
 
-        public void Foreach<P>(Action<T, P> TickFunc, P Param)
+        public void Foreach<P>(LiteAction<T, P> TickFunc, P Param)
         {
             Flush();
+
             InEach_++;
             foreach (var Item in Values_)
             {
@@ -94,9 +96,10 @@ namespace LiteFramework.Core.Base
         /// <summary>
         /// Return T when TickFunc return true
         /// </summary>
-        public T ForeachReturn<P>(Func<T, P, bool> TickFunc, P Param)
+        public T ForeachReturn<P>(LiteFunc<T, P, bool> TickFunc, P Param)
         {
             Flush();
+
             InEach_++;
             foreach (var Item in Values_)
             {
@@ -129,7 +132,7 @@ namespace LiteFramework.Core.Base
             }
         }
 
-        public T Where(Func<T, bool> ConditionFunc)
+        public T Where(LiteFunc<T, bool> ConditionFunc)
         {
             Flush();
 
@@ -144,7 +147,7 @@ namespace LiteFramework.Core.Base
             return default;
         }
 
-        public List<T> All(Func<T, bool> ConditionFunc)
+        public List<T> All(LiteFunc<T, bool> ConditionFunc)
         {
             Flush();
             var Result = new List<T>();

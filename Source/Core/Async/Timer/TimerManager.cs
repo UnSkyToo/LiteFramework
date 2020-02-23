@@ -1,5 +1,4 @@
-﻿using System;
-using LiteFramework.Core.Base;
+﻿using LiteFramework.Core.Base;
 using UnityEngine;
 
 namespace LiteFramework.Core.Async.Timer
@@ -37,7 +36,7 @@ namespace LiteFramework.Core.Async.Timer
             }, DeltaTime);
         }
 
-        public static TimerEntity AddTimer(float Interval, Action OnTick, int Count = -1)
+        public static TimerEntity AddTimer(float Interval, LiteAction OnTick, int Count = -1)
         {
             var NewTimer = new TimerEntity(Interval, Count);
             NewTimer.OnTick += OnTick;
@@ -45,13 +44,13 @@ namespace LiteFramework.Core.Async.Timer
             return NewTimer;
         }
 
-        public static TimerEntity AddTimer(float Interval, Action OnTick, float TotalTime)
+        public static TimerEntity AddTimer(float Interval, LiteAction OnTick, float TotalTime)
         {
             Interval = Mathf.Max(Interval, 0.0001f);
             return AddTimer(Interval, OnTick, (int)(TotalTime / Interval));
         }
 
-        public static TimerEntity AddTimer(float Interval, Action OnTick, Action OnEnd, int Count = -1)
+        public static TimerEntity AddTimer(float Interval, LiteAction OnTick, LiteAction OnEnd, int Count = -1)
         {
             var NewTimer = new TimerEntity(Interval, Count);
             NewTimer.OnTick += OnTick;
@@ -60,13 +59,13 @@ namespace LiteFramework.Core.Async.Timer
             return NewTimer;
         }
 
-        public static TimerEntity AddTimer(float Interval, Action OnTick, Action OnEnd, float TotalTime)
+        public static TimerEntity AddTimer(float Interval, LiteAction OnTick, LiteAction OnEnd, float TotalTime)
         {
             Interval = Mathf.Max(Interval, 0.0001f);
             return AddTimer(Interval, OnTick, OnEnd, (int)(TotalTime / Interval));
         }
 
-        public static TimerEntity AddTimerWithFrame(int FrameCount, Action OnTick)
+        public static TimerEntity AddTimerWithFrame(int FrameCount, LiteAction OnTick)
         {
             return AddTimer(FrameCount * 0.016f, OnTick, 1);
         }
@@ -80,7 +79,7 @@ namespace LiteFramework.Core.Async.Timer
         {
             foreach (var Entity in TimerList_)
             {
-                if (Entity.ID == ID)
+                if (Entity.SerialID == ID)
                 {
                     StopTimer(Entity);
                     return;

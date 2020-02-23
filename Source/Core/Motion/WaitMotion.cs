@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LiteFramework.Core.Motion
+﻿namespace LiteFramework.Core.Motion
 {
     public class WaitTimeMotion : BaseMotion
     {
@@ -32,9 +30,9 @@ namespace LiteFramework.Core.Motion
 
     public class WaitConditionalMotion : BaseMotion
     {
-        private readonly Func<bool> ConditionFunc_;
+        private readonly LiteFunc<bool> ConditionFunc_;
 
-        public WaitConditionalMotion(Func<bool> ConditionFunc)
+        public WaitConditionalMotion(LiteFunc<bool> ConditionFunc)
             : base()
         {
             ConditionFunc_ = ConditionFunc;

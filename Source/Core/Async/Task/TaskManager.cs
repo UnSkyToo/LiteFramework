@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using LiteFramework.Core.Base;
 
 namespace LiteFramework.Core.Async.Task
@@ -55,7 +54,7 @@ namespace LiteFramework.Core.Async.Task
             }
         }
 
-        public static TaskEntity AddTask(IEnumerator TaskFunc, Action Callback = null)
+        public static TaskEntity AddTask(IEnumerator TaskFunc, LiteAction Callback = null)
         {
             var NewTask = new TaskEntity(TaskFunc, Callback);
             TaskList_.Add(NewTask);
@@ -63,14 +62,14 @@ namespace LiteFramework.Core.Async.Task
             return NewTask;
         }
 
-        public static IEnumerator WaitTask(IEnumerator TaskFunc, Action Callback = null)
+        public static IEnumerator WaitTask(IEnumerator TaskFunc, LiteAction Callback = null)
         {
             var NewTask = new TaskEntity(TaskFunc, Callback);
             TaskList_.Add(NewTask);
             yield return MonoBehaviourInstance.StartCoroutine(NewTask.Execute());
         }
 
-        public static void AddMainThreadTask(Action<object> TaskFunc, object Param)
+        public static void AddMainThreadTask(LiteAction<object> TaskFunc, object Param)
         {
             lock (MainThreadLock_)
             {

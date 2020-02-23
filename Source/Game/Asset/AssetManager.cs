@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace LiteFramework.Game.Asset
 {
@@ -32,12 +31,12 @@ namespace LiteFramework.Game.Asset
             return Loader_.AssetCacheExisted(AssetPath);
         }
 
-        public static void PreloadedAsset<T>(string AssetPath, Action<bool> Callback) where T : UnityEngine.Object
+        public static void PreloadedAsset<T>(string AssetPath, LiteAction<bool> Callback) where T : UnityEngine.Object
         {
             Loader_.PreloadedAsset<T>(AssetPath, Callback);
         }
 
-        public static void CreateAssetAsync<T>(AssetUri Uri, Action<T> Callback = null) where T : UnityEngine.Object
+        public static void CreateAssetAsync<T>(AssetUri Uri, LiteAction<T> Callback = null) where T : UnityEngine.Object
         {
             Loader_.CreateAssetAsync<T>(Uri, Callback);
         }
@@ -47,7 +46,7 @@ namespace LiteFramework.Game.Asset
             return Loader_.CreateAssetSync<T>(Uri);
         }
 
-        public static void CreatePrefabAsync(AssetUri Uri, Action<GameObject> Callback = null)
+        public static void CreatePrefabAsync(AssetUri Uri, LiteAction<GameObject> Callback = null)
         {
             Loader_.CreatePrefabAsync(Uri, Callback);
         }
@@ -57,7 +56,7 @@ namespace LiteFramework.Game.Asset
             return Loader_.CreatePrefabSync(Uri);
         }
 
-        public static void CreateDataAsync(AssetUri Uri, Action<byte[]> Callback = null)
+        public static void CreateDataAsync(AssetUri Uri, LiteAction<byte[]> Callback = null)
         {
             Loader_.CreateDataAsync(Uri, Callback);
         }

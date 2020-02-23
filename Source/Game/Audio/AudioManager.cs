@@ -52,7 +52,7 @@ namespace LiteFramework.Game.Audio
             {
                 foreach (var Entity in RemoveList_)
                 {
-                    AudioList_.Remove(Entity.ID);
+                    AudioList_.Remove(Entity.SerialID);
                     Entity.UnloadAudio();
                 }
                 RemoveList_.Clear();
@@ -67,7 +67,7 @@ namespace LiteFramework.Game.Audio
             }
 
             var Entity = new AudioEntity(Type);
-            AudioList_.Add(Entity.ID, Entity);
+            AudioList_.Add(Entity.SerialID, Entity);
 
             AssetManager.CreateAssetAsync<AudioClip>(Uri, (Clip) =>
             {
@@ -101,7 +101,7 @@ namespace LiteFramework.Game.Audio
                 Entity.Play();
             });
 
-            return Entity.ID;
+            return Entity.SerialID;
         }
 
         public static uint PlaySound(AssetUri Uri, bool IsLoop = false, float Volume = 1.0f)

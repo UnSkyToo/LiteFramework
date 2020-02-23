@@ -6,7 +6,7 @@ namespace LiteFramework.Game.EventSystem
 {
     public abstract class EventSystemBaseHandler : MonoBehaviour, IDisposable
     {
-        protected Action<EventSystemData> EventCallback_;
+        protected LiteAction<EventSystemData> EventCallback_;
         protected UnityAction EventCallbackEx_;
 
         public void Dispose()
@@ -15,7 +15,7 @@ namespace LiteFramework.Game.EventSystem
             EventCallbackEx_ = null;
         }
 
-        public void AddCallback(Action<EventSystemData> Callback)
+        public void AddCallback(LiteAction<EventSystemData> Callback)
         {
             EventCallback_ += Callback;
         }
@@ -30,7 +30,7 @@ namespace LiteFramework.Game.EventSystem
             EventCallbackEx_ += Callback;
         }
 
-        public void RemoveCallback(Action<EventSystemData> Callback)
+        public void RemoveCallback(LiteAction<EventSystemData> Callback)
         {
             if (Callback == null)
             {

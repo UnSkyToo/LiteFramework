@@ -2,11 +2,11 @@
 {
     public abstract class BaseObject
     {
-        public uint ID { get; }
+        public uint SerialID { get; }
 
         protected BaseObject()
         {
-            ID = IDGenerator.Get();
+            SerialID = IDGenerator.Get();
         }
     }
 }

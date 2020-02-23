@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using LiteFramework.Core.Log;
 
 namespace LiteFramework.Core.Event
@@ -19,7 +18,7 @@ namespace LiteFramework.Core.Event
 
         private class EventListenerImpl<T> : EventListener where T : BaseEvent
         {
-            public event Action<T> OnEvent = null;
+            public event LiteAction<T> OnEvent = null;
 
             public override void Trigger(BaseEvent Msg)
             {
@@ -82,7 +81,7 @@ namespace LiteFramework.Core.Event
             Send(Event);
         }
 
-        public static void Register<T>(Action<T> Callback) where T : BaseEvent
+        public static void Register<T>(LiteAction<T> Callback) where T : BaseEvent
         {
             var EventName = GetEventName<T>();
             if (!EventList_.ContainsKey(EventName))
@@ -93,7 +92,7 @@ namespace LiteFramework.Core.Event
             ((EventListenerImpl<T>)EventList_[EventName]).OnEvent += Callback;
         }
 
-        public static void UnRegister<T>(Action<T> Callback) where T : BaseEvent
+        public static void UnRegister<T>(LiteAction<T> Callback) where T : BaseEvent
         {
             var EventName = GetEventName<T>();
             if (EventList_.ContainsKey(EventName))

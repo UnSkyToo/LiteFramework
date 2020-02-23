@@ -1,16 +1,15 @@
-﻿using System;
-using System.Threading;
+﻿using System.Threading;
 
 namespace LiteFramework.Core.Async.Job
 {
-    public abstract class JobSystem<TEntity> : IDisposable
+    public abstract class JobSystem<TEntity> : System.IDisposable
     {
         private readonly TEntity[] Entities_;
         private readonly Job<TEntity>[] Jobs_;
         private readonly int ThreadCount_;
         private int ThreadRunningCount_;
 
-        public event Action OnCompleted;
+        public event LiteAction OnCompleted;
 
         protected JobSystem(TEntity[] Entities, int ThreadCount)
         {

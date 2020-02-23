@@ -98,12 +98,12 @@ namespace LiteFramework.Helper
             return null;
         }
 
-        public static void AddEvent(Transform Obj, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public static void AddEvent(Transform Obj, LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             EventHelper.AddEvent(Obj, Callback, Type);
         }
 
-        public static void AddEvent(GameEntity Entity, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public static void AddEvent(GameEntity Entity, LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             EventHelper.AddEvent(Entity, Callback, Type);
         }
@@ -144,12 +144,12 @@ namespace LiteFramework.Helper
             AddClickEvent(Entity?.GetTransform(), Callback, AudioUri);
         }
 
-        public static void RemoveEvent(Transform Obj, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public static void RemoveEvent(Transform Obj, LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             EventHelper.RemoveEvent(Obj, Callback, Type);
         }
 
-        public static void RemoveEvent(GameEntity Entity, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public static void RemoveEvent(GameEntity Entity, LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             EventHelper.RemoveEvent(Entity, Callback, Type);
         }
@@ -174,12 +174,12 @@ namespace LiteFramework.Helper
             RemoveEvent(Entity?.GetTransform(), Callback, Type);
         }
 
-        public static void AddEventToChild(Transform Parent, string ChildPath, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public static void AddEventToChild(Transform Parent, string ChildPath, LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             EventHelper.AddEventToChild(Parent, ChildPath, Callback, Type);
         }
 
-        public static void AddEventToChild(GameEntity Entity, string ChildPath, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public static void AddEventToChild(GameEntity Entity, string ChildPath, LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             EventHelper.AddEventToChild(Entity, ChildPath, Callback, Type);
         }
@@ -220,12 +220,12 @@ namespace LiteFramework.Helper
             AddClickEventToChild(Entity?.GetTransform(), ChildPath, Callback, AudioUri);
         }
 
-        public static void RemoveEventFromChild(Transform Parent, string ChildPath, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public static void RemoveEventFromChild(Transform Parent, string ChildPath, LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             EventHelper.RemoveEventFromChild(Parent, ChildPath, Callback, Type);
         }
 
-        public static void RemoveEventFromChild(GameEntity Entity, string ChildPath, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public static void RemoveEventFromChild(GameEntity Entity, string ChildPath, LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             EventHelper.RemoveEventFromChild(Entity, ChildPath, Callback, Type);
         }

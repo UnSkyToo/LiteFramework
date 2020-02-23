@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace LiteFramework.Core.ObjectPool
 {
@@ -7,12 +6,12 @@ namespace LiteFramework.Core.ObjectPool
     {
         public int InfrequentCount { get; set; } = 2;
 
-        protected Func<T> CreateFunc_ = null;
-        protected Action<T> SpawnFunc_ = null;
-        protected Action<T> RecycleFunc_ = null;
-        protected Action<T> DisposeFunc_ = null;
+        protected LiteFunc<T> CreateFunc_ = null;
+        protected LiteAction<T> SpawnFunc_ = null;
+        protected LiteAction<T> RecycleFunc_ = null;
+        protected LiteAction<T> DisposeFunc_ = null;
 
-        public ObjectPoolEntity(string PoolName, Func<T> CreateFunc, Action<T> SpawnFunc, Action<T> RecycleFunc, Action<T> DisposeFunc)
+        public ObjectPoolEntity(string PoolName, LiteFunc<T> CreateFunc, LiteAction<T> SpawnFunc, LiteAction<T> RecycleFunc, LiteAction<T> DisposeFunc)
             : base(PoolName, typeof(T))
         {
             this.CreateFunc_ = CreateFunc;

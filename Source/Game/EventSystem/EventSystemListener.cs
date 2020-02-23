@@ -23,7 +23,7 @@ namespace LiteFramework.Game.EventSystem
 
         private static readonly int EventTypeCount_ = EnumEx.Count<EventSystemType>();
 
-        public static void AddCallback(Transform Master, EventSystemType Type, Action<EventSystemData> Callback)
+        public static void AddCallback(Transform Master, EventSystemType Type, LiteAction<EventSystemData> Callback)
         {
             GetOrCreateHandler(Master.gameObject, Type).AddCallback(Callback);
         }
@@ -33,7 +33,7 @@ namespace LiteFramework.Game.EventSystem
             GetOrCreateHandler(Master.gameObject, Type).AddCallback(Callback);
         }
 
-        public static void RemoveCallback(Transform Master, EventSystemType Type, Action<EventSystemData> Callback)
+        public static void RemoveCallback(Transform Master, EventSystemType Type, LiteAction<EventSystemData> Callback)
         {
             GetOrCreateHandler(Master.gameObject, Type).RemoveCallback(Callback);
         }

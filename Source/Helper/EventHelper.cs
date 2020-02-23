@@ -1,5 +1,4 @@
-﻿using System;
-using LiteFramework.Game.Base;
+﻿using LiteFramework.Game.Base;
 using LiteFramework.Game.EventSystem;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,7 +7,7 @@ namespace LiteFramework.Helper
 {
     public static class EventHelper
     {
-        public static void AddEvent(Transform Obj, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public static void AddEvent(Transform Obj, LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             if (Obj == null)
             {
@@ -18,7 +17,7 @@ namespace LiteFramework.Helper
             EventSystemListener.AddCallback(Obj, Type, Callback);
         }
 
-        public static void AddEvent(GameEntity Entity, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public static void AddEvent(GameEntity Entity, LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             AddEvent(Entity?.GetTransform(), Callback, Type);
         }
@@ -38,7 +37,7 @@ namespace LiteFramework.Helper
             AddEvent(Entity?.GetTransform(), Callback, Type);
         }
 
-        public static void RemoveEvent(Transform Obj, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public static void RemoveEvent(Transform Obj, LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             if (Obj == null)
             {
@@ -48,7 +47,7 @@ namespace LiteFramework.Helper
             EventSystemListener.RemoveCallback(Obj, Type, Callback);
         }
 
-        public static void RemoveEvent(GameEntity Entity, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public static void RemoveEvent(GameEntity Entity, LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             RemoveEvent(Entity?.GetTransform(), Callback, Type);
         }
@@ -93,7 +92,7 @@ namespace LiteFramework.Helper
             ClearEvent(Entity?.GetTransform(), Type);
         }
 
-        public static void AddEventToChild(Transform Parent, string ChildPath, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public static void AddEventToChild(Transform Parent, string ChildPath, LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             var Obj = Parent?.Find(ChildPath);
             if (Obj != null)
@@ -102,7 +101,7 @@ namespace LiteFramework.Helper
             }
         }
 
-        public static void AddEventToChild(GameEntity Entity, string ChildPath, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public static void AddEventToChild(GameEntity Entity, string ChildPath, LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             AddEventToChild(Entity?.GetTransform(), ChildPath, Callback, Type);
         }
@@ -121,7 +120,7 @@ namespace LiteFramework.Helper
             AddEventToChild(Entity?.GetTransform(), ChildPath, Callback, Type);
         }
 
-        public static void RemoveEventFromChild(Transform Parent, string ChildPath, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public static void RemoveEventFromChild(Transform Parent, string ChildPath, LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             var Obj = Parent?.Find(ChildPath);
             if (Obj != null)
@@ -130,7 +129,7 @@ namespace LiteFramework.Helper
             }
         }
 
-        public static void RemoveEventFromChild(GameEntity Entity, string ChildPath, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public static void RemoveEventFromChild(GameEntity Entity, string ChildPath, LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             RemoveEventFromChild(Entity?.GetTransform(), ChildPath, Callback, Type);
         }

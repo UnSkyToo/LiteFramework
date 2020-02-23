@@ -42,7 +42,7 @@ namespace LiteFramework.Game.Base
             KeepName_ = KeepName;
             if (!KeepName_ && Transform_ != null)
             {
-                Transform_.name = $"{Name}<{ID}>";
+                Transform_.name = $"{Name}<{SerialID}>";
             }
 
             if (Transform_ != null)

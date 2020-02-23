@@ -77,7 +77,7 @@ namespace LiteFramework.Core.Net
             return MsgId2Name_.TryGetValue(MsgId, out MsgName);
         }
 
-        public static void RegisterMsgHandler<T>(Action<T> Callback) where T : BaseNetMsg
+        public static void RegisterMsgHandler<T>(LiteAction<T> Callback) where T : BaseNetMsg
         {
             string MsgName = typeof(T).FullName;
             uint MsgId = Crc32.Calculate(MsgName);
@@ -91,7 +91,7 @@ namespace LiteFramework.Core.Net
             ((MsgListenerImpl<T>) MsgHandlerDic_[MsgId]).OnEvent += Callback;
         }
 
-        public static void UnRegisterMsgHandler<T>(Action<T> Callback) where T : BaseNetMsg
+        public static void UnRegisterMsgHandler<T>(LiteAction<T> Callback) where T : BaseNetMsg
         {
             string MsgName = typeof(T).FullName;
             uint MsgId = Crc32.Calculate(MsgName);
@@ -326,7 +326,7 @@ namespace LiteFramework.Core.Net
 
         private class MsgListenerImpl<T> : MsgListener
         {
-            public event Action<T> OnEvent = null;
+            public event LiteAction<T> OnEvent = null;
 
             public override void Trigger(object Msg)
             {

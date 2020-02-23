@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using LiteFramework.Game.Asset;
 
 namespace LiteFramework.Game.Data
@@ -18,7 +17,7 @@ namespace LiteFramework.Game.Data
         {
         }
 
-        public static void LoadAsync(AssetUri Uri, Action<bool> Callback)
+        public static void LoadAsync(AssetUri Uri, LiteAction<bool> Callback)
         {
             if (!DataList_.ContainsKey(Uri.AssetName))
             {

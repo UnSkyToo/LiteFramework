@@ -1,5 +1,4 @@
-﻿using System;
-using LiteFramework.Core.Base;
+﻿using LiteFramework.Core.Base;
 using LiteFramework.Game.Asset;
 using LiteFramework.Helper;
 using UnityEngine;
@@ -40,7 +39,7 @@ namespace LiteFramework.Game.Sfx
             }, DeltaTime);
         }
 
-        public static SkeletonSfx PlaySkeletonSfx(Transform Parent, AssetUri Uri, string AnimationName = "", bool IsLoop = false, Action Finished = null)
+        public static SkeletonSfx PlaySkeletonSfx(Transform Parent, AssetUri Uri, string AnimationName = "", bool IsLoop = false, LiteAction Finished = null)
         {
             if (Parent == null || Uri == null)
             {
@@ -61,7 +60,7 @@ namespace LiteFramework.Game.Sfx
             return Sfx;
         }
 
-        public static void PlaySkeletonSfxAsync(Transform Parent, AssetUri Uri, Vector2 Position, Action<SkeletonSfx> Callback, string AnimationName = "", bool IsLoop = false, Action Finished = null)
+        public static void PlaySkeletonSfxAsync(Transform Parent, AssetUri Uri, Vector2 Position, LiteAction<SkeletonSfx> Callback, string AnimationName = "", bool IsLoop = false, LiteAction Finished = null)
         {
             if (Parent == null || Uri == null)
             {
@@ -84,7 +83,7 @@ namespace LiteFramework.Game.Sfx
             });
         }
 
-        public static ParticleSfx PlayParticleSfx(Transform Parent, AssetUri Uri, bool IsLoop = false, Action Finished = null)
+        public static ParticleSfx PlayParticleSfx(Transform Parent, AssetUri Uri, bool IsLoop = false, LiteAction Finished = null)
         {
             if (Parent == null || Uri == null)
             {
@@ -107,7 +106,7 @@ namespace LiteFramework.Game.Sfx
             return Sfx;
         }
 
-        public static void PlayParticleSfxAsync(Transform Parent, AssetUri Uri, Vector2 Position, Action<ParticleSfx> Callback, bool IsLoop = false, Action Finished = null)
+        public static void PlayParticleSfxAsync(Transform Parent, AssetUri Uri, Vector2 Position, LiteAction<ParticleSfx> Callback, bool IsLoop = false, LiteAction Finished = null)
         {
             if (Parent == null || Uri == null)
             {

@@ -11,7 +11,7 @@ namespace LiteFramework
         {
             get
             {
-                if (UnityEngine.Debug.isDebugBuild)
+                if (Debug.isDebugBuild)
                 {
                     return IsDebugMode_;
                 }

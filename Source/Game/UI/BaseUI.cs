@@ -112,7 +112,7 @@ namespace LiteFramework.Game.UI
             return UIHelper.GetComponent(UITransform, ChildParent, CType);
         }
 
-        public void AddEvent(Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public void AddEvent(LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             UIHelper.AddEvent(UITransform, Callback, Type);
         }
@@ -127,7 +127,7 @@ namespace LiteFramework.Game.UI
             UIHelper.AddClickEvent(UITransform, Callback, AudioUri);
         }
 
-        public void RemoveEvent(Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public void RemoveEvent(LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             UIHelper.RemoveEvent(UITransform, Callback, Type);
         }
@@ -137,7 +137,7 @@ namespace LiteFramework.Game.UI
             UIHelper.RemoveEvent(UITransform, Callback, Type);
         }
 
-        public void AddEventToChild(string ChildPath, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public void AddEventToChild(string ChildPath, LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             UIHelper.AddEventToChild(UITransform, ChildPath, Callback, Type);
         }
@@ -152,7 +152,7 @@ namespace LiteFramework.Game.UI
             UIHelper.AddClickEventToChild(UITransform, ChildPath, Callback, AudioUri);
         }
 
-        public void RemoveEventFromChild(string ChildPath, Action<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
+        public void RemoveEventFromChild(string ChildPath, LiteAction<EventSystemData> Callback, EventSystemType Type = EventSystemType.Click)
         {
             UIHelper.RemoveEventFromChild(UITransform, ChildPath, Callback, Type);
         }

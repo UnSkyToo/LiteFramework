@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using LiteFramework.Helper;
 using LiteFramework.Core.Async.Task;
@@ -10,7 +9,7 @@ namespace LiteFramework.Game.Asset
     internal abstract class BaseAssetLoader : IAssetLoader
     {
         protected Dictionary<string, BaseAssetCache> AssetCacheList_ = new Dictionary<string, BaseAssetCache>();
-        protected Dictionary<string, List<Action<bool>>> AssetLoadCallbackList_ = new Dictionary<string, List<Action<bool>>>();
+        protected Dictionary<string, List<LiteAction<bool>>> AssetLoadCallbackList_ = new Dictionary<string, List<LiteAction<bool>>>();
         protected Dictionary<int, string> AssetPathCacheList_ = new Dictionary<int, string>();
 
         protected BaseAssetLoader()
@@ -42,8 +41,8 @@ namespace LiteFramework.Game.Asset
             AssetPathCacheList_.Clear();
 
             UnityEngine.Resources.UnloadUnusedAssets();
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
+            System.GC.Collect();
+            System.GC.WaitForPendingFinalizers();
         }
 
         public virtual void Tick(float DeltaTime)
@@ -92,13 +91,13 @@ namespace LiteFramework.Game.Asset
             return false;
         }
 
-        public void PreloadedAsset<T>(string AssetPath, Action<bool> Callback) where T : UnityEngine.Object
+        public void PreloadedAsset<T>(string AssetPath, LiteAction<bool> Callback) where T : UnityEngine.Object
         {
             var AssetType = GetAssetTypeWithName<T>(AssetPath);
             LoadAssetAsync<T>(AssetType, AssetPath, Callback);
         }
 
-        protected virtual void LoadAssetAsync<T>(AssetCacheType AssetType, string AssetPath, Action<bool> Callback = null) where T : UnityEngine.Object
+        protected virtual void LoadAssetAsync<T>(AssetCacheType AssetType, string AssetPath, LiteAction<bool> Callback = null) where T : UnityEngine.Object
         {
             AssetPath = AssetPath.ToLower();
             if (AssetCacheExisted(AssetPath))
@@ -109,7 +108,7 @@ namespace LiteFramework.Game.Asset
 
             if (!AssetLoadCallbackList_.ContainsKey(AssetPath))
             {
-                AssetLoadCallbackList_.Add(AssetPath, new List<Action<bool>> {Callback});
+                AssetLoadCallbackList_.Add(AssetPath, new List<LiteAction<bool>> {Callback});
 
                 LoadAssetCacheCompletedAsync<T>(AssetType, AssetPath, (IsLoaded) =>
                 {
@@ -138,7 +137,7 @@ namespace LiteFramework.Game.Asset
             return LoadAssetCacheCompletedSync<T>(AssetType, AssetPath);
         }
 
-        private void LoadAssetCacheCompletedAsync<T>(AssetCacheType AssetType, string AssetPath, Action<bool> Callback = null) where T : UnityEngine.Object
+        private void LoadAssetCacheCompletedAsync<T>(AssetCacheType AssetType, string AssetPath, LiteAction<bool> Callback = null) where T : UnityEngine.Object
         {
             var Cache = CreateAssetCache<T>(AssetType, AssetPath);
             if (Cache == null)
@@ -206,7 +205,7 @@ namespace LiteFramework.Game.Asset
             return Cache;
         }
 
-        private void LoadAssetCacheDependenciesAsync<T>(BaseAssetCache Cache, Action<bool> Callback = null) where T : UnityEngine.Object
+        private void LoadAssetCacheDependenciesAsync<T>(BaseAssetCache Cache, LiteAction<bool> Callback = null) where T : UnityEngine.Object
         {
             var LoadCompletedCount = 0;
             var Dependencies = Cache.GetAllDependencies();
@@ -262,7 +261,7 @@ namespace LiteFramework.Game.Asset
             }
         }
 
-        public void CreateAssetAsync<T>(AssetUri Uri, Action<T> Callback = null) where T : UnityEngine.Object
+        public void CreateAssetAsync<T>(AssetUri Uri, LiteAction<T> Callback = null) where T : UnityEngine.Object
         {
             LoadAssetAsync<T>(AssetCacheType.Asset, Uri.AssetPath, (IsLoaded) =>
             {
@@ -318,7 +317,7 @@ namespace LiteFramework.Game.Asset
             return Asset;
         }
 
-        public void CreatePrefabAsync(AssetUri Uri, Action<UnityEngine.GameObject> Callback = null)
+        public void CreatePrefabAsync(AssetUri Uri, LiteAction<UnityEngine.GameObject> Callback = null)
         {
             LoadAssetAsync<UnityEngine.GameObject>(AssetCacheType.Prefab, Uri.AssetPath, (IsLoaded) =>
             {
@@ -337,7 +336,7 @@ namespace LiteFramework.Game.Asset
             return CreateAssetSync<UnityEngine.GameObject>(Uri);
         }
 
-        public void CreateDataAsync(AssetUri Uri, Action<byte[]> Callback = null)
+        public void CreateDataAsync(AssetUri Uri, LiteAction<byte[]> Callback = null)
         {
             LoadAssetAsync<UnityEngine.TextAsset>(AssetCacheType.Data, Uri.AssetPath, (IsLoaded) =>
             {
@@ -410,8 +409,8 @@ namespace LiteFramework.Game.Asset
                 }
 
                 UnityEngine.Resources.UnloadUnusedAssets();
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
+                System.GC.Collect();
+                System.GC.WaitForPendingFinalizers();
             }
         }
     }

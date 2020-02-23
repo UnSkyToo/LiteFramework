@@ -1,5 +1,4 @@
-﻿using System;
-using LiteFramework.Game.Base;
+﻿using LiteFramework.Game.Base;
 using UnityEngine;
 
 namespace LiteFramework.Game.Sfx
@@ -13,7 +12,7 @@ namespace LiteFramework.Game.Sfx
 
         public abstract bool IsEnd();
 
-        public abstract void Play(string AnimationName, bool IsLoop = false, Action Callback = null);
+        public abstract void Play(string AnimationName, bool IsLoop = false, LiteAction Callback = null);
 
         public void Stop()
         {

@@ -1,5 +1,4 @@
-﻿using System;
-using LiteFramework.Core.Log;
+﻿using LiteFramework.Core.Log;
 using Spine.Unity;
 using UnityEngine;
 
@@ -54,7 +53,7 @@ namespace LiteFramework.Game.Sfx
             Graphic_.freeze = false;
         }
 
-        public override void Play(string AnimationName, bool IsLoop = false, Action Finished = null)
+        public override void Play(string AnimationName, bool IsLoop = false, LiteAction Finished = null)
         {
             if (Graphic_.SkeletonData.FindAnimation(AnimationName) == null)
             {

@@ -1,12 +1,11 @@
-﻿using System;
-using LiteFramework.Core.Base;
+﻿using LiteFramework.Core.Base;
 
 namespace LiteFramework.Core.Async.Timer
 {
-    public class TimerEntity : BaseObject, IDisposable
+    public class TimerEntity : BaseObject, System.IDisposable
     {
-        public event Action OnTick;
-        public event Action OnEnd;
+        public event LiteAction OnTick;
+        public event LiteAction OnEnd;
 
         public bool IsEnd => Count_ == 0;
 

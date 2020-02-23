@@ -1,5 +1,4 @@
-﻿using System;
-using LiteFramework.Game.Base;
+﻿using LiteFramework.Game.Base;
 using LiteFramework.Interface;
 using UnityEngine;
 
@@ -14,7 +13,7 @@ namespace LiteFramework.Extend.Controller
         private Vector3 EndPos_;
         private float MoveTime_;
         private float CurrentTime_;
-        private Action FinishCallback_;
+        private LiteAction FinishCallback_;
 
         public MoveController(Transform Master)
         {
@@ -46,7 +45,7 @@ namespace LiteFramework.Extend.Controller
             }
         }
 
-        public void MoveTo(Vector3 TargetPos, float MoveTime, bool Force, Action Finished)
+        public void MoveTo(Vector3 TargetPos, float MoveTime, bool Force, LiteAction Finished)
         {
             if (IsMoving_ && !Force)
             {

@@ -43,7 +43,7 @@ namespace LiteFramework.Helper
             LLogger.LWarning($"Generate FilesInfo Succeed -> {FilePath}");
         }
 
-        public static bool CacheStreamingAssets(Action<int, int, int> Callback)
+        public static bool CacheStreamingAssets(LiteAction<int, int, int> Callback)
         {
             var Files = Resources.Load<TextAsset>(PathHelper.GetFileNameWithoutExt(FilesInfoFileName));
             if (Files == null || string.IsNullOrWhiteSpace(Files.text))
@@ -68,7 +68,7 @@ namespace LiteFramework.Helper
             return true;
         }
 
-        private static IEnumerator CacheStreamingAssets(string[] FileList, Action<int, int, int> Callback)
+        private static IEnumerator CacheStreamingAssets(string[] FileList, LiteAction<int, int, int> Callback)
         {
             var Index = 0;
             var DoneCount = 0;
@@ -95,7 +95,7 @@ namespace LiteFramework.Helper
             Callback?.Invoke(ErrorCount, DoneCount, FileList.Length);
         }
 
-        private static IEnumerator CopyFileFromStreamingAssetsPathToPersistentDataPath(string AssetBundlePath, Action<bool> Callback)
+        private static IEnumerator CopyFileFromStreamingAssetsPathToPersistentDataPath(string AssetBundlePath, LiteAction<bool> Callback)
         {
             var Uri = new Uri(Path.Combine(Application.streamingAssetsPath, AssetBundlePath));
             using (var Request = new UnityWebRequest(Uri, "GET", (DownloadHandler)new DownloadHandlerBuffer(), (UploadHandler)null))

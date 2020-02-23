@@ -1,7 +1,6 @@
 ﻿#if UNITY_EDITOR
 using UnityEditor;
 #endif
-using System;
 using LiteFramework.Extend.LoopView;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -55,7 +54,7 @@ namespace LiteFramework.Extend.PageView
         }
 #endif
 
-        public event Action<int> OnPageIndexChanged; 
+        public event LiteAction<int> OnPageIndexChanged; 
 
         private int TargetIndex_;
         private float CurrentVelocity_;

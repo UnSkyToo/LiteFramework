@@ -1,12 +1,10 @@
-﻿using System;
-
-namespace LiteFramework.Core.Motion
+﻿namespace LiteFramework.Core.Motion
 {
     public class CallbackMotion : BaseMotion
     {
-        private readonly Action Callback_;
+        private readonly LiteAction Callback_;
 
-        public CallbackMotion(Action Callback)
+        public CallbackMotion(LiteAction Callback)
             : base()
         {
             Callback_ = Callback;
@@ -20,10 +18,10 @@ namespace LiteFramework.Core.Motion
 
     public class CallbackMotion<T> : BaseMotion
     {
-        private readonly Action<T> Callback_;
+        private readonly LiteAction<T> Callback_;
         private readonly T Param_;
 
-        public CallbackMotion(Action<T> Callback, T Param)
+        public CallbackMotion(LiteAction<T> Callback, T Param)
             : base()
         {
             Callback_ = Callback;
@@ -38,11 +36,11 @@ namespace LiteFramework.Core.Motion
 
     public class CallbackMotion<T1, T2> : BaseMotion
     {
-        private readonly Action<T1, T2> Callback_;
+        private readonly LiteAction<T1, T2> Callback_;
         private readonly T1 Param1_;
         private readonly T2 Param2_;
 
-        public CallbackMotion(Action<T1, T2> Callback, T1 Param1, T2 Param2)
+        public CallbackMotion(LiteAction<T1, T2> Callback, T1 Param1, T2 Param2)
             : base()
         {
             Callback_ = Callback;

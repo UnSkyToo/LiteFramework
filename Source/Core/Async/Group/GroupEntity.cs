@@ -1,19 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using LiteFramework.Core.Base;
 
 namespace LiteFramework.Core.Async.Group
 {
-    public class GroupEntity : BaseObject, IDisposable
+    public class GroupEntity : BaseObject, System.IDisposable
     {
         public bool IsEnd { get; private set; }
 
         private readonly List<GroupItem> ItemList_;
         private readonly bool IsParallel_;
         private int DoneCount_;
-        private Action Callback_;
+        private LiteAction Callback_;
 
-        public GroupEntity(bool IsParallel, Action Callback)
+        public GroupEntity(bool IsParallel, LiteAction Callback)
             : base()
         {
             IsEnd = false;
@@ -53,14 +52,14 @@ namespace LiteFramework.Core.Async.Group
             }
         }
 
-        public GroupItem CreateItem(Action<GroupItem> Func)
+        public GroupItem CreateItem(LiteAction<GroupItem> Func)
         {
             var Item = new GroupItem(this, Func);
             ItemList_.Add(Item);
             return Item;
         }
 
-        public GroupParamItem<T> CreateParamItem<T>(Action<GroupItem, T> Func, T Param)
+        public GroupParamItem<T> CreateParamItem<T>(LiteAction<GroupItem, T> Func, T Param)
         {
             var Item = new GroupParamItem<T>(this, Func, Param);
             ItemList_.Add(Item);
@@ -74,7 +73,7 @@ namespace LiteFramework.Core.Async.Group
             return Item;
         }
 
-        public GroupWaitConditional CreateWaitConditional(Func<bool> ConditionFunc)
+        public GroupWaitConditional CreateWaitConditional(LiteFunc<bool> ConditionFunc)
         {
             var Item = new GroupWaitConditional(this, ConditionFunc);
             ItemList_.Add(Item);

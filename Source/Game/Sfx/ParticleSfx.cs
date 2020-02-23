@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace LiteFramework.Game.Sfx
 {
@@ -8,7 +7,7 @@ namespace LiteFramework.Game.Sfx
         private readonly ParticleSystem Particle_;
         private bool IsLoop_;
         private float Time_;
-        private Action Finished_;
+        private LiteAction Finished_;
 
         public ParticleSfx(string Name, Transform Trans)
             : base(Name, Trans)
@@ -44,7 +43,7 @@ namespace LiteFramework.Game.Sfx
             return Time_ > Particle_.main.duration;
         }
 
-        public override void Play(string AnimationName, bool IsLoop = false, Action Finished = null)
+        public override void Play(string AnimationName, bool IsLoop = false, LiteAction Finished = null)
         {
             Particle_.Play(true);
             IsLoop_ = IsLoop;

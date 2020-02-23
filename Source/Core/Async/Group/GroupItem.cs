@@ -1,16 +1,15 @@
-﻿using System;
-using LiteFramework.Core.Async.Timer;
+﻿using LiteFramework.Core.Async.Timer;
 using LiteFramework.Core.Base;
 
 namespace LiteFramework.Core.Async.Group
 {
-    public class GroupItem : BaseObject, IDisposable
+    public class GroupItem : BaseObject, System.IDisposable
     {
         public bool IsEnd { get; private set; }
         protected readonly GroupEntity Master_;
-        protected Action<GroupItem> Func_;
+        protected LiteAction<GroupItem> Func_;
 
-        public GroupItem(GroupEntity Master, Action<GroupItem> Func)
+        public GroupItem(GroupEntity Master, LiteAction<GroupItem> Func)
             : base()
         {
             Master_ = Master;
@@ -37,10 +36,10 @@ namespace LiteFramework.Core.Async.Group
 
     public class GroupParamItem<T> : GroupItem
     {
-        private readonly Action<GroupItem, T> NewFunc_;
+        private readonly LiteAction<GroupItem, T> NewFunc_;
         private readonly T Param_;
 
-        public GroupParamItem(GroupEntity Master, Action<GroupItem, T> Func, T Param)
+        public GroupParamItem(GroupEntity Master, LiteAction<GroupItem, T> Func, T Param)
             : base(Master, null)
         {
             NewFunc_ = Func;
@@ -80,10 +79,10 @@ namespace LiteFramework.Core.Async.Group
 
     public class GroupWaitConditional : GroupItem
     {
-        private readonly Func<bool> ConditionFunc_;
+        private readonly LiteFunc<bool> ConditionFunc_;
         private TimerEntity Timer_;
 
-        public GroupWaitConditional(GroupEntity Master, Func<bool> ConditionFunc)
+        public GroupWaitConditional(GroupEntity Master, LiteFunc<bool> ConditionFunc)
             : base(Master, null)
         {
             ConditionFunc_ = ConditionFunc;

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using LiteFramework.Helper;
 using LiteFramework.Core.Log;
@@ -95,7 +94,7 @@ namespace LiteFramework.Game.Asset
             return Cache;
         }
 
-        protected override void LoadAssetAsync<T>(AssetCacheType AssetType, string AssetPath, Action<bool> Callback = null)
+        protected override void LoadAssetAsync<T>(AssetCacheType AssetType, string AssetPath, LiteAction<bool> Callback = null)
         {
             AssetPath = AssetPath.ToLower();
             if (!AssetBundlePathList_.Contains(AssetPath))

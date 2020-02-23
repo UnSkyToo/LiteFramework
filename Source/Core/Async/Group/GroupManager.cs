@@ -1,5 +1,4 @@
-﻿using System;
-using LiteFramework.Core.Base;
+﻿using LiteFramework.Core.Base;
 
 namespace LiteFramework.Core.Async.Group
 {
@@ -34,14 +33,14 @@ namespace LiteFramework.Core.Async.Group
             });
         }
 
-        public static GroupEntity CreateSequenceGroup(Action Callback)
+        public static GroupEntity CreateSequenceGroup(LiteAction Callback)
         {
             var Entity = new GroupEntity(false, Callback);
             GroupList_.Add(Entity);
             return Entity;
         }
 
-        public static GroupEntity CreateParallelGroup(Action Callback)
+        public static GroupEntity CreateParallelGroup(LiteAction Callback)
         {
             var Entity = new GroupEntity(true, Callback);
             GroupList_.Add(Entity);

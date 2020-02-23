@@ -50,9 +50,9 @@ namespace LiteFramework.Extend.LoopView
         private bool IsInit_;
 
         protected List<ItemEntity> ItemList_;
-        protected Func<int, LiteLoopViewItem> OnCreateItem_;
-        protected Action<LiteLoopViewItem> OnDeleteItem_;
-        protected Action<int, LiteLoopViewItem> OnUpdateItem_;
+        protected LiteFunc<int, LiteLoopViewItem> OnCreateItem_;
+        protected LiteAction<LiteLoopViewItem> OnDeleteItem_;
+        protected LiteAction<int, LiteLoopViewItem> OnUpdateItem_;
 
         protected override void Awake()
         {
@@ -77,7 +77,7 @@ namespace LiteFramework.Extend.LoopView
             ClearItemList();
         }
 
-        public void Initialize(int TotalCount, int Index, Func<int, LiteLoopViewItem> CreateItem, Action<LiteLoopViewItem> DeleteItem, Action<int, LiteLoopViewItem> UpdateItem)
+        public void Initialize(int TotalCount, int Index, LiteFunc<int, LiteLoopViewItem> CreateItem, LiteAction<LiteLoopViewItem> DeleteItem, LiteAction<int, LiteLoopViewItem> UpdateItem)
         {
             this.TotalCount = TotalCount;
             this.Content.sizeDelta = InternalCalculateContentSize();

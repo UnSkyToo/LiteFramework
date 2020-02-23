@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using LiteFramework.Core.Base;
 
 namespace LiteFramework.Core.Async.Task
 {
-    public class TaskEntity : BaseObject, IDisposable
+    public class TaskEntity : BaseObject, System.IDisposable
     {
         public bool IsPause { get; set; }
         public bool IsEnd { get; private set; }
 
         private readonly IEnumerator TaskEntity_;
-        private Action Callback_;
+        private LiteAction Callback_;
 
-        public TaskEntity(IEnumerator Entity, Action Callback)
+        public TaskEntity(IEnumerator Entity, LiteAction Callback)
             : base()
         {
             IsPause = false;
@@ -67,10 +66,10 @@ namespace LiteFramework.Core.Async.Task
 
     public class MainThreadTaskEntity : BaseObject
     {
-        private readonly Action<object> Func_;
+        private readonly LiteAction<object> Func_;
         private readonly object Param_;
 
-        public MainThreadTaskEntity(Action<object> Func, object Param)
+        public MainThreadTaskEntity(LiteAction<object> Func, object Param)
         {
             this.Func_ = Func;
             this.Param_ = Param;

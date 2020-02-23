@@ -1,23 +1,22 @@
-﻿using System;
-using LiteFramework.Game.Base;
+﻿using LiteFramework.Game.Base;
 using LiteFramework.Game.EventSystem;
 using LiteFramework.Helper;
 using UnityEngine;
 
 namespace LiteFramework.Extend.Controller
 {
-    public class TouchController : IDisposable
+    public class TouchController : System.IDisposable
     {
         public bool Enabled { get; set; } = true;
         public float DoubleClickInterval { get; set; } = 0.3f;
         public float LongPressedInterval { get; set; } = 1.0f;
 
-        public event Action<Vector2> PointerDown;
-        public event Action<Vector2> Drag;
-        public event Action<Vector2> PointerUp;
-        public event Action PointerClick;
-        public event Action PointerDoubleClick;
-        public event Action PointerLongPressed; 
+        public event LiteAction<Vector2> PointerDown;
+        public event LiteAction<Vector2> Drag;
+        public event LiteAction<Vector2> PointerUp;
+        public event LiteAction PointerClick;
+        public event LiteAction PointerDoubleClick;
+        public event LiteAction PointerLongPressed; 
 
         private readonly Transform Master_;
         private bool IsDrag_;
