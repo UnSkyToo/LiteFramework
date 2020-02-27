@@ -15,6 +15,9 @@ namespace LiteFramework.Core.Archive
             CacheList_ = new Dictionary<string, object>();
         }
 
+        /// <summary>
+        /// support type see : ArchiveDataType
+        /// </summary>
         public void Write<T>(string Key, T Value)
         {
             if (Value == null)
@@ -33,7 +36,7 @@ namespace LiteFramework.Core.Archive
         }
 
         /// <summary>
-        /// only support (Int32, BigInteger, string)
+        /// only support (Boolean, Int32, BigInteger, String)
         /// </summary>
         public void WriteArray<T>(string Key, T[] Value)
         {
@@ -182,10 +185,26 @@ namespace LiteFramework.Core.Archive
                     Stream.WriteFloat(Vec2.x);
                     Stream.WriteFloat(Vec2.y);
                     break;
+                case UnityEngine.Vector3 Vec3:
+                    Stream.WriteInt8((byte)ArchiveDataType.Vector3);
+                    Stream.WriteFloat(Vec3.x);
+                    Stream.WriteFloat(Vec3.y);
+                    Stream.WriteFloat(Vec3.z);
+                    break;
                 case UnityEngine.Vector2Int Vec2Int:
                     Stream.WriteInt8((byte)ArchiveDataType.Vector2Int);
                     Stream.WriteInt32(Vec2Int.x);
                     Stream.WriteInt32(Vec2Int.y);
+                    break;
+                case UnityEngine.Vector3Int Vec3Int:
+                    Stream.WriteInt8((byte)ArchiveDataType.Vector3Int);
+                    Stream.WriteInt32(Vec3Int.x);
+                    Stream.WriteInt32(Vec3Int.y);
+                    Stream.WriteInt32(Vec3Int.z);
+                    break;
+                case bool[] ArrayBoolData:
+                    Stream.WriteInt8((byte)ArchiveDataType.ArrayBool);
+                    Stream.WriteArrayBool(ArrayBoolData);
                     break;
                 case int[] ArrayInt32Data:
                     Stream.WriteInt8((byte)ArchiveDataType.ArrayInt32);

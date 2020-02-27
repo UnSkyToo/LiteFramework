@@ -27,6 +27,7 @@ namespace LiteFramework
         public const string CanvasNormalName = "Canvas-Normal";
         public const string CanvasTopName = "Canvas-Top";
         public const bool EnableButtonClick = true;
+		public const bool EnableUIAutoBind = true;
 
         public static bool IsWidthMatch = true;
 

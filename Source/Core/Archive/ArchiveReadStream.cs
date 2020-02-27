@@ -118,6 +118,24 @@ namespace LiteFramework.Core.Archive
             return BigInteger.Parse(Value);
         }
 
+        public bool[] ReadArrayBool()
+        {
+            var Count = ReadInt16();
+            if (Count == -1)
+            {
+                return null;
+            }
+
+            var Value = new bool[Count];
+
+            for (var Index = 0; Index < Value.Length; ++Index)
+            {
+                Value[Index] = ReadBool();
+            }
+
+            return Value;
+        }
+
         public int[] ReadArrayInt32()
         {
             var Count = ReadInt16();

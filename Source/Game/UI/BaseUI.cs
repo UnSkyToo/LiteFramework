@@ -49,14 +49,17 @@ namespace LiteFramework.Game.UI
             IsClosed = false;
         }
 
-        public virtual void Open(params object[] Params)
+        public void Open(params object[] Params)
         {
             IsClosed = false;
+            // Auto Binder
+            UIBinder.AutoBind(this);
+            // Auto Binder
             OnOpen(Params);
             Show();
         }
 
-        public virtual void Close()
+        public void Close()
         {
             IsClosed = true;
             Hide();
@@ -145,6 +148,11 @@ namespace LiteFramework.Game.UI
         public void AddEventToChild(string ChildPath, UnityAction Callback, EventSystemType Type = EventSystemType.Click)
         {
             UIHelper.AddEventToChild(UITransform, ChildPath, Callback, Type);
+        }
+
+        public void AddClickEventToChild(string ChildPath, LiteAction<EventSystemData> Callback, AssetUri AudioUri)
+        {
+            UIHelper.AddClickEventToChild(UITransform, ChildPath, Callback, AudioUri);
         }
 
         public void AddClickEventToChild(string ChildPath, UnityAction Callback, AssetUri AudioUri)

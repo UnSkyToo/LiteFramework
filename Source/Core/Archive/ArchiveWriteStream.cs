@@ -108,6 +108,22 @@ namespace LiteFramework.Core.Archive
             WriteString(Value.ToString());
         }
 
+        public void WriteArrayBool(bool[] Value)
+        {
+            if (Value == null)
+            {
+                WriteInt16(-1);
+                return;
+            }
+
+            WriteInt16((short)Value.Length);
+
+            for (var Index = 0; Index < Value.Length; ++Index)
+            {
+                WriteBool(Value[Index]);
+            }
+        }
+
         public void WriteArrayInt32(int[] Value)
         {
             if (Value == null)

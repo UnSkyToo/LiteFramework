@@ -4,11 +4,14 @@ namespace LiteFramework.Core.BezierCurve
 {
     public class BezierCurveCommon : IBezierCurve
     {
+		private readonly IBezierCurveModulator Modulator_;
         private readonly Vector3[] Points_;
         private readonly Vector3[] Controller_;
 
-        public BezierCurveCommon(Vector3[] Points)
+        public BezierCurveCommon(IBezierCurveModulator Modulator, Vector3[] Points)
         {
+			Modulator_ = Modulator;
+			
             if (Points != null && Points.Length > 1)
             {
                 Points_ = Points;
@@ -28,7 +31,8 @@ namespace LiteFramework.Core.BezierCurve
                 return Vector3.zero;
             }
 
-            var Count = GeneratorController(Points_, Points_.Length, Time);
+			var ModulateTime = Modulator_?.Modulation(Time) ?? Time;
+            var Count = GeneratorController(Points_, Points_.Length, ModulateTime);
             while (Count > 1)
             {
                 Count = GeneratorController(Controller_, Count, Time);

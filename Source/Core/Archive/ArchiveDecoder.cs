@@ -15,6 +15,9 @@ namespace LiteFramework.Core.Archive
             CacheList_ = new Dictionary<string, object>();
         }
 
+        /// <summary>
+        /// support type see : ArchiveDataType
+        /// </summary>
         public T Read<T>(string Key, T Default)
         {
             if (!CacheList_.ContainsKey(Key))
@@ -31,6 +34,9 @@ namespace LiteFramework.Core.Archive
             return Default;
         }
 
+        /// <summary>
+        /// only support (Boolean, Int32, BigInteger, String)
+        /// </summary>
         public T[] ReadArray<T>(string Key, T[] Default)
         {
             if (!CacheList_.ContainsKey(Key))
@@ -66,6 +72,9 @@ namespace LiteFramework.Core.Archive
             return Default;
         }
 
+        /// <summary>
+        /// only support (Int32, BigInteger)
+        /// </summary>
         public T[,] ReadArray2<T>(string Key, T[,] Default)
         {
             if (!CacheList_.ContainsKey(Key))
@@ -235,8 +244,14 @@ namespace LiteFramework.Core.Archive
                     return (Key, Stream.ReadBigInteger());
                 case ArchiveDataType.Vector2:
                     return (Key, new UnityEngine.Vector2(Stream.ReadFloat(), Stream.ReadFloat()));
+                case ArchiveDataType.Vector3:
+                    return (Key, new UnityEngine.Vector3(Stream.ReadFloat(), Stream.ReadFloat(), Stream.ReadFloat()));
                 case ArchiveDataType.Vector2Int:
                     return (Key, new UnityEngine.Vector2Int(Stream.ReadInt32(), Stream.ReadInt32()));
+                case ArchiveDataType.Vector3Int:
+                    return (Key, new UnityEngine.Vector3Int(Stream.ReadInt32(), Stream.ReadInt32(), Stream.ReadInt32()));
+                case ArchiveDataType.ArrayBool:
+                    return (Key, Stream.ReadArrayBool());
                 case ArchiveDataType.ArrayInt32:
                     return (Key, Stream.ReadArrayInt32());
                 case ArchiveDataType.Array2Int32:

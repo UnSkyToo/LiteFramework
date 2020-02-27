@@ -203,6 +203,17 @@ namespace LiteFramework.Helper
         {
             AddEventToChild(Entity?.GetTransform(), ChildPath, Callback, Type);
         }
+        
+        public static void AddClickEventToChild(Transform Parent, string ChildPath, LiteAction<EventSystemData> Callback, AssetUri AudioUri)
+        {
+            void OnClick(EventSystemData Data)
+            {
+                AudioManager.PlaySound(AudioUri);
+                Callback?.Invoke(Data);
+            }
+
+            AddEventToChild(Parent, ChildPath, OnClick);
+        }
 
         public static void AddClickEventToChild(Transform Parent, string ChildPath, UnityAction Callback, AssetUri AudioUri)
         {
