@@ -59,7 +59,7 @@ namespace LiteFramework.Core.Async.Group
             return Item;
         }
 
-        public GroupParamItem<T> CreateParamItem<T>(LiteAction<GroupItem, T> Func, T Param)
+        public GroupParamItem<T> CreateItem<T>(LiteAction<GroupItem, T> Func, T Param)
         {
             var Item = new GroupParamItem<T>(this, Func, Param);
             ItemList_.Add(Item);
@@ -73,7 +73,7 @@ namespace LiteFramework.Core.Async.Group
             return Item;
         }
 
-        public GroupWaitConditional CreateWaitConditional(LiteFunc<bool> ConditionFunc)
+        public GroupWaitConditional CreateWaitItem(LiteFunc<bool> ConditionFunc)
         {
             var Item = new GroupWaitConditional(this, ConditionFunc);
             ItemList_.Add(Item);

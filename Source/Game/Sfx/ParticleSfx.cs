@@ -45,6 +45,7 @@ namespace LiteFramework.Game.Sfx
 
         public override void Play(string AnimationName, bool IsLoop = false, LiteAction Finished = null)
         {
+            Particle_.Clear(true);
             Particle_.Play(true);
             IsLoop_ = IsLoop;
             Time_ = 0;

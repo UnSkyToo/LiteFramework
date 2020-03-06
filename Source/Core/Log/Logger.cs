@@ -1,4 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
+using System.Text.RegularExpressions;
+using UnityEngine;
 
 namespace LiteFramework.Core.Log
 {
@@ -178,5 +182,62 @@ namespace LiteFramework.Core.Log
         {
             Default_.Fatal(Format, Args);
         }
+
+
+#if UNITY_EDITOR
+        private static string GetStackTrace()
+        {
+            var ConsoleWindowType = typeof(UnityEditor.EditorWindow).Assembly.GetType("UnityEditor.ConsoleWindow");
+            var FieldInfo = ConsoleWindowType.GetField("ms_ConsoleWindow", BindingFlags.Static | BindingFlags.NonPublic);
+            var ConsoleWindowInstance = FieldInfo.GetValue(null);
+            if (ConsoleWindowInstance != null)
+            {
+                if ((object)UnityEditor.EditorWindow.focusedWindow == ConsoleWindowInstance)
+                {
+                    FieldInfo = ConsoleWindowType.GetField("m_ActiveText", BindingFlags.Instance | BindingFlags.NonPublic);
+                    var ActiveText = FieldInfo.GetValue(ConsoleWindowInstance).ToString();
+                    return ActiveText;
+                }
+            }
+
+            return null;
+        }
+
+        [UnityEditor.Callbacks.OnOpenAsset(0)]
+        public static bool OnOpenAsset(int InstanceID, int Line)
+        {
+            if (Line == -1)
+            {
+                return false;
+            }
+
+            var StackTrace = GetStackTrace();
+            if (!string.IsNullOrEmpty(StackTrace) && StackTrace.Contains("/Log/"))
+            {
+                var Matches = Regex.Match(StackTrace, @"\(at (.+)\)", RegexOptions.IgnoreCase);
+
+                while (Matches.Success)
+                {
+                    var PathLine = Matches.Groups[1].Value;
+                    if (!PathLine.Contains("/Log/"))
+                    {
+                        var SplitIndex = PathLine.LastIndexOf(":");
+                        if (!int.TryParse(PathLine.Substring(SplitIndex + 1), out Line))
+                        {
+                            return false;
+                        }
+                        var Path = PathLine.Substring(0, SplitIndex);
+                        var FullPath = $"{Application.dataPath.Substring(0, Application.dataPath.LastIndexOf("Assets"))}{Path}";
+                        UnityEditorInternal.InternalEditorUtility.OpenFileAtLineExternal(FullPath.Replace('/', '\\'), Line);
+                        return true;
+                    }
+
+                    Matches = Matches.NextMatch();
+                }
+            }
+
+            return false;
+        }
+#endif
     }
 }
