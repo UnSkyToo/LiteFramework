@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using LiteFramework.Helper;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace LiteFramework.Extend.LoopView
 {
@@ -56,18 +57,8 @@ namespace LiteFramework.Extend.LoopView
 
         protected override void Awake()
         {
-            ViewBounds_ = new Bounds(Viewport.rect.center, Viewport.rect.size);
-            ViewItemCount_ = InternalCalculateViewItemCount();
-            Content.sizeDelta = InternalCalculateContentSize();
-
-            if (TotalCount < ViewItemCount_)
-            {
-                TotalCount = ViewItemCount_;
-            }
-
             CurrentIndex_ = 0;
             PreviousIndex_ = 0;
-            ContentBounds_ = GetBounds();
             ItemList_ = new List<ItemEntity>();
             IsInit_ = false;
         }
@@ -79,6 +70,17 @@ namespace LiteFramework.Extend.LoopView
 
         public void Initialize(int TotalCount, int Index, LiteFunc<int, LiteLoopViewItem> CreateItem, LiteAction<LiteLoopViewItem> DeleteItem, LiteAction<int, LiteLoopViewItem> UpdateItem)
         {
+            LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
+            ViewBounds_ = new Bounds(Viewport.rect.center, Viewport.rect.size);
+            ViewItemCount_ = InternalCalculateViewItemCount();
+            Content.sizeDelta = InternalCalculateContentSize();
+            ContentBounds_ = GetBounds();
+
+            if (ViewItemCount_ > TotalCount)
+            {
+                ViewItemCount_ = TotalCount;
+            }
+
             this.TotalCount = TotalCount;
             this.Content.sizeDelta = InternalCalculateContentSize();
             this.CurrentIndex_ = Mathf.Clamp(Index, 0, TotalCount - ViewItemCount_ - 1);

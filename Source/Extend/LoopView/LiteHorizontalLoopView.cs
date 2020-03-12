@@ -53,7 +53,7 @@ namespace LiteFramework.Extend.LoopView
 #endif
         protected override int InternalCalculateViewItemCount()
         {
-            return Mathf.CeilToInt(transform.GetComponent<RectTransform>().sizeDelta.x / ItemSize.x) + 1;
+            return Mathf.CeilToInt(transform.GetComponent<RectTransform>().rect.width / (ItemSize.x + ItemSpace)) + 1;
         }
 
         protected override Vector2 InternalCalculateContentSize()

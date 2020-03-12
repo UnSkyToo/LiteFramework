@@ -48,7 +48,6 @@ namespace LiteFramework.Core.Async.Timer
 
             Pause();
             Count_ = 0;
-            TriggerEndEvent();
         }
 
         public void Tick(float DeltaTime)
@@ -77,7 +76,7 @@ namespace LiteFramework.Core.Async.Timer
 
                 if (Count_ == 0)
                 {
-                    Stop();
+                    TriggerEndEvent();
                 }
             }
         }
