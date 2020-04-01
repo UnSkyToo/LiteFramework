@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using LiteFramework.Game.Asset;
 using UnityEngine;
 
 namespace LiteFramework
@@ -43,6 +44,8 @@ namespace LiteFramework
         public const float WindowTop = WindowHeight / 2;
         public const float WindowBottom = -WindowHeight / 2;
         public static readonly Vector2 WindowSize = new Vector2(WindowWidth, WindowHeight);
+
+        public static AssetUri ClickAudioUri { get; set; } = null;
 
         public static readonly Dictionary<System.Type, Game.UI.UIDescriptor> UIDescList = new Dictionary<System.Type, Game.UI.UIDescriptor>();
 

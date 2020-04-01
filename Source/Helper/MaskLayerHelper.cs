@@ -13,11 +13,9 @@ namespace LiteFramework.Helper
         {
             if (!MaskLayer_)
             {
-                var Layer = UIHelper.CreateUIPanel(LiteConfigure.UIRoot, "Mask", (int)UIDepthMode.Top * 2);
-                MaskLayer_ = Layer.gameObject.AddComponent<Image>();
-                MaskLayer_.color = new Color(0, 0, 0, 0);
-                MaskLayer_.raycastTarget = true;
-
+                var Layer = UIHelper.CreateUIPanel(LiteConfigure.UIRoot, "Mask", (int)UIDepthMode.Top * 10);
+                MaskLayer_ = Layer.GetOrAddComponent<Image>();
+                MaskLayer_.color = Color.clear;
                 RefCount_ = 0;
             }
 

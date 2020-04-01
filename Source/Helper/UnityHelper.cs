@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using LiteFramework.Game.Base;
+using UnityEngine;
 
 namespace LiteFramework.Helper
 {
@@ -118,7 +119,12 @@ namespace LiteFramework.Helper
 
         public static T GetOrAddComponent<T>(this Transform Master) where T : Component
         {
-            return GetOrAddComponentSafe<T>(Master?.transform);
+            return GetOrAddComponentSafe<T>(Master?.gameObject);
+        }
+
+        public static T GetOrAddComponent<T>(this GameEntity Master) where T : Component
+        {
+            return GetOrAddComponentSafe<T>(Master?.GetTransform());
         }
 
         public static T GetOrAddComponentSafe<T>(GameObject Master) where T : Component

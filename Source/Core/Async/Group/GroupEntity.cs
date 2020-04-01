@@ -66,6 +66,13 @@ namespace LiteFramework.Core.Async.Group
             return Item;
         }
 
+        public GroupParamItem<T1, T2> CreateItem<T1, T2>(LiteAction<GroupItem, T1, T2> Func, T1 Param1, T2 Param2)
+        {
+            var Item = new GroupParamItem<T1, T2>(this, Func, Param1, Param2);
+            ItemList_.Add(Item);
+            return Item;
+        }
+
         public GroupWaitTime CreateWaitItem(float WaitTime)
         {
             var Item = new GroupWaitTime(this, WaitTime);

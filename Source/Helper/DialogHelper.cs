@@ -10,14 +10,15 @@ namespace LiteFramework.Helper
         private static DialogUI CurrentUI_ = null;
         private static readonly Queue<DialogUI> OpenQueueList_ = new Queue<DialogUI>();
 
-        public static void OpenDialog<T>(params object[] Params) where T : DialogUI, new()
+        public static T OpenDialog<T>(params object[] Params) where T : DialogUI, new()
         {
             if (IsOpenedDialog<T>())
             {
-                return;
+                return UIManager.FindUI<T>();
             }
 
             var Dialog = UIManager.OpenUI<T>(Params);
+
             if (CurrentUI_ != null)
             {
                 Dialog.SetActive(false);
@@ -27,6 +28,8 @@ namespace LiteFramework.Helper
             {
                 OpenDialog(Dialog);
             }
+
+            return Dialog;
         }
 
         private static void OpenDialog(DialogUI Dialog)

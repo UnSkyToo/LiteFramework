@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace LiteFramework
 {
-    public class LiteMain : MonoBehaviour
+    public class LiteLauncher : MonoBehaviour
     {
         public string LogicClassName;
 
@@ -19,8 +19,7 @@ namespace LiteFramework
                     throw new LiteException($"can't not find game logic class type : {LogicClassName}");
                 }
 
-                var Logic = System.Activator.CreateInstance(LogicType) as ILogic;
-                if (Logic == null)
+                if (!(System.Activator.CreateInstance(LogicType) is ILogic Logic))
                 {
                     throw new LiteException("LiteMain Logic must not be null");
                 }

@@ -52,6 +52,26 @@ namespace LiteFramework.Core.Async.Group
         }
     }
 
+    public class GroupParamItem<T1, T2> : GroupItem
+    {
+        private readonly LiteAction<GroupItem, T1, T2> NewFunc_;
+        private readonly T1 Param1_;
+        private readonly T2 Param2_;
+
+        public GroupParamItem(GroupEntity Master, LiteAction<GroupItem, T1, T2> Func, T1 Param1, T2 Param2)
+            : base(Master, null)
+        {
+            NewFunc_ = Func;
+            Param1_ = Param1;
+            Param2_ = Param2;
+        }
+
+        public override void Execute()
+        {
+            NewFunc_?.Invoke(this, Param1_, Param2_);
+        }
+    }
+
     public class GroupWaitTime : GroupItem
     {
         private readonly float WaitTime_;
