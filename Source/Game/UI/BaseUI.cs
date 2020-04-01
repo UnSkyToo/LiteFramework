@@ -200,9 +200,24 @@ namespace LiteFramework.Game.UI
             return MotionManager.Execute(UITransform, Motion);
         }
 
+        public BaseMotion ExecuteMotion(string ChildPath, BaseMotion Motion)
+        {
+            return MotionManager.Execute(FindChild(ChildPath), Motion);
+        }
+
         public void AbandonMotion(BaseMotion Motion)
         {
             MotionManager.Abandon(Motion);
+        }
+
+        public void AbandonMotion(string ChildPath)
+        {
+            MotionManager.Abandon(FindChild(ChildPath));
+        }
+
+        public void ReplaceSprite(string ChildPath, bool IsNativeSize, AssetUri Uri)
+        {
+            UIHelper.ReplaceSprite(GetComponent<Image>(ChildPath), IsNativeSize, Uri);
         }
 
         protected virtual void OnOpen(params object[] Params)

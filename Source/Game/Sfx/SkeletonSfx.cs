@@ -6,13 +6,13 @@ namespace LiteFramework.Game.Sfx
 {
     public class SkeletonSfx : BaseSfx
     {
-        private readonly SkeletonGraphic Graphic_;
+        private SkeletonAnimation Animation_;
 
         public SkeletonSfx(string Name, Transform Trans)
             : base(Name, Trans)
         {
-            Graphic_ = GetComponent<SkeletonGraphic>();
-            Graphic_.Initialize(false);
+            Animation_ = GetComponent<SkeletonAnimation>();
+            Animation_.Initialize(false);
         }
 
         public override void Tick(float DeltaTime)
@@ -22,7 +22,7 @@ namespace LiteFramework.Game.Sfx
                 return;
             }
 
-            if (Graphic_.AnimationState.GetCurrent(0).Loop)
+            if (Animation_.AnimationState.GetCurrent(0).Loop)
             {
                 return;
             }
@@ -32,47 +32,51 @@ namespace LiteFramework.Game.Sfx
 
         public override void Dispose()
         {
-            Graphic_.Initialize(false);
-            Graphic_.AnimationState.ClearTracks();
+            if (Animation_ != null)
+            {
+                Animation_.Initialize(false);
+                Animation_.AnimationState.ClearTracks();
+                Animation_ = null;
+            }
 
             base.Dispose();
         }
 
         public override bool IsEnd()
         {
-            return Graphic_.AnimationState.GetCurrent(0).IsComplete;
+            return Animation_.AnimationState.GetCurrent(0).IsComplete;
         }
 
         public override void Pause()
         {
-            Graphic_.freeze = true;
+            Animation_.timeScale = 0;
         }
 
         public override void Resume()
         {
-            Graphic_.freeze = false;
+            Animation_.timeScale = 1;
         }
 
         public override void Play(string AnimationName, bool IsLoop = false, LiteAction Finished = null)
         {
-            if (Graphic_.SkeletonData.FindAnimation(AnimationName) == null)
+            if (Animation_.Skeleton.Data.FindAnimation(AnimationName) == null)
             {
                 LLogger.LError($"can't play animation '{AnimationName}'");
                 return;
             }
 
-            Graphic_.AnimationState.SetAnimation(0, AnimationName, IsLoop);
+            Animation_.AnimationState.SetAnimation(0, AnimationName, IsLoop);
 
             if (Finished == null)
             {
-                Graphic_.AnimationState.Complete = null;
+                Animation_.AnimationState.Complete = null;
             }
             else
             {
-                Graphic_.AnimationState.Complete = (Track) =>
+                Animation_.AnimationState.Complete = (Track) =>
                 {
-                    Finished?.Invoke();
-                    Graphic_.AnimationState.Complete = null;
+                    Finished.Invoke();
+                    Animation_.AnimationState.Complete = null;
                 };
             }
         }

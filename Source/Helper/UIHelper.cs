@@ -299,10 +299,14 @@ namespace LiteFramework.Helper
 
         public static void SetActive(Transform Parent, string ChildPath, bool Value)
         {
-            var Obj = FindChild(Parent, ChildPath);
-            if (Obj != null)
+            SetActive(FindChild(Parent, ChildPath), Value);
+        }
+        
+        public static void SetActive(Transform Transform, bool Value)
+        {
+            if (Transform != null)
             {
-                Obj.gameObject.SetActive(Value);
+                Transform.gameObject.SetActive(Value);
             }
         }
 

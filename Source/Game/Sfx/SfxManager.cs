@@ -39,7 +39,7 @@ namespace LiteFramework.Game.Sfx
             }, DeltaTime);
         }
 
-        public static SkeletonSfx PlaySkeletonSfx(Transform Parent, AssetUri Uri, string AnimationName = "", bool IsLoop = false, LiteAction Finished = null)
+        public static SkeletonSfx PlaySkeletonSfx(Transform Parent, AssetUri Uri, bool IsLoop = false, Vector2? Position = null, string AnimationName = "", LiteAction Finished = null)
         {
             if (Parent == null || Uri == null)
             {
@@ -56,11 +56,11 @@ namespace LiteFramework.Game.Sfx
             SfxList_.Add(Sfx);
             Sfx.SetParent(Parent, false);
             Sfx.Play(AnimationName, IsLoop, Finished);
-            Sfx.Position = Vector2.zero;
+            Sfx.Position = Position ?? Vector2.zero;
             return Sfx;
         }
 
-        public static void PlaySkeletonSfxAsync(Transform Parent, AssetUri Uri, Vector2 Position, LiteAction<SkeletonSfx> Callback, string AnimationName = "", bool IsLoop = false, LiteAction Finished = null)
+        public static void PlaySkeletonSfxAsync(Transform Parent, AssetUri Uri, Vector2 Position, LiteAction<SkeletonSfx> Callback, bool IsLoop = false, string AnimationName = "", LiteAction Finished = null)
         {
             if (Parent == null || Uri == null)
             {
@@ -106,7 +106,7 @@ namespace LiteFramework.Game.Sfx
             return Sfx;
         }
 
-        public static void PlayParticleSfxAsync(Transform Parent, AssetUri Uri, Vector2 Position, LiteAction<ParticleSfx> Callback, bool IsLoop = false, LiteAction Finished = null)
+        public static void PlayParticleSfxAsync(Transform Parent, AssetUri Uri, Vector2 Position, LiteAction<ParticleSfx> Callback, bool IsLoop = false, Action LiteFinished = null)
         {
             if (Parent == null || Uri == null)
             {
@@ -131,9 +131,14 @@ namespace LiteFramework.Game.Sfx
             });
         }
 
-        public static void StopSfx(BaseSfx Sfx)
+        public static void StopSfx(BaseSfx Sfx, bool Immediately = false)
         {
             Sfx?.Stop();
+
+            if (Immediately)
+            {
+                Sfx?.Dispose();
+            }
         }
     }
 }

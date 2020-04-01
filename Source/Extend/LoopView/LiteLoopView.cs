@@ -83,7 +83,7 @@ namespace LiteFramework.Extend.LoopView
 
             this.TotalCount = TotalCount;
             this.Content.sizeDelta = InternalCalculateContentSize();
-            this.CurrentIndex_ = Mathf.Clamp(Index, 0, TotalCount - ViewItemCount_ - 1);
+            this.CurrentIndex_ = Mathf.Clamp(Index, 0, TotalCount - ViewItemCount_);
             this.PreviousIndex_ = this.CurrentIndex_;
             this.OnCreateItem_ = CreateItem;
             this.OnDeleteItem_ = DeleteItem;
@@ -108,7 +108,7 @@ namespace LiteFramework.Extend.LoopView
 
         public void SetCurrentIndex(int Index)
         {
-            Index = Mathf.Clamp(Index, 0, TotalCount - ViewItemCount_ - 1);
+            Index = Mathf.Clamp(Index, 0, TotalCount - ViewItemCount_);
             CurrentIndex_ = Index;
             PreviousIndex_ = Index;
             FillItemList();

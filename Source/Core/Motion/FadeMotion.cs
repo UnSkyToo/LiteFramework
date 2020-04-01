@@ -36,6 +36,7 @@ namespace LiteFramework.Core.Motion
             {
                 AlphaBox_.SetAlpha(EndAlpha_);
                 IsEnd = true;
+                return;
             }
 
             AlphaBox_.SetAlpha(Mathf.Lerp(BeginAlpha_, EndAlpha_, T));
