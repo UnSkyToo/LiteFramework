@@ -106,7 +106,7 @@ namespace LiteFramework.Game.Sfx
             return Sfx;
         }
 
-        public static void PlayParticleSfxAsync(Transform Parent, AssetUri Uri, Vector2 Position, LiteAction<ParticleSfx> Callback, bool IsLoop = false, Action LiteFinished = null)
+        public static void PlayParticleSfxAsync(Transform Parent, AssetUri Uri, Vector2 Position, LiteAction<ParticleSfx> Callback, bool IsLoop = false, LiteAction LiteFinished = null)
         {
             if (Parent == null || Uri == null)
             {
