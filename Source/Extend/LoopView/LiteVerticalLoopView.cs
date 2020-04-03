@@ -26,7 +26,7 @@ namespace LiteFramework.Extend.LoopView
             Viewport.anchoredPosition = Vector2.zero;
             Viewport.sizeDelta = Vector2.zero;
             var ViewportMaskImage = Viewport.gameObject.AddComponent<Image>();
-            ViewportMaskImage.sprite = Resources.Load<Sprite>("UIMask");
+            ViewportMaskImage.sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/UIMask.psd");
             ViewportMaskImage.type = Image.Type.Sliced;
             ViewportMaskImage.fillCenter = true;
             ViewportMaskImage.raycastTarget = true;
