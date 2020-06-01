@@ -1,4 +1,6 @@
-﻿namespace LiteFramework.Core.Event
+﻿using System;
+
+namespace LiteFramework.Core.Event
 {
     public sealed class EnterForegroundEvent : BaseEvent
     {
@@ -18,15 +20,21 @@
 
     public sealed class OpenUIEvent : BaseEvent
     {
-        public OpenUIEvent()
+        public Type UIType { get; }
+
+        public OpenUIEvent(Type UIType)
         {
+            this.UIType = UIType;
         }
     }
 
     public sealed class CloseUIEvent : BaseEvent
     {
-        public CloseUIEvent()
+        public Type UIType { get; }
+
+        public CloseUIEvent(Type UIType)
         {
+            this.UIType = UIType;
         }
     }
 }

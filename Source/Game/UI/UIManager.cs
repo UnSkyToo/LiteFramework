@@ -183,7 +183,7 @@ namespace LiteFramework.Game.UI
                 AssetManager.DeleteAsset(UI.UIRectTransform.gameObject);
             }
 
-            EventManager.Send<CloseUIEvent>();
+            EventManager.Send(new CloseUIEvent(UI.GetType()));
         }
 
         public static void CloseAllUI()
@@ -295,7 +295,7 @@ namespace LiteFramework.Game.UI
             UIDepthCount_[Script.DepthMode]++;
             UIList_.Add(Script);
             Script.Open(Params);
-            EventManager.Send<OpenUIEvent>();
+            EventManager.Send(new OpenUIEvent(typeof(T)));
             return Script;
         }
     }
