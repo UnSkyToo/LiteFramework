@@ -9,6 +9,7 @@ namespace LiteFramework.Game.EventSystem
         public GameObject Sender { get; }
         public Vector2 Location { get; }
         public Vector2 Delta { get; }
+        public PointerEventData EventData { get; }
 
         public EventSystemData(int ID, GameObject Sender, Vector2 Location, Vector2 Delta)
         {
@@ -24,6 +25,7 @@ namespace LiteFramework.Game.EventSystem
             this.Sender = Data.pointerPress;
             this.Location = Data.position;
             this.Delta = Data.delta;
+            this.EventData = Data;
         }
     }
 }

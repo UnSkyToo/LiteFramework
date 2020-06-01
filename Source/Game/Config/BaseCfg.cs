@@ -7,6 +7,7 @@ namespace LiteFramework.Game.Config
     public class BaseCfg<T> where T : IBaseCfgLine, new()
     {
         protected readonly Dictionary<int, T> LineList_;
+		protected readonly List<int> KeyList_;
 
         public T this[int ID]
         {
@@ -26,20 +27,27 @@ namespace LiteFramework.Game.Config
         public BaseCfg()
         {
             LineList_ = new Dictionary<int, T>();
+			KeyList_ = new List<int>();
         }
 
         public Dictionary<int, T> GetLineList()
         {
             return LineList_;
         }
+		
+		public List<int> GetKeyList()
+		{
+			return KeyList_;
+		}
 
         public bool Parse(DataTable Table)
         {
             try
             {
-                var Keys = Table.Keys();
+				KeyList_.Clear();
+                KeyList_.AddRange(Table.Keys());
 
-                foreach (var Key in Keys)
+                foreach (var Key in KeyList_)
                 {
                     var Line = new T();
                     Line.Parse(Table.Line(Key));

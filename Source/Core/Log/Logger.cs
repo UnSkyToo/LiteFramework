@@ -131,10 +131,12 @@ namespace LiteFramework.Core.Log
 #if UNITY_EDITOR
                 Default_.AttachAppender(new LogAppenderUnityEditor(new LogFormatterNormal()));
 #endif
+                Debug.unityLogger.logEnabled = true;
             }
             else
             {
                 Default_.AttachAppender(new LogAppenderEmpty(null));
+                Debug.unityLogger.logEnabled = false;
             }
         }
 
