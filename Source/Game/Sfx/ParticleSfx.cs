@@ -40,9 +40,19 @@ namespace LiteFramework.Game.Sfx
                 return false;
             }
 
+            if (Particle_ == null)
+            {
+                return true;
+            }
+
             return Time_ > Particle_.main.duration;
         }
 
+        protected override float GetZOrder(Vector2 Value)
+        {
+            return 0;
+        }
+		
         public override void Play(string AnimationName, bool IsLoop = false, LiteAction Finished = null)
         {
             Particle_.Clear(true);

@@ -42,9 +42,14 @@ namespace LiteFramework.Game.Sfx
             base.Dispose();
         }
 
+        protected override float GetZOrder(Vector2 Value)
+        {
+            return 0;
+        }
+
         public override bool IsEnd()
         {
-            return Animation_.AnimationState.GetCurrent(0).IsComplete;
+            return Animation_?.AnimationState?.GetCurrent(0)?.IsComplete ?? true;
         }
 
         public override void Pause()

@@ -94,8 +94,8 @@ namespace LiteFramework.Game.Sfx
             var Sfx = new ParticleSfx(Uri.AssetName, Obj.transform);
             SfxList_.Add(Sfx);
             Sfx.SetParent(Parent, false);
-            Sfx.Position = Position ?? Vector2.zero;
             Sfx.Play(string.Empty, IsLoop, Finished);
+            Sfx.Position = Position ?? Vector2.zero;
 
             var Canvas = UnityHelper.GetComponentUpper<Canvas>(Parent);
             if (Canvas != null && Canvas.overrideSorting)
@@ -118,8 +118,8 @@ namespace LiteFramework.Game.Sfx
                 var Sfx = new ParticleSfx(Uri.AssetName, Obj.transform);
                 SfxList_.Add(Sfx);
                 Sfx.SetParent(Parent, false);
-                Sfx.Position = Position;
                 Sfx.Play(string.Empty, IsLoop, Finished);
+                Sfx.Position = Position;
 
                 var Canvas = UnityHelper.GetComponentUpper<Canvas>(Parent);
                 if (Canvas != null && Canvas.overrideSorting)
