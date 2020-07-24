@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
 using LiteFramework.Core.Log;
 
@@ -53,6 +54,23 @@ namespace LiteFramework.Core.Archive
             }
 
             CacheList_.Add(Key, Value);
+        }
+
+        /// <summary>
+        /// only support (Boolean, Int32, BigInteger, String)
+        /// </summary>
+        public void WriteDictionary<TK, TV>(string Key, Dictionary<TK, TV> Value)
+        {
+            if (string.IsNullOrEmpty(Key) || Value == null)
+            {
+                return;
+            }
+
+            var ListKey = Key + "_key";
+            var ValueKey = Key + "_value";
+            
+            WriteArray(ListKey, Value.Keys.ToArray());
+            WriteArray(ValueKey, Value.Values.ToArray());
         }
 
         /// <summary>
@@ -124,6 +142,20 @@ namespace LiteFramework.Core.Archive
             }
 
             CacheList_.Add(Key, Value);
+        }
+        
+        public void WriteSubDictionary<TK, TV>(string Key, Dictionary<TK, TV> Value) where TV : IArchiveInfo, new()
+        {
+            if (string.IsNullOrEmpty(Key) || Value == null)
+            {
+                return;
+            }
+
+            var ListKey = Key + "_key";
+            var ValueKey = Key + "_value";
+            
+            WriteArray(ListKey, Value.Keys.ToArray());
+            WriteSubArray(ValueKey, Value.Values.ToArray());
         }
 
         public void Flush()

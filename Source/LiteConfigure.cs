@@ -34,8 +34,6 @@ namespace LiteFramework
 
         public static readonly Transform CanvasRoot = GameObject.Find("Canvas").transform;
         public static readonly Transform UIRoot = CanvasRoot.Find("UI").transform;
-        public static readonly Transform AudioRoot = GameObject.Find("Audio").transform;
-        public static readonly Transform ObjectPoolRoot = GameObject.Find("ObjectPool").transform;
 
         public const float WindowWidth = 720;
         public const float WindowHeight = 1280;

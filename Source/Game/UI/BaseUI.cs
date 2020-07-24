@@ -1,5 +1,6 @@
 ﻿using System;
 using LiteFramework.Core.Base;
+using LiteFramework.Core.Event;
 using LiteFramework.Core.Motion;
 using LiteFramework.Game.Asset;
 using LiteFramework.Game.EventSystem;
@@ -57,6 +58,7 @@ namespace LiteFramework.Game.UI
             // Auto Binder
             OnOpen(Params);
             Show();
+            EventManager.Send(new OpenUIEvent(GetType()));
         }
 
         public void Close()
@@ -65,24 +67,27 @@ namespace LiteFramework.Game.UI
             Hide();
             UIHelper.RemoveAllEvent(UITransform, true);
             OnClose();
+            EventManager.Send(new CloseUIEvent(GetType()));
         }
 
         public virtual void Show()
         {
-            OnShow();
             if (UITransform != null)
             {
                 UITransform.gameObject.SetActive(true);
             }
+
+            OnShow();
         }
 
         public virtual void Hide()
         {
-            OnHide();
             if (UITransform != null)
             {
                 UITransform.gameObject.SetActive(false);
             }
+            
+            OnHide();
         }
 
         public void Tick(float DeltaTime)

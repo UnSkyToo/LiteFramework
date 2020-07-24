@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using LiteFramework.Core.Base;
-using LiteFramework.Core.Event;
 using LiteFramework.Core.Log;
 using LiteFramework.Game.Asset;
 using UnityEngine;
@@ -182,8 +181,6 @@ namespace LiteFramework.Game.UI
             {
                 AssetManager.DeleteAsset(UI.UIRectTransform.gameObject);
             }
-
-            EventManager.Send(new CloseUIEvent(UI.GetType()));
         }
 
         public static void CloseAllUI()
@@ -295,7 +292,6 @@ namespace LiteFramework.Game.UI
             UIDepthCount_[Script.DepthMode]++;
             UIList_.Add(Script);
             Script.Open(Params);
-            EventManager.Send(new OpenUIEvent(typeof(T)));
             return Script;
         }
     }

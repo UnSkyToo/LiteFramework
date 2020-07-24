@@ -53,7 +53,6 @@ namespace LiteFramework.Core.Base
         public void Foreach(LiteAction<T> TickFunc)
         {
             Flush();
-
             InEach_++;
             foreach (var Item in Values_)
             {
@@ -68,7 +67,6 @@ namespace LiteFramework.Core.Base
         public T ForeachReturn(LiteFunc<T, bool> TickFunc)
         {
             Flush();
-
             InEach_++;
             foreach (var Item in Values_)
             {
@@ -84,11 +82,32 @@ namespace LiteFramework.Core.Base
         public void Foreach<P>(LiteAction<T, P> TickFunc, P Param)
         {
             Flush();
-
             InEach_++;
             foreach (var Item in Values_)
             {
                 TickFunc?.Invoke(Item, Param);
+            }
+            InEach_--;
+        }
+
+        public void Foreach<P1, P2>(LiteAction<T, P1, P2> TickFunc, P1 Param1, P2 Param2)
+        {
+            Flush();
+            InEach_++;
+            foreach (var Item in Values_)
+            {
+                TickFunc?.Invoke(Item, Param1, Param2);
+            }
+            InEach_--;
+        }
+        
+        public void Foreach<P1, P2, P3>(LiteAction<T, P1, P2, P3> TickFunc, P1 Param1, P2 Param2, P3 Param3)
+        {
+            Flush();
+            InEach_++;
+            foreach (var Item in Values_)
+            {
+                TickFunc?.Invoke(Item, Param1, Param2, Param3);
             }
             InEach_--;
         }

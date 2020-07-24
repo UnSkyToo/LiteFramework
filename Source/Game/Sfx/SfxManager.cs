@@ -57,6 +57,10 @@ namespace LiteFramework.Game.Sfx
             Sfx.SetParent(Parent, false);
             Sfx.Play(AnimationName, IsLoop, Finished);
             Sfx.Position = Position ?? Vector2.zero;
+            
+            var order = UnityHelper.GetSortingOrderUpper(Parent);
+            UnityHelper.AddSortingOrder(Obj, order + 1);
+            
             return Sfx;
         }
 
@@ -79,6 +83,10 @@ namespace LiteFramework.Game.Sfx
                 Sfx.SetParent(Parent, false);
                 Sfx.Play(AnimationName, IsLoop, Finished);
                 Sfx.Position = Position;
+                
+                var order = UnityHelper.GetSortingOrderUpper(Parent);
+                UnityHelper.AddSortingOrder(Obj, order + 1);
+                
                 Callback?.Invoke(Sfx);
             });
         }
@@ -97,11 +105,8 @@ namespace LiteFramework.Game.Sfx
             Sfx.Play(string.Empty, IsLoop, Finished);
             Sfx.Position = Position ?? Vector2.zero;
 
-            var Canvas = UnityHelper.GetComponentUpper<Canvas>(Parent);
-            if (Canvas != null && Canvas.overrideSorting)
-            {
-                UnityHelper.AddSortingOrder(Obj, Canvas.sortingOrder + 1);
-            }
+            var order = UnityHelper.GetSortingOrderUpper(Parent);
+            UnityHelper.AddSortingOrder(Obj, order + 1);
 
             return Sfx;
         }
@@ -121,11 +126,8 @@ namespace LiteFramework.Game.Sfx
                 Sfx.Play(string.Empty, IsLoop, Finished);
                 Sfx.Position = Position;
 
-                var Canvas = UnityHelper.GetComponentUpper<Canvas>(Parent);
-                if (Canvas != null && Canvas.overrideSorting)
-                {
-                    UnityHelper.AddSortingOrder(Obj, Canvas.sortingOrder + 1);
-                }
+                var order = UnityHelper.GetSortingOrderUpper(Parent);
+                UnityHelper.AddSortingOrder(Obj, order + 1);
 
                 Callback?.Invoke(Sfx);
             });

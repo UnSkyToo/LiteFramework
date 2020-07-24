@@ -84,13 +84,23 @@ namespace LiteFramework.Helper
             }
         }
 
-        public static int GetSortingOrderUpper(GameObject Parent)
+        public static int GetSortingOrderUpper(Transform Parent)
         {
-            var Canvas = GetComponentUpper<Canvas>(Parent?.transform);
-
-            if (Canvas != null)
+            if (Parent == null)
+            {
+                return 0;
+            }
+            
+            var Canvas = GetComponentUpper<Canvas>(Parent);
+            if (Canvas != null && Canvas.overrideSorting)
             {
                 return Canvas.sortingOrder;
+            }
+
+            var Render = GetComponentUpper<Renderer>(Parent);
+            if (Render != null)
+            {
+                return Render.sortingOrder;
             }
 
             return 0;

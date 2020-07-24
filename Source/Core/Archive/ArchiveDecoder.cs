@@ -118,6 +118,24 @@ namespace LiteFramework.Core.Archive
             return Default;
         }
 
+        public Dictionary<TK, TV> ReadDictionary<TK, TV>(string Key, Dictionary<TK, TV> Def)
+        {
+            var KeyList = ReadArray<TK>(Key + "_key", null);
+            var ValueList = ReadArray<TV>(Key + "_value", null);
+            if (KeyList == null || ValueList == null || KeyList.Length != ValueList.Length)
+            {
+                return def;
+            }
+
+            var OutputDictionary = new Dictionary<TK, TV>();
+            for (var Index = 0; Index < KeyList.Length; ++Index)
+            {
+                OutputDictionary[KeyList[Index]] = ValueList[Index];
+            }
+
+            return OutputDictionary;
+        }
+
         public T ReadSub<T>(string Key) where T : IArchiveInfo, new()
         {
             if (!CacheList_.ContainsKey(Key))
@@ -199,6 +217,24 @@ namespace LiteFramework.Core.Archive
 
             LLogger.LWarning($"archive type error : {Key} - {typeof(T)}");
             return Default;
+        }
+        
+        public Dictionary<TK, TV> ReadSubDictionary<TK, TV>(string Key) where TV : IArchiveInfo, new()
+        {
+            var KeyList = ReadArray<TK>(Key + "_key", null);
+            var ValueList = ReadSubArray<TV>(Key + "_value", null);
+            if (KeyList == null || ValueList == null || KeyList.Length != ValueList.Length)
+            {
+                return null;
+            }
+
+            var OutputDictionary = new Dictionary<TK, TV>();
+            for (var Index = 0; Index < KeyList.Length; ++Index)
+            {
+                OutputDictionary[KeyList[Index]] = ValueList[Index];
+            }
+
+            return OutputDictionary;
         }
 
         public void Flush()

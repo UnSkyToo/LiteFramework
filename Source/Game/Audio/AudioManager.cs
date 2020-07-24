@@ -11,9 +11,18 @@ namespace LiteFramework.Game.Audio
         private static bool MuteMusic = false;
         private static readonly Dictionary<uint, AudioEntity> AudioList_ = new Dictionary<uint, AudioEntity>();
         private static readonly List<AudioEntity> RemoveList_ = new List<AudioEntity>();
+        private static Transform Root_ = null;
 
         public static bool Startup()
         {
+            if (Root_ == null)
+            {
+                Root_ = new GameObject("Audio").transform;
+                Root_.localPosition = Vector3.zero;
+                Root_.localRotation = Quaternion.identity;
+                Root_.localScale = Vector3.one;
+            }
+
             AudioList_.Clear();
             RemoveList_.Clear();
             MuteSound = false;
@@ -36,6 +45,12 @@ namespace LiteFramework.Game.Audio
                 Entity.Value.UnloadAudio();
             }
             AudioList_.Clear();
+
+            if (Root_ != null)
+            {
+                Object.DestroyImmediate(Root_.gameObject);
+                Root_ = null;
+            }
         }
 
         public static void Tick(float DeltaTime)
@@ -106,7 +121,7 @@ namespace LiteFramework.Game.Audio
 
         public static uint PlaySound(AssetUri Uri, bool IsLoop = false, float Volume = 1.0f)
         {
-            return PlayAudio(AudioType.Sound, LiteConfigure.AudioRoot, Uri, IsLoop, Volume);
+            return PlayAudio(AudioType.Sound, Root_, Uri, IsLoop, Volume);
         }
 
         public static uint PlayMusic(AssetUri Uri, bool IsLoop = true, float Volume = 1.0f, bool IsOnly = true)
@@ -116,7 +131,7 @@ namespace LiteFramework.Game.Audio
                 StopAllMusic();
             }
 
-            return PlayAudio(AudioType.Music, LiteConfigure.AudioRoot, Uri, IsLoop, Volume);
+            return PlayAudio(AudioType.Music, Root_, Uri, IsLoop, Volume);
         }
 
         public static void StopAudio(uint ID)
