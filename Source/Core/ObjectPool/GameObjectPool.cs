@@ -46,7 +46,7 @@ namespace LiteFramework.Core.ObjectPool
 
         private void OnDispose(GameObject Entity)
         {
-            Object.Destroy(Entity);
+            AssetManager.DeleteAsset(Entity);
         }
     }
 }

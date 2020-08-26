@@ -6,6 +6,8 @@ namespace LiteFramework.Core.ObjectPool
     {
         public int InfrequentCount { get; set; } = 2;
 
+		protected readonly Queue<T> ObjectCacheList_ = null;
+
         protected LiteFunc<T> CreateFunc_ = null;
         protected LiteAction<T> SpawnFunc_ = null;
         protected LiteAction<T> RecycleFunc_ = null;
@@ -14,6 +16,8 @@ namespace LiteFramework.Core.ObjectPool
         public ObjectPoolEntity(string PoolName, LiteFunc<T> CreateFunc, LiteAction<T> SpawnFunc, LiteAction<T> RecycleFunc, LiteAction<T> DisposeFunc)
             : base(PoolName, typeof(T))
         {
+			ObjectCacheList_ = new Queue<T>();
+			
             this.CreateFunc_ = CreateFunc;
             this.SpawnFunc_ = SpawnFunc;
             this.RecycleFunc_ = RecycleFunc;
@@ -22,35 +26,30 @@ namespace LiteFramework.Core.ObjectPool
 
         public T Spawn()
         {
-            foreach (var Cache in ObjectCacheList_)
+            if (ObjectCacheList_.Count > 0)
             {
-                if (!Cache.Value.Used)
-                {
-                    UsedCount++;
-                    IdleCount--;
-                    var TCache = Cache.Value as ObjectPoolCache<T>;
-                    TriggerSpawn(TCache);
-                    return TCache.Entity;
-                }
+                UsedCount++;
+                IdleCount--;
+                var TCache = ObjectCacheList_.Dequeue();
+                TriggerSpawn(TCache);
+                return TCache;
             }
-
-            var Obj = CreateFunc_.Invoke();
-            var NewCache = new ObjectPoolCache<T>(Obj);
-            ObjectCacheList_.Add(Obj.GetInstanceID(), NewCache);
+            
+            var NewCache = CreateFunc_.Invoke();
             TriggerSpawn(NewCache);
             UsedCount++;
 
-            return Obj;
+            return NewCache;
         }
 
         public void Recycle(T Obj)
         {
-            UsedCount--;
-            IdleCount++;
-
-            if (Obj != null && ObjectCacheList_.ContainsKey(Obj.GetInstanceID()))
+            if (Obj != null)
             {
-                TriggerRecycle(ObjectCacheList_[Obj.GetInstanceID()] as ObjectPoolCache<T>);
+                UsedCount--;
+                IdleCount++;
+                ObjectCacheList_.Enqueue(Obj);
+                TriggerRecycle(Obj);
             }
         }
 
@@ -58,7 +57,7 @@ namespace LiteFramework.Core.ObjectPool
         {
             foreach (var Cache in ObjectCacheList_)
             {
-                TriggerDispose(Cache.Value as ObjectPoolCache<T>);
+                TriggerDispose(Cache);
             }
 
             ObjectCacheList_.Clear();
@@ -71,63 +70,19 @@ namespace LiteFramework.Core.ObjectPool
             DisposeFunc_ = null;
         }
 
-        public void DestroyUnusedObjects()
+        private void TriggerSpawn(T Cache)
         {
-            var DisposeKeys = new List<int>();
-
-            foreach (var Cache in ObjectCacheList_)
-            {
-                if (!Cache.Value.Used)
-                {
-                    DisposeKeys.Add(Cache.Key);
-                }
-            }
-
-            DisposeObjectList(DisposeKeys);
+            SpawnFunc_?.Invoke(Cache);
         }
 
-        public void DestroyInfrequentObjects()
+        private void TriggerRecycle(T Cache)
         {
-            var DisposeKeys = new List<int>();
-
-            foreach (var Cache in ObjectCacheList_)
-            {
-                if (!Cache.Value.Used && Cache.Value.Count <= InfrequentCount)
-                {
-                    DisposeKeys.Add(Cache.Key);
-                }
-            }
-
-            DisposeObjectList(DisposeKeys);
+            RecycleFunc_?.Invoke(Cache);
         }
 
-        private void DisposeObjectList(List<int> Keys)
+        private void TriggerDispose(T Cache)
         {
-            foreach (var Key in Keys)
-            {
-                if (ObjectCacheList_.ContainsKey(Key))
-                {
-                    TriggerDispose(ObjectCacheList_[Key] as ObjectPoolCache<T>);
-                    ObjectCacheList_.Remove(Key);
-                }
-            }
-        }
-
-        private void TriggerSpawn(ObjectPoolCache<T> Cache)
-        {
-            Cache.OnSpawn();
-            SpawnFunc_?.Invoke(Cache.Entity);
-        }
-
-        private void TriggerRecycle(ObjectPoolCache<T> Cache)
-        {
-            Cache.OnRecycle();
-            RecycleFunc_?.Invoke(Cache.Entity);
-        }
-
-        private void TriggerDispose(ObjectPoolCache<T> Cache)
-        {
-            DisposeFunc_?.Invoke(Cache.Entity);
+            DisposeFunc_?.Invoke(Cache);
         }
     }
 }

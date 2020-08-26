@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Threading;
+using LiteFramework.Helper;
 
 namespace LiteFramework.AppUpdate.Stage
 {
@@ -95,7 +96,7 @@ namespace LiteFramework.AppUpdate.Stage
         {
             try
             {
-                ZipUtil.UnZipFileEx((string) zipFilePath, string.Empty, string.Empty, true, (FileName, CurSize, MaxSize) =>
+                ZipHelper.UnZipFile((string) zipFilePath, string.Empty, string.Empty, true, (FileName, CurSize, MaxSize) =>
                 {
                     lock (ProgressLockObject_)
                     {

@@ -177,9 +177,18 @@ namespace LiteFramework.Game.UI
             {
                 CacheList_.Add(UI.Path, UI.UITransform);
             }
-            else
+            else if (UI.UIRectTransform != null)
             {
                 AssetManager.DeleteAsset(UI.UIRectTransform.gameObject);
+            }
+        }
+
+        public static void CloseAllUI<T>() where T : BaseUI
+        {
+            var ResultList = FindAllUI<T>();
+            foreach (var UI in ResultList)
+            {
+                CloseUI(UI);
             }
         }
 
@@ -202,13 +211,20 @@ namespace LiteFramework.Game.UI
         public static T FindUI<T>() where T : BaseUI
         {
             var ScriptType = typeof(T);
-            return UIList_.Where((Entity) => Entity.Name == ScriptType.Name) as T;
+            return UIList_.Where((Entity) => Entity.GetType().Name == ScriptType.Name) as T;
         }
 
         public static List<T> FindAllUI<T>() where T : BaseUI
         {
             var ScriptType = typeof(T);
-            return UIList_.All((Entity) => Entity.Name == ScriptType.Name) as List<T>;
+            var List = UIList_.All((Entity) => Entity.GetType().Name == ScriptType.Name);
+            
+            var Result = new List<T>();
+            foreach (var UI in List)
+            {
+                Result.Add(UI as T);
+            }
+            return Result;
         }
 
         public static bool IsOpened<T>() where T : BaseUI

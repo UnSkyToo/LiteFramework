@@ -308,10 +308,10 @@ namespace LiteFramework.Game.Asset
             {
                 if (AssetList_.Count > 0)
                 {
-                    foreach (var Asset in AssetList_)
+                    /*foreach (var Asset in AssetList_)
                     {
                         UnityEngine.Resources.UnloadAsset(Asset.Value);
-                    }
+                    }*/
                     AssetList_.Clear();
                 }
 

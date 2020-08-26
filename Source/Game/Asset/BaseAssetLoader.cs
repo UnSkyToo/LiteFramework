@@ -60,7 +60,7 @@ namespace LiteFramework.Game.Asset
                 case ".bytes":
                 case ".lua":
                     return AssetCacheType.Data;
-                case "":
+                default:
                     if (typeof(T) == typeof(UnityEngine.GameObject))
                     {
                         return AssetCacheType.Prefab;
@@ -71,8 +71,6 @@ namespace LiteFramework.Game.Asset
                         return AssetCacheType.Data;
                     }
 
-                    return AssetCacheType.Asset;
-                default:
                     return AssetCacheType.Asset;
             }
         }
@@ -263,7 +261,9 @@ namespace LiteFramework.Game.Asset
 
         public void CreateAssetAsync<T>(AssetUri Uri, LiteAction<T> Callback = null) where T : UnityEngine.Object
         {
-            LoadAssetAsync<T>(AssetCacheType.Asset, Uri.AssetPath, (IsLoaded) =>
+            var AssetType = GetAssetTypeWithName<T>(Uri.AssetPath);
+            
+            LoadAssetAsync<T>(AssetType, Uri.AssetPath, (IsLoaded) =>
             {
                 if (!IsLoaded)
                 {
