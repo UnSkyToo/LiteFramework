@@ -145,7 +145,7 @@ namespace LiteFramework.Game.Asset
             }
 
             AssetCacheList_.Add(AssetPath, Cache);
-            LoadAssetCacheDependenciesAsync<T>(Cache, (IsLoaded) =>
+            LoadAssetCacheDependenciesAsync<UnityEngine.Object>(Cache, (IsLoaded) =>
             {
                 if (!IsLoaded)
                 {
@@ -166,7 +166,7 @@ namespace LiteFramework.Game.Asset
             }
 
             AssetCacheList_.Add(AssetPath, Cache);
-            LoadAssetCacheDependenciesSync<T>(Cache);
+            LoadAssetCacheDependenciesSync<UnityEngine.Object>(Cache);
             return LoadAssetCacheSync<T>(Cache);
         }
 
