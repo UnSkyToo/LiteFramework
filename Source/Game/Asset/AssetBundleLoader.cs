@@ -120,12 +120,14 @@ namespace LiteFramework.Game.Asset
         private abstract class BaseAssetBundleCache : BaseAssetCache
         {
             protected readonly UnityEngine.AssetBundleManifest Manifest_;
+            protected UnityEngine.AssetBundleCreateRequest Request_;
             protected UnityEngine.AssetBundle Bundle_;
 
             protected BaseAssetBundleCache(AssetCacheType AssetType, string AssetPath, UnityEngine.AssetBundleManifest Manifest)
                 : base(AssetType, AssetPath)
             {
                 this.Manifest_ = Manifest;
+                this.Request_ = null;
                 this.Bundle_ = null;
             }
 
@@ -156,11 +158,16 @@ namespace LiteFramework.Game.Asset
 
             public override IEnumerator LoadAsync()
             {
+                if (IsLoad)
+                {
+                    yield break;
+                }
+                
                 IsLoad = false;
-                var Request = CreateBundleRequestAsync(AssetPath);
-                yield return Request;
+                Request_ = CreateBundleRequestAsync(AssetPath);
+                yield return Request_;
 
-                if (!Request.isDone)
+                if (Request_ == null || !Request_.isDone)
                 {
                     LLogger.LWarning($"Load AssetBundle : {AssetPath} Failed");
                 }
@@ -168,19 +175,35 @@ namespace LiteFramework.Game.Asset
                 {
                     RefCount_ = 0;
                     IsLoad = true;
-                    Bundle_ = Request.assetBundle;
+                    Bundle_ = Request_.assetBundle;
                     OnLoad();
+                    Request_ = null;
                 }
 
                 yield break;
             }
 
+            public override void ForeCompleteAsync()
+            {
+                if (IsLoad)
+                {
+                    return;
+                }
+
+                foreach (var Cache in DependenciesCache_)
+                {
+                    Cache.ForeCompleteAsync();
+                }
+
+                LoadSync();
+            }
+
             public override void LoadSync()
             {
                 IsLoad = false;
-                var Request = CreateBundleRequestSync(AssetPath);
+                var Bundle = Request_ != null ? Request_.assetBundle : CreateBundleRequestSync(AssetPath);
 
-                if (!Request)
+                if (!Bundle)
                 {
                     LLogger.LWarning($"Load AssetBundle : {AssetPath} Failed");
                 }
@@ -188,8 +211,9 @@ namespace LiteFramework.Game.Asset
                 {
                     RefCount_ = 0;
                     IsLoad = true;
-                    Bundle_ = Request;
+                    Bundle_ = Bundle;
                     OnLoad();
+                    Request_ = null;
                 }
             }
 

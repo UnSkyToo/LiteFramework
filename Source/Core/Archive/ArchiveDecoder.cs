@@ -124,7 +124,7 @@ namespace LiteFramework.Core.Archive
             var ValueList = ReadArray<TV>(Key + "_value", null);
             if (KeyList == null || ValueList == null || KeyList.Length != ValueList.Length)
             {
-                return def;
+                return Def;
             }
 
             var OutputDictionary = new Dictionary<TK, TV>();

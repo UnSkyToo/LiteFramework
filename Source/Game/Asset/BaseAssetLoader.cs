@@ -295,6 +295,10 @@ namespace LiteFramework.Game.Asset
             else
             {
                 Cache = AssetCacheList_[Uri.AssetPath];
+                if (!Cache.IsLoad)
+                {
+                    Cache.ForeCompleteAsync();
+                }
             }
 
             if (Cache != null)

@@ -402,41 +402,7 @@ namespace LiteFramework.Extend.Debug
                 GUILayout.Label($"<b>Object Pool: {Pool.PoolName}</b>");
                 GUILayout.BeginVertical(GUI.skin.box);
                 {
-                    var Caches = Pool.GetObjectCacheList();
-                    DrawItem("Type", Pool.ObjectType.FullName);
-                    DrawItem("Capacity", Pool.Capacity.ToString());
-                    DrawItem("Used Count", Pool.UsedCount.ToString());
-                    DrawItem("Idle Count", Pool.IdleCount.ToString());
-
-                    GUILayout.BeginHorizontal();
-                    {
-                        GUILayout.Label("<b>Is Used</b>", GUILayout.Width(80f));
-                        GUILayout.Label("<b>Use Count</b>", GUILayout.Width(80f));
-                        GUILayout.Label("<b>Use Time</b>", GUILayout.Width(80f));
-                        GUILayout.Label("<b>Last Spawn Time</b>", GUILayout.Width(120f));
-                        GUILayout.Label("<b>Last Recycle Time</b>", GUILayout.Width(120f));
-                    }
-                    GUILayout.EndHorizontal();
-
-                    if (Caches.Length > 0)
-                    {
-                        foreach (var Cache in Caches)
-                        {
-                            GUILayout.BeginHorizontal();
-                            {
-                                GUILayout.Label(Cache.Used.ToString(), GUILayout.Width(80f));
-                                GUILayout.Label(Cache.Count.ToString(), GUILayout.Width(80f));
-                                GUILayout.Label(Cache.TotalTime.ToString(), GUILayout.Width(80));
-                                GUILayout.Label(Cache.LastSpawnTime.ToString("yyyy-MM-dd HH:mm:ss"), GUILayout.Width(120f));
-                                GUILayout.Label(Cache.LastRecycleTime.ToString("yyyy-MM-dd HH:mm:ss"), GUILayout.Width(120f));
-                            }
-                            GUILayout.EndHorizontal();
-                        }
-                    }
-                    else
-                    {
-                        GUILayout.Label("<i>Object Pool is Empty ...</i>");
-                    }
+                    GUILayout.Label("<i>Object Pool is Empty ...</i>");
                 }
                 GUILayout.EndVertical();
             }

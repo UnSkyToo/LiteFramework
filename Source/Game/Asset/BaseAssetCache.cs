@@ -34,6 +34,8 @@ namespace LiteFramework.Game.Asset
 
         public abstract IEnumerator LoadAsync();
 
+        public abstract void ForeCompleteAsync();
+        
         public abstract void LoadSync();
 
         public void Unload()
