@@ -3,7 +3,6 @@
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 using LiteFramework.Helper;
 using LiteFramework.Core.Log;
 using UnityEditor;
@@ -51,6 +50,12 @@ namespace LiteFramework.Game.Asset
             private string GetInternalAssetPath()
             {
                 return $"Assets/{LiteConfigure.StandaloneAssetsName}/{AssetPath}";
+            }
+
+            public T LoadAsset<T>(string AssetName) where T : UnityEngine.Object
+            {
+                var FullPath = GetInternalAssetPath();
+                return AssetDatabase.LoadAssetAtPath<T>(FullPath);
             }
 
             public T[] LoadAllAssets<T>()
@@ -163,6 +168,21 @@ namespace LiteFramework.Game.Asset
                 }
 
                 yield break;
+            }
+            
+            public override void ForeCompleteAsync()
+            {
+                if (IsLoad)
+                {
+                    return;
+                }
+
+                foreach (var Cache in DependenciesCache_)
+                {
+                    Cache.ForeCompleteAsync();
+                }
+
+                LoadSync();
             }
 
             public override void LoadSync()

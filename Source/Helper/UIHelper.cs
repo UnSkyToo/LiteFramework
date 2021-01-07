@@ -44,8 +44,24 @@ namespace LiteFramework.Helper
                 return Vector2.zero;
             }
 
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(RectTrans, ScreenPos, Camera.main, out var Pos);
-            return Pos;
+            return ScreenPosToCanvasPos(RectTrans, ScreenPos);
+        }
+
+        public static Vector2 CanvasPosToScreenPos(RectTransform Parent, Vector2 CanvasPos)
+        {
+            var WorldPos = CanvasPosToWorldPos(Parent, CanvasPos);
+            return WorldPosToScreenPos(WorldPos);
+        }
+
+        public static Vector2 CanvasPosToScreenPos(Transform Parent, Vector2 CanvasPos)
+        {
+            var RectTrans = Parent.GetComponent<RectTransform>();
+            if (RectTrans == null)
+            {
+                return Vector2.zero;
+            }
+
+            return CanvasPosToScreenPos(RectTrans, CanvasPos);
         }
 
         public static Vector2 WorldPosToScreenPos(Vector3 WorldPos)
@@ -61,6 +77,16 @@ namespace LiteFramework.Helper
         public static Vector2 WorldPosToCanvasPos(Transform Parent, Vector3 WorldPos)
         {
             return ScreenPosToCanvasPos(Parent, WorldPosToScreenPos(WorldPos));
+        }
+
+        public static Vector3 CanvasPosToWorldPos(RectTransform Parent, Vector2 CanvasPos)
+        {
+            return Parent.TransformPoint(CanvasPos);
+        }
+
+        public static Vector3 CanvasPosToWorldPos(Transform Parent, Vector2 CanvasPos)
+        {
+            return Parent.TransformPoint(CanvasPos);
         }
 
         public static Transform FindChild(Transform Parent, string ChildPath)

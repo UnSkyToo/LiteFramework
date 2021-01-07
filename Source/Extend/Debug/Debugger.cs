@@ -90,7 +90,7 @@ namespace LiteFramework.Extend.Debug
 
         public static void ResetLayout()
         {
-            Scale = Mathf.Max((float)Screen.width / 720.0f, 1);
+            Scale = Mathf.Max((float)Screen.width / LiteConfigure.WindowWidth, 1);
             MiniBounds = new Rect(10, 10, 100, 60);
             NormalBounds = new Rect(10, 10, 640, 800);
         }

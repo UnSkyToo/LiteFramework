@@ -2,7 +2,7 @@
 {
     public static class IDGenerator
     {
-        private static uint ID_ = 0;
+        private static uint ID_ = 1;
 
         public static uint Get()
         {
